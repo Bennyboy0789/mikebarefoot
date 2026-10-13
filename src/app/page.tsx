@@ -1,195 +1,280 @@
 import Image from "next/image";
 import Link from "next/link";
-import { CtaBand, KaizenGrid, KanjiMark, MediaBar, StatsGrid, YouTubeEmbed } from "@/components/sections";
-import { ButtonLink, Container, Eyebrow, SectionHeading } from "@/components/ui";
+import { KaizenExplorer } from "@/components/KaizenExplorer";
+import { CtaBand, FeaturedIn, FramedImage, QuoteBand, StatsGrid } from "@/components/sections";
+import { Arrow, ButtonLink, Container, Label, SectionHeading } from "@/components/ui";
+import { VideoFacade } from "@/components/VideoFacade";
 import { featuredKeynote, microActions, recruiterHonors, site } from "@/content/site";
+
+const heroCredentials = [
+  { value: "37", unit: "yrs", label: "Martial arts" },
+  { value: "1,000+", unit: "", label: "Professionals placed" },
+  { value: "$50M+", unit: "", label: "Revenue generated" },
+  { value: "15+", unit: "yrs", label: "Unbroken profitability" },
+];
 
 export default function Home() {
   return (
     <>
-      {/* Hero */}
-      <section className="relative overflow-hidden bg-ink text-paper">
-        <KanjiMark className="-left-8 top-6 text-[22rem] sm:text-[30rem]" />
-        <Container className="relative grid items-center gap-14 py-20 sm:py-24 lg:grid-cols-[1.25fr_1fr] lg:py-28">
-          <div>
-            <Eyebrow>{site.role}</Eyebrow>
-            <h1 className="mt-6 font-display text-6xl font-bold uppercase leading-[0.88] tracking-tight sm:text-7xl lg:text-8xl">
-              The dojo and the boardroom run on the <span className="text-seal">same playbook.</span>
+      {/* ── Hero ─────────────────────────────────────────────── */}
+      <section className="relative min-h-[100svh] overflow-hidden bg-obsidian">
+        <div className="absolute inset-0 lg:left-auto lg:w-[52%]">
+          <Image
+            src="/images/mike-stage-portrait.jpg"
+            alt="Mike Barefoot mid-keynote at Campbell University's 2026 Leadership Summit"
+            fill
+            priority
+            sizes="(min-width: 1024px) 52vw, 100vw"
+            className="object-cover object-[40%_25%] opacity-60 lg:opacity-100"
+          />
+          <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/40 to-obsidian/70 lg:hidden" />
+          <div aria-hidden className="absolute inset-0 hidden bg-gradient-to-r from-obsidian via-obsidian/30 to-transparent lg:block" />
+          <div aria-hidden className="absolute inset-0 hidden bg-gradient-to-t from-obsidian via-transparent to-obsidian/50 lg:block" />
+        </div>
+
+        <Container className="relative flex min-h-[100svh] flex-col justify-end pb-10 pt-32">
+          <div className="animate-hero-in max-w-3xl">
+            <Label>Keynote Speaker · Leadership Coach</Label>
+            <h1 className="mt-8 font-serif text-[3.4rem] leading-[0.95] tracking-[-0.02em] text-ivory sm:text-7xl lg:text-[7.25rem]">
+              The dojo and the boardroom run on the{" "}
+              <span className="italic text-brass-light">same playbook.</span>
             </h1>
-            <p className="mt-8 max-w-xl text-lg leading-relaxed text-stone-light">
-              Mike Barefoot has spent 37 years training in karate, kickboxing and jiu-jitsu — and 27 years building
-              winning teams in the staffing industry. He shows leaders, teams and students how small daily micro
-              actions compound into elite results.
+            <p className="mt-8 max-w-xl text-lg leading-relaxed text-mist">
+              {site.name} pairs 37 years of martial arts discipline with 27 years of building winning teams — and
+              shows leaders how small daily micro actions compound into elite results.
             </p>
             <div className="mt-10 flex flex-wrap gap-4">
               <ButtonLink href="/contact">Book Mike to speak</ButtonLink>
-              <ButtonLink href="/coaching" variant="outline-light">
+              <ButtonLink href="/coaching" variant="ghost">
                 Explore coaching
               </ButtonLink>
             </div>
           </div>
 
-          <figure className="relative mx-auto w-full max-w-sm lg:max-w-none">
-            <div aria-hidden className="absolute inset-0 translate-x-3 translate-y-3 border sm:-inset-3 sm:translate-x-6 sm:translate-y-6 border-seal/60" />
-            <Image
-              src="/images/campbell-keynote.jpg"
-              alt="Mike Barefoot delivering the keynote at Campbell University's 2026 Leadership Summit"
-              width={404}
-              height={720}
-              priority
-              className="relative aspect-[4/5] w-full object-cover object-[50%_40%] grayscale-[35%]"
-            />
-            <figcaption className="relative mt-4 font-display text-sm uppercase tracking-[0.2em] text-stone-light">
-              Keynote · Campbell University Leadership Summit, 2026
-            </figcaption>
-          </figure>
+          <dl
+            className="animate-hero-in mt-20 grid grid-cols-2 border-t border-ash [animation-delay:250ms] md:grid-cols-4"
+          >
+            {heroCredentials.map((c, i) => (
+              <div key={c.label} className={`py-6 pr-4 ${i > 0 ? "md:border-l md:border-ash md:pl-8" : ""} ${i % 2 ? "border-l border-ash pl-5 md:pl-8" : ""}`}>
+                <dt className="sr-only">{c.label}</dt>
+                <dd>
+                  <span className="font-serif text-4xl text-ivory sm:text-5xl">
+                    {c.value}
+                    {c.unit && <span className="ml-1 text-xl text-brass">{c.unit}</span>}
+                  </span>
+                  <span className="mt-2 block text-[0.62rem] font-semibold uppercase tracking-[0.3em] text-mist">
+                    {c.label}
+                  </span>
+                </dd>
+              </div>
+            ))}
+          </dl>
         </Container>
       </section>
 
-      {/* Media */}
-      <section className="border-b border-ink/10 bg-paper-deep">
-        <Container className="py-8">
-          <MediaBar />
+      <FeaturedIn />
+
+      {/* ── 01 The leader ────────────────────────────────────── */}
+      <section className="relative bg-obsidian">
+        <Container className="grid items-center gap-16 py-28 lg:grid-cols-[0.8fr_1.2fr] lg:gap-24 lg:py-40">
+          <FramedImage
+            src="/images/mike-stage-closeup.jpg"
+            alt="Mike Barefoot on stage"
+            width={520}
+            height={760}
+            caption="Campbell University · 2026 Leadership Summit"
+            className="mx-auto w-full max-w-sm lg:max-w-none"
+          />
+          <div data-reveal>
+            <Label index="01">The leader</Label>
+            <h2 className="mt-6 font-serif text-5xl leading-[1.02] text-ivory sm:text-6xl lg:text-7xl">
+              Two worlds. <span className="italic text-brass-light">One discipline.</span>
+            </h2>
+            <p className="mt-8 text-xl leading-relaxed text-ivory/85 first-letter:float-left first-letter:mr-2 first-letter:font-serif first-letter:text-7xl first-letter:leading-[0.8] first-letter:text-brass-light">
+              For 27 years Mike sat across the table from thousands of executives and candidates — as an elite
+              recruiter, an account executive, and finally as the founder of a boutique IT staffing firm that stayed
+              profitable through every one of its 15+ years.
+            </p>
+            <p className="mt-6 text-lg leading-relaxed text-mist">
+              For 37 years he has trained in karate, kickboxing and jiu-jitsu. The lesson from both arenas is the same:
+              elite performance isn&apos;t a single heroic act. It&apos;s technique, repeated with integrity, every day.
+            </p>
+            <ul className="mt-10 flex flex-wrap gap-3">
+              {recruiterHonors.map((h) => (
+                <li
+                  key={h}
+                  className="border border-brass/40 px-4 py-2.5 text-[0.62rem] font-semibold uppercase tracking-[0.26em] text-brass-light"
+                >
+                  {h}
+                </li>
+              ))}
+            </ul>
+            <Link
+              href="/about"
+              className="group mt-12 inline-flex items-center gap-3 text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-ivory"
+            >
+              <span className="border-b border-brass pb-1">Read Mike&apos;s story</span>
+              <Arrow className="text-brass transition-transform group-hover:translate-x-1" />
+            </Link>
+          </div>
         </Container>
       </section>
 
-      {/* KAIZEN */}
-      <section className="bg-paper">
-        <Container className="py-24">
-          <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+      {/* ── 02 The system ────────────────────────────────────── */}
+      <section className="relative overflow-hidden border-t border-ash bg-coal">
+        <Container className="py-28 lg:py-40">
+          <div className="flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between">
             <SectionHeading
-              eyebrow="The KAIZEN system"
+              index="02"
+              label="The KAIZEN system"
               title={
                 <>
-                  Six letters.
-                  <br />
-                  Continuous improvement.
+                  Six principles. <span className="italic text-brass-light">Continuous improvement.</span>
                 </>
               }
               intro="Kaizen is Japanese for continuous improvement — the credo Mike lives by on the mat. He built it into a six-part system for leading yourself and others."
             />
-            <ButtonLink href="/speaking" variant="outline" className="shrink-0">
-              See the keynote
-            </ButtonLink>
+            <span aria-hidden className="hidden font-kanji text-8xl leading-none text-brass/30 lg:block">
+              改善
+            </span>
           </div>
-          <div className="mt-14">
-            <KaizenGrid />
+          <div className="mt-16" data-reveal>
+            <KaizenExplorer />
           </div>
         </Container>
       </section>
 
-      {/* Stats */}
-      <section className="bg-ink">
-        <Container className="py-24">
-          <SectionHeading
-            dark
-            eyebrow="Track record"
-            title="Proof, not theory."
-            intro="An elite recruiter who became a founder — and built a boutique IT staffing firm from the ground up, profitable every year for more than 15 years."
-          />
-          <ul className="mt-8 flex flex-wrap gap-3">
-            {recruiterHonors.map((h) => (
-              <li
-                key={h}
-                className="border border-ink-line px-4 py-2 font-display text-sm font-semibold uppercase tracking-[0.15em] text-paper"
-              >
-                {h}
+      <QuoteBand
+        quote="I want the relationship more than I want the money."
+        cite="Mike Barefoot"
+        context="on walking away from a high five-figure fee"
+      />
+
+      {/* ── 03 The method ────────────────────────────────────── */}
+      <section className="relative bg-obsidian">
+        <Container className="py-28 lg:py-40">
+          <SectionHeading index="03" label="Micro actions" title={microActions.heading} intro={microActions.intro} />
+          <ol data-reveal className="mt-16 grid grid-cols-2 gap-px border border-ash bg-ash lg:grid-cols-4">
+            {microActions.steps.map((step, i) => (
+              <li key={step} className="bg-obsidian p-6 sm:p-10">
+                <span className="text-brass-gradient font-serif text-5xl leading-none sm:text-7xl">0{i + 1}</span>
+                <p className="mt-5 font-serif text-xl leading-snug text-ivory sm:mt-6 sm:text-2xl">{step}</p>
               </li>
             ))}
-          </ul>
-          <div className="mt-12">
+          </ol>
+          <p data-reveal className="mt-14 max-w-3xl font-serif text-2xl italic leading-relaxed text-brass-light sm:text-3xl">
+            {microActions.takeaway}
+          </p>
+        </Container>
+      </section>
+
+      {/* ── 04 On stage ──────────────────────────────────────── */}
+      <section className="relative overflow-hidden border-t border-ash bg-coal">
+        <div aria-hidden className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_50%,rgba(197,164,100,0.10),transparent_55%)]" />
+        <Container className="relative grid items-center gap-16 py-28 lg:grid-cols-[1.1fr_0.9fr] lg:gap-24 lg:py-40">
+          <div>
+            <SectionHeading
+              index="04"
+              label="On stage"
+              title={
+                <>
+                  A homecoming keynote <span className="italic text-brass-light">at Campbell.</span>
+                </>
+              }
+              intro="Mike returned to the campus where he attended basketball camp at 11 and later earned his MBA — to walk the 2026 Leadership Summit through KAIZEN, live."
+            />
+            <ul data-reveal className="mt-10 space-y-5">
+              {[
+                "The integrity story behind turning down a high five-figure fee",
+                "A live martial arts demonstration of micro actions",
+                "One commitment every attendee carried into the next 12 months",
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-4 text-lg text-ivory/85">
+                  <span aria-hidden className="mt-2.5 h-1.5 w-1.5 shrink-0 rotate-45 bg-brass" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <div data-reveal className="mt-12">
+              <ButtonLink href="/speaking" variant="ghost">
+                Explore the keynote
+              </ButtonLink>
+            </div>
+          </div>
+          <div data-reveal className="relative mx-auto w-full max-w-sm">
+            <div aria-hidden className="absolute -inset-3 border border-brass/30" />
+            <VideoFacade
+              id={featuredKeynote.youtubeId}
+              title={featuredKeynote.event}
+              poster="/images/mike-stage-wide.jpg"
+            />
+          </div>
+        </Container>
+      </section>
+
+      {/* ── 05 The record ────────────────────────────────────── */}
+      <section className="relative bg-obsidian">
+        <Container className="py-28 lg:py-40">
+          <SectionHeading
+            index="05"
+            label="The record"
+            title={
+              <>
+                Proof, <span className="italic text-brass-light">not theory.</span>
+              </>
+            }
+          />
+          <div className="mt-16">
             <StatsGrid />
           </div>
         </Container>
       </section>
 
-      {/* Micro actions */}
-      <section className="bg-paper-deep">
-        <Container className="grid gap-14 py-24 lg:grid-cols-2 lg:items-center">
-          <SectionHeading eyebrow="Micro actions" title={microActions.heading} intro={microActions.intro} />
-          <div>
-            <ol className="space-y-px">
-              {microActions.steps.map((step, i) => (
-                <li key={step} className="flex items-center gap-6 bg-paper px-6 py-5">
-                  <span className="font-display text-3xl font-bold text-seal">0{i + 1}</span>
-                  <span className="font-display text-xl font-semibold uppercase tracking-wide">{step}</span>
-                </li>
-              ))}
-            </ol>
-            <p className="mt-6 border-l-2 border-seal pl-5 leading-relaxed text-stone">{microActions.takeaway}</p>
-          </div>
-        </Container>
-      </section>
-
-      {/* Featured keynote */}
-      <section className="relative overflow-hidden bg-ink text-paper">
-        <Container className="grid gap-14 py-24 lg:grid-cols-[1fr_auto] lg:items-center lg:gap-20">
-          <div>
-            <SectionHeading
-              dark
-              eyebrow="Watch Mike"
-              title="A homecoming keynote at Campbell."
-              intro="Mike returned to the campus where he went to basketball camp as an 11-year-old and later earned his MBA — to walk the 2026 Leadership Summit through KAIZEN, live on stage."
-            />
-            <ul className="mt-8 space-y-3 text-stone-light">
-              <li className="flex gap-3">
-                <span className="text-seal">—</span> The integrity story behind turning down a high five-figure fee
-              </li>
-              <li className="flex gap-3">
-                <span className="text-seal">—</span> A live martial arts demonstration of micro actions
-              </li>
-              <li className="flex gap-3">
-                <span className="text-seal">—</span> One micro action every attendee committed to for 12 months
-              </li>
-            </ul>
-            <div className="mt-10">
-              <ButtonLink href="/speaking" variant="outline-light">
-                Speaking topics
-              </ButtonLink>
-            </div>
-          </div>
-          <div className="w-full lg:w-[22rem]">
-            <YouTubeEmbed id={featuredKeynote.youtubeId} title={featuredKeynote.title} />
-          </div>
-        </Container>
-      </section>
-
-      {/* Speaking / Coaching */}
-      <section className="bg-paper">
-        <Container className="py-24">
-          <SectionHeading eyebrow="Work with Mike" title="Two ways in." />
-          <div className="mt-12 grid gap-6 md:grid-cols-2">
-            {[
-              {
-                href: "/speaking",
-                label: "Speaking",
-                title: "Keynotes that move people to act",
-                body: "High-energy, story-driven and interactive — with a live demonstration and a micro-action commitment every attendee takes home.",
-              },
-              {
-                href: "/coaching",
-                label: "Coaching",
-                title: "An encourager, advisor & cheerleader",
-                body: "One-on-one guidance for leaders, career movers and entrepreneurs, built on 27 years of helping people make their biggest decisions.",
-              },
-            ].map((card) => (
-              <Link
-                key={card.href}
-                href={card.href}
-                className="group flex flex-col justify-between border border-ink/10 bg-white p-8 transition-colors hover:border-ink sm:p-10"
-              >
-                <div>
-                  <p className="font-display text-sm font-semibold uppercase tracking-[0.25em] text-seal">{card.label}</p>
-                  <h3 className="mt-4 font-display text-3xl font-bold uppercase leading-none">{card.title}</h3>
-                  <p className="mt-4 leading-relaxed text-stone">{card.body}</p>
-                </div>
-                <span className="mt-8 font-display text-base font-semibold uppercase tracking-[0.15em] transition-transform group-hover:translate-x-1">
-                  Learn more →
+      {/* ── Work with Mike ───────────────────────────────────── */}
+      <section className="border-t border-ash bg-obsidian">
+        <div className="grid md:grid-cols-2">
+          {[
+            {
+              href: "/speaking",
+              label: "Speaking",
+              title: "Keynotes that move rooms to act",
+              body: "High-energy, story-driven and interactive — with a live demonstration and a micro-action commitment every attendee takes home.",
+              image: "/images/mike-stage-wide.jpg",
+            },
+            {
+              href: "/coaching",
+              label: "Coaching",
+              title: "An encourager, advisor & cheerleader",
+              body: "One-on-one guidance for leaders, career movers and entrepreneurs, built on 27 years of helping people make their biggest decisions.",
+              image: "/images/mike-stage-portrait.jpg",
+            },
+          ].map((card, i) => (
+            <Link
+              key={card.href}
+              href={card.href}
+              className={`group relative flex min-h-[34rem] flex-col justify-end overflow-hidden p-8 sm:p-14 ${
+                i === 1 ? "md:border-l md:border-ash" : ""
+              }`}
+            >
+              <Image
+                src={card.image}
+                alt=""
+                fill
+                sizes="(min-width: 768px) 50vw, 100vw"
+                className="object-cover object-[50%_30%] opacity-35 transition-all duration-700 group-hover:scale-105 group-hover:opacity-50"
+              />
+              <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/70 to-obsidian/20" />
+              <div className="relative">
+                <Label>{card.label}</Label>
+                <h3 className="mt-6 max-w-md font-serif text-4xl leading-[1.05] text-ivory sm:text-5xl">{card.title}</h3>
+                <p className="mt-5 max-w-md leading-relaxed text-mist">{card.body}</p>
+                <span className="mt-10 inline-flex items-center gap-3 text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-brass-light">
+                  Learn more <Arrow className="transition-transform duration-300 group-hover:translate-x-1.5" />
                 </span>
-              </Link>
-            ))}
-          </div>
-        </Container>
+              </div>
+            </Link>
+          ))}
+        </div>
       </section>
 
       <CtaBand />

@@ -16,20 +16,20 @@ export default function OpengraphImage() {
           flexDirection: "column",
           justifyContent: "space-between",
           padding: 80,
-          background: "#121110",
-          color: "#f6f2ea",
-          fontFamily: "sans-serif",
+          background: "#0a0a0b",
+          color: "#f4efe6",
+          fontFamily: "serif",
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
-          <div style={{ width: 56, height: 6, background: "#b42318" }} />
-          <div style={{ fontSize: 28, letterSpacing: 6, textTransform: "uppercase", color: "#b42318" }}>
+          <div style={{ width: 56, height: 6, background: "#c5a464" }} />
+          <div style={{ fontSize: 28, letterSpacing: 6, textTransform: "uppercase", color: "#c5a464", fontFamily: "sans-serif" }}>
             {site.role}
           </div>
         </div>
         <div style={{ display: "flex", flexDirection: "column" }}>
-          <div style={{ fontSize: 110, fontWeight: 800, textTransform: "uppercase", lineHeight: 1 }}>{site.name}</div>
-          <div style={{ marginTop: 28, fontSize: 40, color: "#a8a196" }}>
+          <div style={{ fontSize: 110, lineHeight: 1 }}>{site.name}</div>
+          <div style={{ marginTop: 28, fontSize: 40, color: "#dcc28f", fontStyle: "italic" }}>
             The dojo and the boardroom run on the same playbook.
           </div>
         </div>

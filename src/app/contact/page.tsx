@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import { PageHero } from "@/components/sections";
-import { Container } from "@/components/ui";
+import { Container, Label } from "@/components/ui";
 import { inquiryTopics, site } from "@/content/site";
 import { ContactForm } from "./ContactForm";
 
@@ -15,45 +14,49 @@ export default async function ContactPage({ searchParams }: PageProps<"/contact"
   const defaultTopic = inquiryTopics.find((t) => t.toLowerCase() === requested) ?? "Speaking";
 
   return (
-    <>
-      <PageHero
-        eyebrow="Contact"
-        title={
-          <>
-            Let&apos;s talk about
-            <br />
-            <span className="text-seal">your next 12 months.</span>
-          </>
-        }
-        intro="Booking a keynote, exploring coaching, or inviting Mike on your podcast? Share a few details and he'll get back to you."
-      />
+    <section className="relative overflow-hidden bg-obsidian pt-20">
+      <div aria-hidden className="absolute inset-0 bg-[radial-gradient(ellipse_at_10%_0%,rgba(197,164,100,0.12),transparent_50%)]" />
+      <Container className="relative grid gap-20 py-24 lg:grid-cols-[0.9fr_1.1fr] lg:gap-28 lg:py-32">
+        <div className="animate-hero-in">
+          <Label>Contact</Label>
+          <h1 className="mt-8 font-serif text-6xl leading-[0.98] tracking-[-0.02em] text-ivory sm:text-7xl">
+            Let&apos;s talk about <span className="italic text-brass-light">your next 12 months.</span>
+          </h1>
+          <p className="mt-8 max-w-md text-lg leading-relaxed text-mist">
+            Booking a keynote, exploring coaching, or inviting Mike on your podcast? Share a few details and he&apos;ll
+            get back to you.
+          </p>
 
-      <section className="bg-paper">
-        <Container className="grid gap-16 py-24 lg:grid-cols-[1fr_18rem]">
-          <ContactForm defaultTopic={defaultTopic} />
-
-          <aside className="space-y-8 text-stone">
+          <dl className="mt-16 space-y-8 border-t border-ash pt-10">
             <div>
-              <p className="font-display text-sm font-semibold uppercase tracking-[0.2em] text-ink">Based in</p>
-              <p className="mt-2">{site.location}</p>
+              <dt className="text-[0.65rem] font-semibold uppercase tracking-[0.3em] text-brass">Based in</dt>
+              <dd className="mt-2 font-serif text-2xl text-ivory">{site.location}</dd>
             </div>
             {site.email && (
               <div>
-                <p className="font-display text-sm font-semibold uppercase tracking-[0.2em] text-ink">Email</p>
-                <a href={`mailto:${site.email}`} className="mt-2 block hover:text-ink">
-                  {site.email}
-                </a>
+                <dt className="text-[0.65rem] font-semibold uppercase tracking-[0.3em] text-brass">Email</dt>
+                <dd className="mt-2 font-serif text-2xl text-ivory">
+                  <a href={`mailto:${site.email}`} className="hover:text-brass-light">
+                    {site.email}
+                  </a>
+                </dd>
               </div>
             )}
             <div>
-              <p className="font-display text-sm font-semibold uppercase tracking-[0.2em] text-ink">Watch</p>
-              <a href={site.social.youtube} target="_blank" rel="noopener" className="mt-2 block hover:text-ink">
-                YouTube — @MikeBarefootspeaks
-              </a>
+              <dt className="text-[0.65rem] font-semibold uppercase tracking-[0.3em] text-brass">Watch</dt>
+              <dd className="mt-2 font-serif text-2xl text-ivory">
+                <a href={site.social.youtube} target="_blank" rel="noopener" className="hover:text-brass-light">
+                  @MikeBarefootspeaks
+                </a>
+              </dd>
             </div>
-          </aside>
-        </Container>
-      </section>
-    </>
+          </dl>
+        </div>
+
+        <div className="animate-hero-in border border-ash bg-coal/80 p-8 [animation-delay:150ms] sm:p-12">
+          <ContactForm defaultTopic={defaultTopic} />
+        </div>
+      </Container>
+    </section>
   );
 }

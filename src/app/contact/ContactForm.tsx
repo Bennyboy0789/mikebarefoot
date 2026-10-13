@@ -5,23 +5,25 @@ import { inquiryTopics, type InquiryTopic } from "@/content/site";
 import { sendInquiry, type InquiryState } from "./actions";
 
 const field =
-  "mt-2 w-full border border-ink/20 bg-white px-4 py-3 text-ink outline-none transition-colors placeholder:text-stone-light focus:border-ink";
-const label = "font-display text-sm font-semibold uppercase tracking-[0.2em]";
+  "mt-3 w-full border-0 border-b border-ash bg-transparent px-0 py-3 text-lg text-ivory outline-none transition-colors placeholder:text-mist/50 focus:border-brass focus-visible:outline-none [&>option]:bg-coal";
+const label = "text-[0.65rem] font-semibold uppercase tracking-[0.3em] text-mist";
 
 export function ContactForm({ defaultTopic }: { defaultTopic: InquiryTopic }) {
   const [state, action, pending] = useActionState<InquiryState, FormData>(sendInquiry, { status: "idle" });
 
   if (state.status === "success") {
     return (
-      <div role="status" className="border-l-2 border-seal bg-white p-8">
-        <p className="font-display text-3xl font-bold uppercase">Message received.</p>
-        <p className="mt-3 text-stone">Thanks for reaching out — Mike will be in touch soon.</p>
+      <div role="status" className="border border-brass/40 bg-coal p-10">
+        <p className="font-serif text-4xl text-ivory">
+          Message <span className="italic text-brass-light">received.</span>
+        </p>
+        <p className="mt-4 text-mist">Thanks for reaching out — Mike will be in touch soon.</p>
       </div>
     );
   }
 
   return (
-    <form action={action} className="grid gap-6 sm:grid-cols-2">
+    <form action={action} className="grid gap-x-10 gap-y-10 sm:grid-cols-2">
       <div className="hidden" aria-hidden>
         <label>
           Leave this empty
@@ -66,14 +68,14 @@ export function ContactForm({ defaultTopic }: { defaultTopic: InquiryTopic }) {
 
       <div className="flex flex-col items-start gap-4 sm:col-span-2">
         {state.status === "error" && (
-          <p role="alert" className="text-sm font-medium text-seal">
+          <p role="alert" className="text-sm font-medium text-brass-light">
             {state.message}
           </p>
         )}
         <button
           type="submit"
           disabled={pending}
-          className="bg-seal px-8 py-4 font-display text-base font-semibold uppercase tracking-[0.15em] text-paper transition-colors hover:bg-seal-dark disabled:opacity-60"
+          className="bg-brass px-9 py-4 text-[0.72rem] font-semibold uppercase tracking-[0.26em] text-obsidian transition-colors hover:bg-brass-light disabled:opacity-60"
         >
           {pending ? "Sending…" : "Send message"}
         </button>

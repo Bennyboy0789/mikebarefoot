@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
-import Image from "next/image";
-import { CtaBand, MediaBar, PageHero, StatsGrid } from "@/components/sections";
-import { Container, SectionHeading } from "@/components/ui";
+import { CtaBand, FeaturedIn, FramedImage, PageHero, QuoteBand, StatsGrid } from "@/components/sections";
+import { Container, Label, SectionHeading } from "@/components/ui";
 import { story } from "@/content/site";
 
 export const metadata: Metadata = {
@@ -14,70 +13,84 @@ export default function AboutPage() {
   return (
     <>
       <PageHero
-        eyebrow="About Mike"
+        label="About Mike"
         title={
           <>
-            Life&apos;s not linear.
-            <br />
-            <span className="text-seal">Discipline is.</span>
+            Life isn&apos;t linear. <span className="italic text-brass-light">Discipline is.</span>
           </>
         }
-        intro="Entrepreneur, martial artist and strategist, Mike Barefoot has spent his life mastering two seemingly different worlds — and discovered they share the exact same playbook for elite success."
+        intro="Entrepreneur, martial artist and strategist — Mike Barefoot has spent his life mastering two seemingly different worlds, only to discover they share the exact same playbook for elite success."
+        image="/images/mike-stage-portrait.jpg"
+        imageAlt="Mike Barefoot on stage"
       />
 
-      <section className="bg-paper">
-        <Container className="grid gap-16 py-24 lg:grid-cols-[1fr_20rem]">
-          <ol className="relative space-y-14 border-l border-ink/15 pl-8 sm:pl-12">
-            {story.map((chapter, i) => (
-              <li key={chapter.heading} className="relative">
-                <span
-                  aria-hidden
-                  className="absolute -left-[calc(2rem+0.4rem)] top-1.5 h-3 w-3 bg-seal sm:-left-[calc(3rem+0.4rem)]"
-                />
-                <p className="font-display text-sm font-semibold uppercase tracking-[0.25em] text-stone">
-                  Chapter {String(i + 1).padStart(2, "0")}
-                </p>
-                <h2 className="mt-2 font-display text-3xl font-bold uppercase leading-none sm:text-4xl">
-                  {chapter.heading}
-                </h2>
-                <p className="mt-4 max-w-2xl text-lg leading-relaxed text-ink/80">{chapter.body}</p>
-              </li>
-            ))}
-          </ol>
+      <section className="bg-obsidian">
+        <Container className="grid gap-20 py-28 lg:grid-cols-[1fr_22rem] lg:gap-24 lg:py-40">
+          <div>
+            <SectionHeading index="01" label="The story" title="Six chapters." />
+            <ol className="mt-16">
+              {story.map((chapter, i) => (
+                <li
+                  key={chapter.heading}
+                  data-reveal
+                  className="grid gap-4 border-t border-ash py-12 sm:grid-cols-[7rem_1fr] sm:gap-10"
+                >
+                  <span className="text-brass-gradient font-serif text-6xl leading-none">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <div>
+                    <h3 className="font-serif text-3xl leading-tight text-ivory sm:text-4xl">{chapter.heading}</h3>
+                    <p className="mt-5 text-lg leading-relaxed text-mist">{chapter.body}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </div>
 
-          <aside className="lg:sticky lg:top-24 lg:self-start">
-            <Image
-              src="/images/campbell-keynote.jpg"
-              alt="Mike Barefoot on stage at Campbell University"
-              width={404}
-              height={720}
-              className="aspect-[3/4] w-full object-cover object-[50%_40%]"
+          <aside className="lg:sticky lg:top-32 lg:self-start">
+            <FramedImage
+              src="/images/mike-stage-closeup.jpg"
+              alt="Mike Barefoot speaking at Campbell University"
+              width={520}
+              height={760}
+              caption="Campbell University · 2026"
             />
-            {/* TODO(mike): replace with a professional headshot */}
-            <blockquote className="mt-8 border-l-2 border-seal pl-5">
-              <p className="font-display text-2xl font-semibold uppercase leading-tight">
-                &ldquo;I want the relationship more than I want the money.&rdquo;
+            {/* TODO(mike): replace with a professional portrait */}
+            <div className="mt-12 border-l border-brass/60 pl-6">
+              <Label>In his words</Label>
+              <p className="mt-5 font-serif text-2xl italic leading-snug text-ivory">
+                &ldquo;I always like to say I have a master&apos;s degree in business. I like to think I have a PhD in
+                the school of hard knocks.&rdquo;
               </p>
-              <footer className="mt-3 text-sm text-stone">— Mike Barefoot</footer>
-            </blockquote>
+            </div>
           </aside>
         </Container>
       </section>
 
-      <section className="bg-ink">
-        <Container className="py-24">
-          <SectionHeading dark eyebrow="By the numbers" title="Built over decades." />
-          <div className="mt-12">
+      <FeaturedIn />
+
+      <section className="bg-obsidian">
+        <Container className="py-28 lg:py-40">
+          <SectionHeading
+            index="02"
+            label="By the numbers"
+            title={
+              <>
+                Built over <span className="italic text-brass-light">decades.</span>
+              </>
+            }
+          />
+          <div className="mt-16">
             <StatsGrid />
           </div>
         </Container>
       </section>
 
-      <section className="border-b border-ink/10 bg-paper-deep">
-        <Container className="py-8">
-          <MediaBar />
-        </Container>
-      </section>
+      <QuoteBand
+        quote="It's good to work hard, but it's better to work smarter."
+        cite="Mike Barefoot"
+        context="on micro actions"
+      />
 
       <CtaBand />
     </>
