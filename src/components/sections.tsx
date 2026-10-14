@@ -53,17 +53,43 @@ export function KanjiWatermark({ className = "" }: { className?: string }) {
   );
 }
 
+type MarqueeItem = { name: string; logo?: { src: string; width: number; height: number } | null };
+
 export function FeaturedIn() {
-  const items = [...mediaMentions, "60+ media features", ...mediaMentions, "60+ media features"];
+  // Media outlets, with the host institutions' logos woven between them.
+  const [usaToday, careerBuilder, sia, sbtdc] = mediaMentions;
+  const logo = (name: string): MarqueeItem => spokenAt.find((o) => o.name === name)!;
+  const sequence: MarqueeItem[] = [
+    { name: usaToday },
+    logo("Campbell University"),
+    { name: careerBuilder },
+    { name: sia },
+    logo("Wake Tech Community College"),
+    { name: sbtdc },
+    { name: "60+ media features" },
+  ];
+  const items = [...sequence, ...sequence];
   return (
-    <section aria-label="Featured in" className="border-y border-ash bg-coal py-8">
+    <section aria-label="Featured in and spoken at" className="border-y border-ash bg-coal py-8">
       <Container className="flex flex-col gap-6 lg:flex-row lg:items-center lg:gap-14">
-        <p className="shrink-0 text-[0.65rem] font-semibold uppercase tracking-[0.32em] text-crimson-light">As featured in</p>
+        <p className="shrink-0 text-[0.65rem] font-semibold uppercase tracking-[0.32em] text-crimson-light">
+          Featured in &amp; spoken at
+        </p>
         <div className="relative flex-1 overflow-hidden [mask-image:linear-gradient(90deg,transparent,#000_8%,#000_92%,transparent)]">
           <ul className="animate-marquee flex w-max items-center gap-14">
             {[...items, ...items].map((m, i) => (
               <li key={i} aria-hidden={i >= items.length / 2} className="flex items-center gap-14 whitespace-nowrap">
-                <span className="font-serif text-3xl text-ivory/80">{m}</span>
+                {m.logo ? (
+                  <Image
+                    src={m.logo.src}
+                    alt={m.name}
+                    width={m.logo.width}
+                    height={m.logo.height}
+                    className={`w-auto opacity-80 ${m.logo.width / m.logo.height < 3 ? "h-12" : "h-8"}`}
+                  />
+                ) : (
+                  <span className="font-serif text-3xl text-ivory/80">{m.name}</span>
+                )}
                 <span aria-hidden className="h-1.5 w-1.5 rotate-45 bg-crimson/60" />
               </li>
             ))}
