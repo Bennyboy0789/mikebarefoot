@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Raw media drops (multi-GB video, originals). Only optimized derivatives go in public/.
+/_source/

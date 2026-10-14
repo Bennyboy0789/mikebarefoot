@@ -43,6 +43,10 @@ If the three contact variables aren't set, the form shows a friendly "not connec
 - **Next.js 16:** dynamic route `params`/`searchParams` are Promises — `await` them.
 - **next.config.ts:** do NOT include an `eslint` key (removed in Next 16). Lint runs via `npm run lint`.
 - **Images:** use `next/image`, or `images: { unoptimized: true }` if using raw `<img>`.
+- **Raw media:** originals from Mike (multi-GB video, phone photos, one-pagers) live in
+  `_source/`, which is gitignored. Only graded, compressed derivatives go in `public/`.
+  Stage stills and `public/videos/mike-hero-loop.mp4` come from the BORN Toastmasters
+  talk, graded with ffmpeg `hue=s=0,eq=contrast=1.28:brightness=-0.05:gamma=0.88,vignette`.
 - **Tailwind loader:** Tailwind runs through `@tailwindcss/turbopack`, which is registered in
   `next.config.ts` under `turbopack.rules`. Without that rule no utility classes are generated.
 

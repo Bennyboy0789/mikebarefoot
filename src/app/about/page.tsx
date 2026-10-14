@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { CtaBand, FeaturedIn, FramedImage, PageHero, QuoteBand, StatsGrid } from "@/components/sections";
 import { Container, Label, SectionHeading } from "@/components/ui";
-import { story } from "@/content/site";
+import { martialArtsHonors, recruiterHonors, site, story } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "About",
@@ -20,7 +20,7 @@ export default function AboutPage() {
           </>
         }
         intro="Entrepreneur, martial artist and strategist — Mike Barefoot has spent his life mastering two seemingly different worlds, only to discover they share the exact same playbook for elite success."
-        image="/images/mike-stage-portrait.jpg"
+        image="/images/mike-portrait.jpg"
         imageAlt="Mike Barefoot on stage"
       />
 
@@ -49,13 +49,12 @@ export default function AboutPage() {
 
           <aside className="lg:sticky lg:top-32 lg:self-start">
             <FramedImage
-              src="/images/mike-stage-closeup.jpg"
-              alt="Mike Barefoot speaking at Campbell University"
-              width={520}
-              height={760}
-              caption="Campbell University · 2026"
+              src="/images/mike-headshot.jpg"
+              alt="Portrait of Mike Barefoot"
+              width={960}
+              height={1200}
+              caption={`Founder, ${site.company}`}
             />
-            {/* TODO(mike): replace with a professional portrait */}
             <div className="mt-12 border-l border-crimson/60 pl-6">
               <Label>In his words</Label>
               <p className="mt-5 font-serif text-2xl italic leading-snug text-ivory">
@@ -67,12 +66,54 @@ export default function AboutPage() {
         </Container>
       </section>
 
+      {/* Recognition */}
+      <section className="border-t border-ash bg-coal">
+        <Container className="grid items-center gap-16 py-28 lg:grid-cols-[1fr_0.85fr] lg:gap-24 lg:py-40">
+          <div>
+            <SectionHeading
+              index="02"
+              label="Recognition"
+              title={
+                <>
+                  Honored on the mat <span className="italic text-crimson-light">and at the desk.</span>
+                </>
+              }
+            />
+            <div data-reveal className="mt-14 grid gap-12 sm:grid-cols-2">
+              {[
+                { label: "Martial arts", items: martialArtsHonors },
+                { label: "Recruiting", items: recruiterHonors },
+              ].map((group) => (
+                <div key={group.label}>
+                  <Label>{group.label}</Label>
+                  <ul className="mt-6 border-t border-ash">
+                    {group.items.map((item) => (
+                      <li key={item} className="border-b border-ash py-5 font-serif text-xl leading-snug text-ivory">
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+          <FramedImage
+            src="/images/mike-amaa-award.jpg"
+            alt="Mike Barefoot holding his AMAA Who's Who in the Martial Arts Legacy Award"
+            width={1100}
+            height={1238}
+            caption="AMAA Who's Who in the Martial Arts Legacy Award"
+            className="mx-auto w-full max-w-md lg:max-w-none"
+          />
+        </Container>
+      </section>
+
       <FeaturedIn />
 
       <section className="bg-obsidian">
         <Container className="py-28 lg:py-40">
           <SectionHeading
-            index="02"
+            index="03"
             label="By the numbers"
             title={
               <>
@@ -86,11 +127,7 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      <QuoteBand
-        quote="It's good to work hard, but it's better to work smarter."
-        cite="Mike Barefoot"
-        context="on micro actions"
-      />
+      <QuoteBand quote={site.tagline} cite="Mike Barefoot" />
 
       <CtaBand />
     </>

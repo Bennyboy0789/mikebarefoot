@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { KaizenExplorer } from "@/components/KaizenExplorer";
-import { CtaBand, FeaturedIn, PageHero } from "@/components/sections";
+import { CtaBand, FeaturedIn, PageHero, QuoteBand, SpokenAt, Testimonials } from "@/components/sections";
 import { ButtonLink, Container, Label, SectionHeading } from "@/components/ui";
 import { VideoFacade } from "@/components/VideoFacade";
 import { featuredKeynote, speaking } from "@/content/site";
@@ -8,8 +9,29 @@ import { featuredKeynote, speaking } from "@/content/site";
 export const metadata: Metadata = {
   title: "Speaking",
   description:
-    "Book Mike Barefoot for your leadership summit, conference or team event. His KAIZEN keynote pairs a live martial arts demonstration with lessons from 27 years of building winning teams.",
+    "Book Mike Barefoot for your leadership summit, conference or team event. KAIZEN: The Pillars of Success pairs a live martial arts demonstration with lessons from 27 years of building winning teams.",
 };
+
+const gallery = [
+  {
+    src: "/images/campbell-stage.jpg",
+    alt: "Mike Barefoot on stage at Campbell University, his name on the screen behind him",
+    width: 900,
+    height: 1200,
+  },
+  {
+    src: "/images/campbell-room.jpg",
+    alt: "A full room at Campbell University's 2026 Leadership Summit",
+    width: 900,
+    height: 1200,
+  },
+  {
+    src: "/images/campbell-group.jpg",
+    alt: "Mike Barefoot with Leadership Summit attendees at Campbell University",
+    width: 510,
+    height: 680,
+  },
+];
 
 export default function SpeakingPage() {
   return (
@@ -22,8 +44,8 @@ export default function SpeakingPage() {
           </>
         }
         intro="Mike's keynotes marry the discipline of 37 years in martial arts with the hard-won lessons of building teams, closing deals and running a profitable company."
-        image="/images/mike-stage-wide.jpg"
-        imageAlt="Mike Barefoot delivering a keynote to students at Campbell University"
+        image="/images/mike-wide.jpg"
+        imageAlt="Mike Barefoot delivering KAIZEN: The Pillars of Success"
       />
 
       {/* Signature keynote */}
@@ -45,10 +67,12 @@ export default function SpeakingPage() {
           </div>
           <div data-reveal className="relative mx-auto w-full max-w-sm">
             <div aria-hidden className="absolute -inset-3 border border-crimson/30" />
-            <VideoFacade id={featuredKeynote.youtubeId} title={featuredKeynote.event} poster="/images/mike-stage-wide.jpg" />
+            <VideoFacade id={featuredKeynote.youtubeId} title={featuredKeynote.event} poster="/images/campbell-keynote-poster.jpg" />
           </div>
         </Container>
       </section>
+
+      <Testimonials index="02" />
 
       <FeaturedIn />
 
@@ -56,7 +80,7 @@ export default function SpeakingPage() {
       <section className="bg-coal">
         <Container className="py-28 lg:py-40">
           <SectionHeading
-            index="02"
+            index="03"
             label="Inside the keynote"
             title={
               <>
@@ -71,26 +95,42 @@ export default function SpeakingPage() {
         </Container>
       </section>
 
-      {/* Themes + audiences */}
+      {/* Topics */}
       <section className="border-t border-ash bg-obsidian">
-        <Container className="grid gap-20 py-28 lg:grid-cols-[1.4fr_1fr] lg:gap-24 lg:py-40">
-          <div>
-            <SectionHeading index="03" label="Themes" title="What Mike speaks on." />
-            <ul data-reveal className="mt-14 grid gap-px border border-ash bg-ash sm:grid-cols-2">
-              {speaking.themes.map((t, i) => (
-                <li key={t.title} className="bg-obsidian p-8">
-                  <span className="font-serif text-lg italic text-crimson-light">{String(i + 1).padStart(2, "0")}</span>
-                  <h3 className="mt-4 font-serif text-3xl leading-tight text-ivory">{t.title}</h3>
-                  <p className="mt-3 leading-relaxed text-mist">{t.body}</p>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <SectionHeading index="04" label="Audiences" title="Built for." />
-            <ul className="mt-14 border-t border-ash">
+        <Container className="py-28 lg:py-40">
+          <SectionHeading
+            index="04"
+            label="Keynotes & workshops"
+            title={
+              <>
+                Six topics. <span className="italic text-crimson-light">One playbook.</span>
+              </>
+            }
+            intro={`Available as ${speaking.offerings.join(", ").toLowerCase().replace(/, ([^,]*)$/, " and $1")}, each tailored to your audience.`}
+          />
+          <ul className="mt-16 grid gap-px border border-ash bg-ash md:grid-cols-2 lg:grid-cols-3">
+            {speaking.topics.map((t, i) => (
+              <li key={t.title} data-reveal className="flex flex-col bg-obsidian p-8 sm:p-10">
+                <span className="font-serif text-lg italic text-crimson-light">{String(i + 1).padStart(2, "0")}</span>
+                <h3 className="mt-5 font-serif text-3xl leading-tight text-ivory sm:text-4xl">{t.title}</h3>
+                <p className="mt-2 text-[0.65rem] font-semibold uppercase tracking-[0.28em] text-mist">{t.subtitle}</p>
+                <ul className="mt-6 space-y-3 border-t border-ash pt-6">
+                  {t.points.map((pt) => (
+                    <li key={pt} className="flex gap-3 leading-relaxed text-ivory/80">
+                      <span aria-hidden className="mt-2.5 h-1.5 w-1.5 shrink-0 rotate-45 bg-crimson" />
+                      {pt}
+                    </li>
+                  ))}
+                </ul>
+              </li>
+            ))}
+          </ul>
+
+          <div className="mt-20 grid gap-10 border-t border-ash pt-12 lg:grid-cols-[16rem_1fr]">
+            <Label>Built for</Label>
+            <ul data-reveal className="flex flex-wrap gap-x-10 gap-y-5">
               {speaking.audiences.map((a) => (
-                <li key={a} data-reveal className="flex items-center gap-5 border-b border-ash py-6 font-serif text-2xl text-ivory">
+                <li key={a} className="flex items-center gap-4 font-serif text-2xl text-ivory">
                   <span aria-hidden className="h-1.5 w-1.5 rotate-45 bg-crimson" />
                   {a}
                 </li>
@@ -100,18 +140,65 @@ export default function SpeakingPage() {
         </Container>
       </section>
 
+      <QuoteBand
+        quote="Energy management is more important than time management."
+        cite="Mike Barefoot"
+        context="on the E in KAIZEN"
+      />
+
+      {/* From the room */}
+      <section className="bg-obsidian">
+        <Container className="py-28 lg:py-40">
+          <SectionHeading
+            index="05"
+            label="From the room"
+            title={
+              <>
+                A full house <span className="italic text-crimson-light">at Campbell.</span>
+              </>
+            }
+            intro="The 2026 Leadership Summit at Campbell University's Lundy-Fetterman School of Business."
+          />
+          <div data-reveal className="mt-16 grid gap-4 sm:grid-cols-3">
+            {gallery.map((g) => (
+              <figure key={g.src} className="group relative aspect-[3/4] overflow-hidden bg-coal">
+                <Image
+                  src={g.src}
+                  alt={g.alt}
+                  width={g.width}
+                  height={g.height}
+                  sizes="(min-width: 640px) 33vw, 100vw"
+                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                />
+                <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-obsidian/70 via-transparent to-transparent" />
+              </figure>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <SpokenAt />
+
       {/* Engagements */}
-      <section className="border-t border-ash bg-coal">
+      <section className="bg-coal">
         <Container className="py-28 lg:py-36">
-          <SectionHeading index="05" label="Recent stages" title="Where Mike has spoken." />
+          <SectionHeading index="06" label="Recent stages" title="Where Mike has spoken." />
           <ul className="mt-14 border-t border-ash">
             {speaking.engagements.map((e) => (
               <li
-                key={`${e.year}-${e.org}`}
+                key={e.org}
                 data-reveal
-                className="grid gap-3 border-b border-ash py-8 sm:grid-cols-[8rem_1fr_auto] sm:items-baseline"
+                className="grid gap-3 border-b border-ash py-8 sm:grid-cols-[10rem_1fr_auto] sm:items-baseline sm:gap-8"
               >
-                <span className="text-crimson-gradient font-serif text-4xl">{e.year}</span>
+                <span
+                  className={
+                    e.when && /^\d{4}$/.test(e.when)
+                      ? "text-crimson-gradient font-serif text-4xl"
+                      : "text-[0.65rem] font-semibold uppercase tracking-[0.28em] text-mist"
+                  }
+                >
+                  {e.when}
+                </span>
                 <span className="font-serif text-3xl text-ivory sm:text-4xl">{e.org}</span>
                 <Label>{e.title}</Label>
               </li>

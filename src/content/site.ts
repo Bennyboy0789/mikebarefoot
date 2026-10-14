@@ -1,10 +1,13 @@
 // Single source of truth for site copy and facts.
 //
-// Every factual claim below comes from Mike's keynote at Campbell University's
-// 2026 Leadership Summit (https://www.youtube.com/watch?v=QgJrb609-Fo): either
-// the host's introduction or Mike's own words. Per README content rules, do not
-// add credentials, testimonials, programs or prices that aren't confirmed by
-// Mike. Unknowns are marked TODO(mike).
+// Every factual claim below comes from material Mike supplied or said on stage:
+//  - his keynote at Campbell University's 2026 Leadership Summit
+//    (https://www.youtube.com/watch?v=QgJrb609-Fo), host intro + his own words
+//  - his "KAIZEN: The Pillars of Success" talk at BORN Toastmasters' Brain Candy
+//  - his speaker one-pager and a recommendation letter (Oct 2026)
+// Testimonials are reproduced verbatim. Per README content rules, do not add
+// credentials, testimonials, programs or prices that aren't confirmed by Mike.
+// Unknowns are marked TODO(mike).
 
 export const site = {
   name: "Mike Barefoot",
@@ -15,12 +18,19 @@ export const site = {
   description:
     "Mike Barefoot is a leadership speaker and coach who blends 37 years of martial arts discipline with a 27-year career building winning teams in the staffing industry.",
   location: "Raleigh, North Carolina",
+  // TODO(mike): confirm spelling. The Campbell slide says "RedZone Resources",
+  // the recommendation letter says "Red Zone Resources".
+  company: "RedZone Resources",
+  // From Mike's speaker one-pager.
+  tagline: "Discipline in the dojo. Results in the workplace.",
+  // TODO(mike): the one-pager lists mikebarefootspeaks.net. Confirm it's the
+  // production domain, then set NEXT_PUBLIC_SITE_URL.
   // TODO(mike): confirm public contact email. The keynote audio sounds like
   // "mike@mikebarefoot.com" but it's unclear; leave null until confirmed.
   email: null as string | null,
   social: {
     youtube: "https://www.youtube.com/@MikeBarefootspeaks",
-    // TODO(mike): LinkedIn, Instagram, Facebook, PodMatch profile URLs
+    // TODO(mike): LinkedIn (on the one-pager, no URL), Instagram, Facebook, PodMatch
   },
 };
 
@@ -37,6 +47,50 @@ export const featuredKeynote = {
   year: 2026,
 };
 
+// Supplied by Mike (Oct 2026). Verbatim: don't edit the wording. `pull` must
+// stay an exact excerpt of `letter`.
+export const featuredTestimonial = {
+    pull: "Your ability to connect with the room, share practical wisdom, and inspire meaningful reflection made your session one of the highlights of the summit.",
+    salutation: "Dear Mike,",
+    letter: [
+      "Thank you for being a featured speaker at our Leadership Summit, Leading with Purpose. Your insights, energy, and authentic perspective made a meaningful impact on our community and contributed greatly to the success of the event.",
+      "You challenged our audience to think differently about leadership—not simply as a position, but as an opportunity to lead with intention, clarity, and purpose. Your ability to connect with the room, share practical wisdom, and inspire meaningful reflection made your session one of the highlights of the summit.",
+      "We are incredibly grateful for the time and expertise you shared with Campbell University Community. It was a privilege to have you as part of this important conversation, and we look forward to seeing the continued impact of your work.",
+    ],
+    signoff: ["With sincere appreciation,", "Wendy and the entire Lundy Fetterman School of Business Staff"],
+    name: "Wendy Welker",
+    title: "Director of Development and Special Projects",
+    org: "Lundy-Fetterman School of Business",
+    institution: "Campbell University",
+    event: "Leadership Summit · Leading with Purpose",
+};
+
+// Verbatim from Mike's speaker one-pager and recommendation letter.
+export const testimonials = [
+  {
+    quote:
+      "Thank you for generously giving of your time—once again—to help our MBA students understand the world of executive recruiting.",
+    name: "Annie Murray",
+    title: "Director of MBA Careers",
+    org: "NC State University",
+  },
+  {
+    // Excerpt of a recommendation letter. TODO(mike): the letter is unsigned.
+    // Add the writer's name (and confirm they're happy to be quoted).
+    quote:
+      "His depth of experience and knowledge as well as his interpersonal skills and ability to connect with the audience in a relaxed comfortable way made the presentation enjoyable. The students loved it!",
+    name: null as string | null,
+    title: "Former Director of Human Resources",
+    org: "Wake Tech Community College",
+  },
+  {
+    quote: "Thank you for speaking at our seminar. Keep doing great things!",
+    name: "Lawrence Arthur",
+    title: "President",
+    org: "The GOAT Awards",
+  },
+];
+
 // From the host's introduction at Campbell.
 export const stats = [
   { value: "37", label: "Years in martial arts", detail: "Karate, kickboxing & jiu-jitsu" },
@@ -47,13 +101,37 @@ export const stats = [
   { value: "60+", label: "Media features", detail: "Including USA Today & CareerBuilder" },
 ];
 
-export const mediaMentions = ["USA Today", "CareerBuilder", "Staffing Industry Analysts"];
+export const mediaMentions = [
+  "USA Today",
+  "CareerBuilder",
+  "Staffing Industry Analysts",
+  "Small Business & Technology Development Center",
+];
+
+// Organizations Mike has spoken for. Logos are white knock-outs of files Mike supplied.
+export const spokenAt = [
+  { name: "Campbell University", logo: { src: "/images/logo-campbell.png", width: 610, height: 141 } },
+  { name: "Wake Tech Community College", logo: { src: "/images/logo-wake-tech.png", width: 579, height: 246 } },
+  { name: "NC State University MBA", logo: null },
+  { name: "BORN Toastmasters", logo: null },
+  { name: "The GOAT Awards", logo: null },
+];
 
 export const recruiterHonors = ["Rookie of the Year", "Multiple Performer of the Year awards", "Regular President's Club honors"];
+
+// From the award Mike is pictured holding, plus the Campbell host's introduction.
+// TODO(mike): confirm the year(s).
+export const martialArtsHonors = [
+  "AMAA Who's Who in the Martial Arts Legacy Award",
+  "Inducted into the AMAA Who's Who in the Martial Arts Hall of Honors",
+  "Profiled in the #1 Amazon bestselling Who's Who in the Martial Arts Legacy biography book",
+];
 
 // Mike's KAIZEN system — "Kaizen" is Japanese for continuous improvement.
 export const kaizen = [
   {
+    // TODO(mike): K is "Knowledge" at Campbell (2026) but "Kindness" in the
+    // Toastmasters talk. Confirm which one is canonical.
     letter: "K",
     word: "Knowledge",
     line: "IQ, EQ — and the school of hard knocks.",
@@ -80,16 +158,15 @@ export const kaizen = [
   {
     letter: "E",
     word: "Energy",
-    line: "Sustain the pace when the pressure is on.",
-    body: "Four times in his career Mike carried 50+ consultants at once while juggling 100+ open jobs a month. Elite performance isn't a sprint; it's the energy to keep showing up through the battle of attrition.",
+    line: "Energy management beats time management.",
+    body: "Four times in his career Mike carried 50+ consultants at once while juggling 100+ open jobs a month. You may be dog tired, but when the opportunity lands you summon the energy at a moment's notice, and keep showing up through the battle of attrition.",
   },
   {
-    // TODO(mike): confirm the exact phrase for N — in the keynote it's built
-    // around the word "No" and Charlie Munger's reputation as Berkshire's "no man".
+    // "Not a word as much as a phrase": the ability to say no (both talks).
     letter: "N",
     word: "No",
-    line: "Be wary. Be discerning. Then pounce.",
-    body: "Charlie Munger was Berkshire Hathaway's famous “no man.” Mike turned down a general manager role three times — then recognized the real opportunity: if he could run that office, he could run his own company.",
+    line: "The ability to say no — then go all in.",
+    body: "Charlie Munger, Berkshire Hathaway's famous “no man,” held that 99 of 100 opportunities aren't good. Be wary, be discerning, be agile — and when the right one comes, give it everything. Mike turned down a general manager role three times before recognizing his: running his own company.",
   },
 ];
 
@@ -123,7 +200,7 @@ export const story = [
   },
   {
     heading: "Founder, through the Great Recession",
-    body: "During the 2008 downturn he was offered a general manager role three times and declined each one. The third offer sparked a question: if they trusted him to run this office, why not run his own company? He measured twice, studied the back office for a year, and launched a boutique IT staffing firm in 2010 that stayed profitable for 15+ consecutive years.",
+    body: "When the 2008 downturn shrank his office from five practice groups to one, Mike's IT group was the only one still profitable — and he was its only salesperson. He was offered the general manager role three times and declined each one. The third offer sparked a question: if they trusted him to run this office, why not run his own company? He measured twice, studied the back office for a year, and in 2010 launched RedZone Resources, a boutique IT staffing firm that stayed profitable for 15+ consecutive years.",
   },
   {
     heading: "37 years on the mat",
@@ -136,8 +213,7 @@ export const story = [
 ];
 
 export const speaking = {
-  // TODO(mike): confirm the official keynote title.
-  keynoteTitle: "The KAIZEN Keynote",
+  keynoteTitle: "KAIZEN: The Pillars of Success",
   keynoteSummary:
     "A high-energy keynote that marries elite physical discipline with corporate strategy. Mike walks through his six-letter KAIZEN system with stories from 27 years of building teams, a live martial arts demonstration, and an exercise that sends every attendee home with one micro action to commit to for the next 12 months.",
   formats: [
@@ -145,34 +221,74 @@ export const speaking = {
     { label: "Live demonstration", detail: "Martial arts technique, on stage" },
     { label: "Interactive", detail: "Micro-action cards & partner share" },
   ],
-  themes: [
+  // From Mike's speaker one-pager.
+  offerings: ["In-person keynotes", "Interactive workshops", "Executive panel discussions"],
+  // Keynote & workshop topics, from Mike's one-pagers and session listings.
+  topics: [
     {
-      title: "Continuous improvement",
-      body: "How micro actions — small, daily, sustainable — compound into elite results.",
+      title: "KAIZEN: The Pillars of Success",
+      subtitle: "Find and keep the best team",
+      points: [
+        "Applying martial arts discipline and continuous improvement to recruiting and leadership.",
+        "Actionable retention strategies that reduce turnover and elevate team culture.",
+      ],
     },
     {
-      title: "Integrity in sales & leadership",
-      body: "Why the relationship is worth more than any single deal, with real stories from the recruiting desk.",
+      title: "1% Better Daily",
+      subtitle: "A culture of micro-recognition",
+      points: [
+        "How small, frequent micro-recognitions outperform delayed annual reviews.",
+        "Practical leadership routines that build loyalty, morale and everyday ownership.",
+      ],
     },
     {
-      title: "Building winning teams",
-      body: "Hiring lessons from 1,000+ placements and thousands of conversations with executives.",
+      title: "Winning the Talent Game",
+      subtitle: "Find. Develop. Retain. Build what's next.",
+      points: [
+        "Real-world insight from 27 years in staffing and 1,000+ placements.",
+        "Attract the right talent, develop it for the long term, and keep it through culture and opportunity.",
+      ],
     },
     {
-      title: "The entrepreneur's discipline",
-      body: "Measure twice, cut once. Scale up, scale down — and don't spend yourself out of business.",
+      title: "Kaizen Learning",
+      subtitle: "Replacing seminars with micro-learning",
+      points: [
+        "Why day-long seminars fail to create lasting behavioral change in modern teams.",
+        "Structuring bite-sized, on-demand learning that staff actually retain and apply.",
+      ],
+    },
+    {
+      title: "The Lean HR Department",
+      subtitle: "Eliminating administrative waste",
+      points: [
+        "Identifying friction and waste in sourcing, screening and onboarding.",
+        "Streamlining HR workflows so teams spend their time on people, not paperwork.",
+      ],
+    },
+    {
+      title: "Beyond the Resume",
+      subtitle: "Launching your career",
+      points: [
+        "Strategies for job hunting and interviewing, from 20+ years on the recruiter's side of the desk.",
+        "What recruiters look for, and how to position yourself at the top of their list.",
+      ],
     },
   ],
   audiences: [
     "Leadership summits & conferences",
     "Universities & student leaders",
+    "HR & talent leaders",
     "Sales & recruiting teams",
     "Entrepreneurs & business owners",
   ],
+  // TODO(mike): years for the undated talks; add podcast appearances (PodMatch).
   engagements: [
-    { year: 2026, title: "Keynote Speaker", org: "Campbell University Leadership Summit" },
-    // TODO(mike): add other recent talks and podcast appearances (PodMatch)
-  ],
+    { when: "2026", org: "Campbell University", title: "Leadership Summit keynote · Leading with Purpose" },
+    { when: null, org: "BORN Toastmasters · Brain Candy", title: "KAIZEN: The Pillars of Success" },
+    { when: "Multiple years", org: "NC State University", title: "MBA program guest speaker" },
+    { when: null, org: "Wake Tech Community College", title: "Introduction to Business guest speaker" },
+    { when: null, org: "The GOAT Awards", title: "Seminar speaker" },
+  ] as { when: string | null; org: string; title: string }[],
 };
 
 export const coaching = {

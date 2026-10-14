@@ -20,7 +20,7 @@ export default function CoachingPage() {
           </>
         }
         intro={coaching.intro}
-        image="/images/mike-stage-closeup.jpg"
+        image="/images/mike-closeup.jpg"
         imageAlt="Mike Barefoot"
       />
 
@@ -53,10 +53,10 @@ export default function CoachingPage() {
       <section className="border-t border-ash bg-coal">
         <Container className="grid gap-20 py-28 lg:grid-cols-[0.8fr_1.2fr] lg:gap-24 lg:py-40">
           <FramedImage
-            src="/images/mike-stage-portrait.jpg"
+            src="/images/mike-wide.jpg"
             alt="Mike Barefoot speaking"
-            width={500}
-            height={900}
+            width={864}
+            height={1080}
             className="mx-auto w-full max-w-sm lg:sticky lg:top-32 lg:self-start"
           />
           <div>

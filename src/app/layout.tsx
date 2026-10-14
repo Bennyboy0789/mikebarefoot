@@ -40,12 +40,14 @@ const personJsonLd = {
   jobTitle: site.role,
   description: site.description,
   url: site.url,
+  image: `${site.url}/images/mike-headshot-color.jpg`,
+  worksFor: { "@type": "Organization", name: site.company },
   address: { "@type": "PostalAddress", addressLocality: "Raleigh", addressRegion: "NC", addressCountry: "US" },
   alumniOf: [
     { "@type": "CollegeOrUniversity", name: "North Carolina State University" },
     { "@type": "CollegeOrUniversity", name: "Campbell University" },
   ],
-  knowsAbout: ["Leadership", "Kaizen", "Continuous improvement", "Recruiting", "IT staffing", "Martial arts"],
+  knowsAbout: ["Leadership", "Kaizen", "Continuous improvement", "Recruiting", "Talent retention", "IT staffing", "Martial arts"],
   sameAs: Object.values(site.social),
 };
 

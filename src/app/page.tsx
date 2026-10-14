@@ -1,7 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { KaizenExplorer } from "@/components/KaizenExplorer";
-import { CtaBand, FeaturedIn, FramedImage, QuoteBand, StatsGrid } from "@/components/sections";
+import { CtaBand, FeaturedIn, FramedImage, QuoteBand, SpokenAt, StatsGrid, Testimonials } from "@/components/sections";
+import { HeroMedia } from "@/components/HeroMedia";
 import { Arrow, ButtonLink, Container, Label, SectionHeading } from "@/components/ui";
 import { VideoFacade } from "@/components/VideoFacade";
 import { featuredKeynote, microActions, recruiterHonors, site } from "@/content/site";
@@ -19,14 +20,15 @@ export default function Home() {
       {/* ── Hero ─────────────────────────────────────────────── */}
       <section className="relative min-h-[100svh] overflow-hidden bg-obsidian">
         <div className="absolute inset-0 lg:left-auto lg:w-[52%]">
-          <Image
-            src="/images/mike-stage-portrait.jpg"
-            alt="Mike Barefoot mid-keynote at Campbell University's 2026 Leadership Summit"
-            fill
-            priority
-            sizes="(min-width: 1024px) 52vw, 100vw"
-            className="object-cover object-[40%_25%] opacity-60 lg:opacity-100"
-          />
+          <div className="absolute inset-0 opacity-55 lg:opacity-100">
+            <HeroMedia
+              poster="/images/mike-hero.jpg"
+              video="/videos/mike-hero-loop.mp4"
+              alt="Mike Barefoot delivering KAIZEN: The Pillars of Success"
+              sizes="(min-width: 1024px) 52vw, 100vw"
+              className="object-cover object-[45%_20%]"
+            />
+          </div>
           <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/40 to-obsidian/70 lg:hidden" />
           <div aria-hidden className="absolute inset-0 hidden bg-gradient-to-r from-obsidian via-obsidian/30 to-transparent lg:block" />
           <div aria-hidden className="absolute inset-0 hidden bg-gradient-to-t from-obsidian via-transparent to-obsidian/50 lg:block" />
@@ -78,11 +80,11 @@ export default function Home() {
       <section className="relative bg-obsidian">
         <Container className="grid items-center gap-16 py-28 lg:grid-cols-[0.8fr_1.2fr] lg:gap-24 lg:py-40">
           <FramedImage
-            src="/images/mike-stage-closeup.jpg"
-            alt="Mike Barefoot on stage"
-            width={520}
-            height={760}
-            caption="Campbell University · 2026 Leadership Summit"
+            src="/images/mike-closeup.jpg"
+            alt="Mike Barefoot on stage, mid-gesture"
+            width={740}
+            height={1080}
+            caption="KAIZEN: The Pillars of Success · BORN Toastmasters"
             className="mx-auto w-full max-w-sm lg:max-w-none"
           />
           <div data-reveal>
@@ -206,17 +208,19 @@ export default function Home() {
             <VideoFacade
               id={featuredKeynote.youtubeId}
               title={featuredKeynote.event}
-              poster="/images/mike-stage-wide.jpg"
+              poster="/images/campbell-keynote-poster.jpg"
             />
           </div>
         </Container>
       </section>
 
-      {/* ── 05 The record ────────────────────────────────────── */}
+      <Testimonials index="05" />
+
+      {/* ── 06 The record ────────────────────────────────────── */}
       <section className="relative bg-obsidian">
         <Container className="py-28 lg:py-40">
           <SectionHeading
-            index="05"
+            index="06"
             label="The record"
             title={
               <>
@@ -230,6 +234,8 @@ export default function Home() {
         </Container>
       </section>
 
+      <SpokenAt />
+
       {/* ── Work with Mike ───────────────────────────────────── */}
       <section className="border-t border-ash bg-obsidian">
         <div className="grid md:grid-cols-2">
@@ -239,14 +245,14 @@ export default function Home() {
               label: "Speaking",
               title: "Keynotes that move rooms to act",
               body: "High-energy, story-driven and interactive — with a live demonstration and a micro-action commitment every attendee takes home.",
-              image: "/images/mike-stage-wide.jpg",
+              image: "/images/mike-wide.jpg",
             },
             {
               href: "/coaching",
               label: "Coaching",
               title: "An encourager, advisor & cheerleader",
               body: "One-on-one guidance for leaders, career movers and entrepreneurs, built on 27 years of helping people make their biggest decisions.",
-              image: "/images/mike-stage-portrait.jpg",
+              image: "/images/mike-portrait.jpg",
             },
           ].map((card, i) => (
             <Link
@@ -261,7 +267,7 @@ export default function Home() {
                 alt=""
                 fill
                 sizes="(min-width: 768px) 50vw, 100vw"
-                className="object-cover object-[50%_30%] opacity-35 transition-all duration-700 group-hover:scale-105 group-hover:opacity-50"
+                className="object-cover object-top opacity-35 transition-all duration-700 group-hover:scale-105 group-hover:opacity-50"
               />
               <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/70 to-obsidian/20" />
               <div className="relative">
