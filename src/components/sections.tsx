@@ -36,7 +36,7 @@ export function PageHero({
           <p className="mt-8 max-w-xl text-lg leading-relaxed text-mist">{intro}</p>
         </div>
       </Container>
-      <div aria-hidden className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-brass/40 to-transparent" />
+      <div aria-hidden className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-crimson/40 to-transparent" />
     </section>
   );
 }
@@ -58,13 +58,13 @@ export function FeaturedIn() {
   return (
     <section aria-label="Featured in" className="border-y border-ash bg-coal py-8">
       <Container className="flex flex-col gap-6 lg:flex-row lg:items-center lg:gap-14">
-        <p className="shrink-0 text-[0.65rem] font-semibold uppercase tracking-[0.32em] text-brass">As featured in</p>
+        <p className="shrink-0 text-[0.65rem] font-semibold uppercase tracking-[0.32em] text-crimson-light">As featured in</p>
         <div className="relative flex-1 overflow-hidden [mask-image:linear-gradient(90deg,transparent,#000_8%,#000_92%,transparent)]">
           <ul className="animate-marquee flex w-max items-center gap-14">
             {[...items, ...items].map((m, i) => (
               <li key={i} aria-hidden={i >= items.length / 2} className="flex items-center gap-14 whitespace-nowrap">
                 <span className="font-serif text-3xl text-ivory/80">{m}</span>
-                <span aria-hidden className="h-1.5 w-1.5 rotate-45 bg-brass/60" />
+                <span aria-hidden className="h-1.5 w-1.5 rotate-45 bg-crimson/60" />
               </li>
             ))}
           </ul>
@@ -81,7 +81,7 @@ export function StatsGrid({ limit }: { limit?: number }) {
         <div key={s.label} className="bg-obsidian p-6 sm:p-10">
           <dt className="sr-only">{s.label}</dt>
           <dd>
-            <span className="text-brass-gradient block font-serif text-6xl leading-none sm:text-7xl lg:text-8xl">{s.value}</span>
+            <span className="text-crimson-gradient block font-serif text-6xl leading-none sm:text-7xl lg:text-8xl">{s.value}</span>
             <span className="mt-5 block text-[0.68rem] font-semibold uppercase tracking-[0.28em] text-ivory">{s.label}</span>
             <span className="mt-2 block text-sm text-mist">{s.detail}</span>
           </dd>
@@ -93,11 +93,13 @@ export function StatsGrid({ limit }: { limit?: number }) {
 
 export function QuoteBand({ quote, cite, context }: { quote: string; cite: string; context?: string }) {
   return (
-    <section className="relative overflow-hidden bg-ivory text-obsidian">
+    <section className="relative overflow-hidden bg-crimson-dark text-ivory">
+      <div aria-hidden className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(214,31,44,0.55),transparent_65%)]" />
+      <div aria-hidden className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-obsidian/50" />
       <Container className="relative py-28 sm:py-36">
         <span
           aria-hidden
-          className="pointer-events-none absolute -top-6 left-2 select-none font-serif text-[16rem] leading-none text-brass/40 sm:left-6"
+          className="pointer-events-none absolute -top-6 left-2 select-none font-serif text-[16rem] leading-none text-obsidian/40 sm:left-6"
         >
           &ldquo;
         </span>
@@ -105,11 +107,11 @@ export function QuoteBand({ quote, cite, context }: { quote: string; cite: strin
           <blockquote className="font-serif text-4xl leading-[1.12] tracking-[-0.01em] sm:text-6xl lg:text-7xl">
             {quote}
           </blockquote>
-          <figcaption className="mt-10 flex items-center justify-center gap-4 text-[0.68rem] font-semibold uppercase tracking-[0.32em] text-smoke">
-            <span aria-hidden className="h-px w-10 bg-brass-dark" />
+          <figcaption className="mt-10 flex items-center justify-center gap-4 text-[0.68rem] font-semibold uppercase tracking-[0.32em] text-ivory/80">
+            <span aria-hidden className="h-px w-10 bg-ivory/50" />
             {cite}
-            {context && <span className="hidden text-smoke/70 sm:inline">· {context}</span>}
-            <span aria-hidden className="h-px w-10 bg-brass-dark" />
+            {context && <span className="hidden text-ivory/60 sm:inline">· {context}</span>}
+            <span aria-hidden className="h-px w-10 bg-ivory/50" />
           </figcaption>
         </figure>
       </Container>
@@ -120,7 +122,7 @@ export function QuoteBand({ quote, cite, context }: { quote: string; cite: strin
 export function CtaBand({
   title = (
     <>
-      Bring the KAIZEN playbook <span className="italic text-brass-light">to your stage.</span>
+      Bring the KAIZEN playbook <span className="italic text-crimson-light">to your stage.</span>
     </>
   ),
   body = "Leadership summits, sales kickoffs, university events and executive offsites. Tell Mike about your audience and he'll be in touch.",
@@ -130,7 +132,7 @@ export function CtaBand({
 }) {
   return (
     <section className="relative overflow-hidden bg-obsidian">
-      <div aria-hidden className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_120%,rgba(197,164,100,0.18),transparent_60%)]" />
+      <div aria-hidden className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_120%,rgba(214,31,44,0.18),transparent_60%)]" />
       <Container className="relative py-28 text-center sm:py-36">
         <div data-reveal>
           <Label className="justify-center">Now booking</Label>

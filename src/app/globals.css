@@ -1,18 +1,18 @@
 @import "tailwindcss";
 
-/* Obsidian & ivory with a brass accent — executive, editorial, quiet authority. */
+/* Black-heavy with a crimson accent: the dojo belt and the hanko seal. Executive, editorial, quiet authority. */
 @theme inline {
   --color-obsidian: #0a0a0b;
   --color-coal: #111113;
   --color-graphite: #19191c;
   --color-ash: #2a2a2e;
-  --color-mist: #a39e94;
-  --color-ivory: #f4efe6;
-  --color-bone: #e8e1d3;
-  --color-smoke: #6c675f;
-  --color-brass: #c5a464;
-  --color-brass-light: #dcc28f;
-  --color-brass-dark: #8f7240;
+  --color-mist: #a19e9a;
+  --color-ivory: #f3f1ee;
+  --color-bone: #e4e1dc;
+  --color-smoke: #6b6866;
+  --color-crimson: #d61f2c;
+  --color-crimson-light: #ef4a51;
+  --color-crimson-dark: #8c0f19;
 
   --font-sans: var(--font-manrope);
   --font-serif: var(--font-instrument-serif);
@@ -41,18 +41,18 @@ body::after {
 }
 
 ::selection {
-  background: var(--color-brass);
-  color: var(--color-obsidian);
+  background: var(--color-crimson);
+  color: var(--color-ivory);
 }
 
 :focus-visible {
-  outline: 1px solid var(--color-brass);
+  outline: 1px solid var(--color-crimson);
   outline-offset: 4px;
 }
 
-/* Brass gradient text for numerals and accents. */
-.text-brass-gradient {
-  background: linear-gradient(180deg, var(--color-brass-light) 0%, var(--color-brass) 55%, var(--color-brass-dark) 100%);
+/* Crimson gradient text for numerals and accents. */
+.text-crimson-gradient {
+  background: linear-gradient(180deg, var(--color-crimson-light) 0%, var(--color-crimson) 65%, var(--color-crimson-dark) 130%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;

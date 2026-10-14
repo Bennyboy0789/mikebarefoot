@@ -16,7 +16,7 @@ export default function CoachingPage() {
         label="Coaching"
         title={
           <>
-            One micro action. <span className="italic text-brass-light">Every day.</span>
+            One micro action. <span className="italic text-crimson-light">Every day.</span>
           </>
         }
         intro={coaching.intro}
@@ -32,7 +32,7 @@ export default function CoachingPage() {
             label="Mike's role"
             title={
               <>
-                In your <span className="italic text-brass-light">corner.</span>
+                In your <span className="italic text-crimson-light">corner.</span>
               </>
             }
             intro="Mike's pledge is simple: reach out to one person every day and be an encourager, an advisor and a cheerleader. That's the posture he brings to coaching."
@@ -40,7 +40,7 @@ export default function CoachingPage() {
           <ol data-reveal className="mt-16 grid gap-px border border-ash bg-ash md:grid-cols-3">
             {coaching.roles.map((r, i) => (
               <li key={r.title} className="bg-obsidian p-10">
-                <span className="text-brass-gradient font-serif text-7xl leading-none">0{i + 1}</span>
+                <span className="text-crimson-gradient font-serif text-7xl leading-none">0{i + 1}</span>
                 <h3 className="mt-8 font-serif text-4xl text-ivory">{r.title}</h3>
                 <p className="mt-4 leading-relaxed text-mist">{r.body}</p>
               </li>
@@ -74,24 +74,24 @@ export default function CoachingPage() {
       </section>
 
       {/* Getting started */}
-      <section className="bg-ivory text-obsidian">
-        <Container className="grid gap-16 py-28 lg:grid-cols-2 lg:items-center lg:gap-24 lg:py-36">
+      <section className="relative overflow-hidden border-t border-ash bg-obsidian">
+        <div aria-hidden className="absolute inset-0 bg-[radial-gradient(ellipse_at_85%_50%,rgba(214,31,44,0.14),transparent_55%)]" />
+        <Container className="relative grid gap-16 py-28 lg:grid-cols-2 lg:items-center lg:gap-24 lg:py-36">
           <SectionHeading
-            tone="light"
             index="03"
             label="Getting started"
             title="It starts with a conversation."
             intro="Tell Mike where you are and where you want to be in 12 months. Together you'll find the micro action you're willing to take even on your worst day — and build from there."
           />
-          <figure data-reveal className="border-l border-brass-dark pl-8">
-            <blockquote className="font-serif text-3xl italic leading-snug sm:text-4xl">
+          <figure data-reveal className="border-l border-crimson pl-8">
+            <blockquote className="font-serif text-3xl italic leading-snug text-ivory sm:text-4xl">
               &ldquo;I want to hear about your challenges. I want to hear about your stories. More importantly, I want
               to hear about your victories.&rdquo;
             </blockquote>
             <figcaption className="mt-6">
-              <Label className="!text-brass-dark">Mike Barefoot</Label>
+              <Label>Mike Barefoot</Label>
             </figcaption>
-            <ButtonLink href="/contact?topic=coaching" variant="ghost-dark" className="mt-10">
+            <ButtonLink href="/contact?topic=coaching" className="mt-10">
               Talk with Mike
             </ButtonLink>
           </figure>
@@ -101,7 +101,7 @@ export default function CoachingPage() {
       <CtaBand
         title={
           <>
-            Prefer to bring Mike <span className="italic text-brass-light">to your team?</span>
+            Prefer to bring Mike <span className="italic text-crimson-light">to your team?</span>
           </>
         }
         body="The KAIZEN keynote gives every person in the room a micro action to commit to for the next 12 months."

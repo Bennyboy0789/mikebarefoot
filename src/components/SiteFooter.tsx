@@ -8,7 +8,7 @@ export function SiteFooter() {
       <Container className="grid gap-12 pb-10 pt-20 md:grid-cols-[1.6fr_1fr_1fr]">
         <div>
           <p className="font-serif text-4xl text-ivory">
-            Lead with <span className="italic text-brass-light">discipline.</span>
+            Lead with <span className="italic text-crimson-light">discipline.</span>
           </p>
           <p className="mt-5 max-w-sm text-sm leading-relaxed">
             Keynotes and coaching that marry 37 years of martial arts discipline with 27 years of building winning
@@ -16,7 +16,7 @@ export function SiteFooter() {
           </p>
           <Link
             href="/contact"
-            className="mt-8 inline-block border-b border-brass pb-1 text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-brass-light transition-colors hover:text-ivory"
+            className="mt-8 inline-block border-b border-crimson pb-1 text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-crimson-light transition-colors hover:text-ivory"
           >
             Check availability
           </Link>
@@ -27,7 +27,7 @@ export function SiteFooter() {
           <ul className="mt-5 space-y-3 text-sm">
             {[{ href: "/", label: "Home" }, ...nav, { href: "/contact", label: "Contact" }].map((item) => (
               <li key={item.href}>
-                <Link href={item.href} className="transition-colors hover:text-brass-light">
+                <Link href={item.href} className="transition-colors hover:text-crimson-light">
                   {item.label}
                 </Link>
               </li>
@@ -39,13 +39,13 @@ export function SiteFooter() {
           <p className="text-[0.65rem] font-semibold uppercase tracking-[0.32em] text-ivory">Connect</p>
           <ul className="mt-5 space-y-3 text-sm">
             <li>
-              <a href={site.social.youtube} className="transition-colors hover:text-brass-light" rel="noopener" target="_blank">
+              <a href={site.social.youtube} className="transition-colors hover:text-crimson-light" rel="noopener" target="_blank">
                 YouTube
               </a>
             </li>
             {site.email && (
               <li>
-                <a href={`mailto:${site.email}`} className="transition-colors hover:text-brass-light">
+                <a href={`mailto:${site.email}`} className="transition-colors hover:text-crimson-light">
                   {site.email}
                 </a>
               </li>
@@ -69,7 +69,7 @@ export function SiteFooter() {
           <span>
             © {new Date().getFullYear()} {site.name}. All rights reserved.
           </span>
-          <span className="font-kanji tracking-[0.3em] text-brass/70">改善 · Kaizen</span>
+          <span className="font-kanji tracking-[0.3em] text-crimson/70">改善 · Kaizen</span>
         </Container>
       </div>
     </footer>

@@ -5,7 +5,7 @@ import { inquiryTopics, type InquiryTopic } from "@/content/site";
 import { sendInquiry, type InquiryState } from "./actions";
 
 const field =
-  "mt-3 w-full border-0 border-b border-ash bg-transparent px-0 py-3 text-lg text-ivory outline-none transition-colors placeholder:text-mist/50 focus:border-brass focus-visible:outline-none [&>option]:bg-coal";
+  "mt-3 w-full border-0 border-b border-ash bg-transparent px-0 py-3 text-lg text-ivory outline-none transition-colors placeholder:text-mist/50 focus:border-crimson focus-visible:outline-none [&>option]:bg-coal";
 const label = "text-[0.65rem] font-semibold uppercase tracking-[0.3em] text-mist";
 
 export function ContactForm({ defaultTopic }: { defaultTopic: InquiryTopic }) {
@@ -13,9 +13,9 @@ export function ContactForm({ defaultTopic }: { defaultTopic: InquiryTopic }) {
 
   if (state.status === "success") {
     return (
-      <div role="status" className="border border-brass/40 bg-coal p-10">
+      <div role="status" className="border border-crimson/40 bg-coal p-10">
         <p className="font-serif text-4xl text-ivory">
-          Message <span className="italic text-brass-light">received.</span>
+          Message <span className="italic text-crimson-light">received.</span>
         </p>
         <p className="mt-4 text-mist">Thanks for reaching out — Mike will be in touch soon.</p>
       </div>
@@ -68,14 +68,14 @@ export function ContactForm({ defaultTopic }: { defaultTopic: InquiryTopic }) {
 
       <div className="flex flex-col items-start gap-4 sm:col-span-2">
         {state.status === "error" && (
-          <p role="alert" className="text-sm font-medium text-brass-light">
+          <p role="alert" className="text-sm font-medium text-crimson-light">
             {state.message}
           </p>
         )}
         <button
           type="submit"
           disabled={pending}
-          className="bg-brass px-9 py-4 text-[0.72rem] font-semibold uppercase tracking-[0.26em] text-obsidian transition-colors hover:bg-brass-light disabled:opacity-60"
+          className="bg-crimson px-9 py-4 text-[0.72rem] font-semibold uppercase tracking-[0.26em] text-ivory transition-colors hover:bg-crimson-dark disabled:opacity-60"
         >
           {pending ? "Sending…" : "Send message"}
         </button>

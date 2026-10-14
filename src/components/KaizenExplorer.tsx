@@ -19,16 +19,16 @@ export function KaizenExplorer() {
         <span
           aria-hidden
           key={`letter-${active}`}
-          className="animate-hero-in text-brass-gradient pointer-events-none absolute -right-2 -top-8 select-none font-serif text-[13rem] leading-none opacity-25 sm:-right-4 sm:-top-10 sm:text-[22rem] sm:opacity-90"
+          className="animate-hero-in text-crimson-gradient pointer-events-none absolute -right-2 -top-8 select-none font-serif text-[13rem] leading-none opacity-25 sm:-right-4 sm:-top-10 sm:text-[22rem] sm:opacity-90"
         >
           {k.letter}
         </span>
         <div key={active} className="animate-hero-in relative">
-          <p className="text-[0.65rem] font-semibold uppercase tracking-[0.32em] text-brass">
+          <p className="text-[0.65rem] font-semibold uppercase tracking-[0.32em] text-crimson-light">
             Principle {String(active + 1).padStart(2, "0")} / 06
           </p>
           <h3 className="mt-4 font-serif text-5xl text-ivory sm:text-6xl">{k.word}</h3>
-          <p className="mt-4 font-serif text-2xl italic leading-snug text-brass-light">{k.line}</p>
+          <p className="mt-4 font-serif text-2xl italic leading-snug text-crimson-light">{k.line}</p>
           <p className="mt-6 max-w-lg leading-relaxed text-mist">{k.body}</p>
         </div>
       </div>
@@ -48,12 +48,12 @@ export function KaizenExplorer() {
               onClick={() => setActive(i)}
               onMouseEnter={() => setActive(i)}
               className={`group flex items-center gap-6 border-b py-5 text-left transition-colors duration-300 first:border-t ${
-                selected ? "border-brass/60" : "border-ash hover:border-ash"
+                selected ? "border-crimson/60" : "border-ash hover:border-ash"
               }`}
             >
               <span
                 className={`w-12 font-serif text-5xl leading-none transition-colors duration-300 ${
-                  selected ? "text-brass-light" : "text-ivory/25 group-hover:text-ivory/60"
+                  selected ? "text-crimson-light" : "text-ivory/25 group-hover:text-ivory/60"
                 }`}
               >
                 {item.letter}
@@ -70,7 +70,7 @@ export function KaizenExplorer() {
               </span>
               <span
                 aria-hidden
-                className={`h-px bg-brass transition-all duration-500 ${selected ? "w-10" : "w-0"}`}
+                className={`h-px bg-crimson transition-all duration-500 ${selected ? "w-10" : "w-0"}`}
               />
             </button>
           );

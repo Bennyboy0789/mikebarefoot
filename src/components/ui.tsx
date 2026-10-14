@@ -5,12 +5,12 @@ export function Container({ className = "", children }: { className?: string; ch
   return <div className={`mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-12 ${className}`}>{children}</div>;
 }
 
-/** Small-caps label with a brass rule, optionally numbered ("01"). */
+/** Small-caps label with a crimson rule, optionally numbered ("01"). */
 export function Label({ children, index, className = "" }: { children: ReactNode; index?: string; className?: string }) {
   return (
-    <p className={`flex items-center gap-4 text-[0.7rem] font-semibold uppercase tracking-[0.32em] text-brass ${className}`}>
-      {index && <span className="font-serif text-base tracking-normal text-brass-light">{index}</span>}
-      <span aria-hidden className="h-px w-10 bg-brass/60" />
+    <p className={`flex items-center gap-4 text-[0.7rem] font-semibold uppercase tracking-[0.32em] text-crimson-light ${className}`}>
+      {index && <span className="font-serif text-base tracking-normal text-crimson-light">{index}</span>}
+      <span aria-hidden className="h-px w-10 bg-crimson/60" />
       {children}
     </p>
   );
@@ -21,28 +21,24 @@ export function SectionHeading({
   index,
   title,
   intro,
-  tone = "dark",
   className = "",
 }: {
   label: string;
   index?: string;
   title: ReactNode;
   intro?: ReactNode;
-  tone?: "dark" | "light";
   className?: string;
 }) {
   return (
     <div className={`max-w-3xl ${className}`} data-reveal>
       <Label index={index}>{label}</Label>
       <h2
-        className={`mt-6 font-serif text-5xl leading-[1.02] tracking-[-0.01em] sm:text-6xl lg:text-7xl ${
-          tone === "dark" ? "text-ivory" : "text-obsidian"
-        }`}
+        className="mt-6 font-serif text-5xl leading-[1.02] tracking-[-0.01em] text-ivory sm:text-6xl lg:text-7xl"
       >
         {title}
       </h2>
       {intro && (
-        <p className={`mt-6 max-w-2xl text-lg leading-relaxed ${tone === "dark" ? "text-mist" : "text-smoke"}`}>
+        <p className="mt-6 max-w-2xl text-lg leading-relaxed text-mist">
           {intro}
         </p>
       )}
@@ -58,13 +54,12 @@ export function Arrow({ className = "" }: { className?: string }) {
   );
 }
 
-type ButtonLinkProps = ComponentProps<typeof Link> & { variant?: "brass" | "ghost" | "ghost-dark" };
+type ButtonLinkProps = ComponentProps<typeof Link> & { variant?: "crimson" | "ghost" };
 
-export function ButtonLink({ variant = "brass", className = "", children, ...props }: ButtonLinkProps) {
+export function ButtonLink({ variant = "crimson", className = "", children, ...props }: ButtonLinkProps) {
   const styles = {
-    brass: "bg-brass text-obsidian hover:bg-brass-light",
-    ghost: "border border-ivory/25 text-ivory hover:border-brass hover:text-brass-light",
-    "ghost-dark": "border border-obsidian/25 text-obsidian hover:border-obsidian hover:bg-obsidian hover:text-ivory",
+    crimson: "bg-crimson text-ivory hover:bg-crimson-dark",
+    ghost: "border border-ivory/25 text-ivory hover:border-crimson hover:text-crimson-light",
   }[variant];
   return (
     <Link
@@ -77,9 +72,9 @@ export function ButtonLink({ variant = "brass", className = "", children, ...pro
   );
 }
 
-/** Thin brass corner brackets framing an image — a quiet "plaque" detail. */
+/** Thin crimson corner brackets framing an image — a quiet "plaque" detail. */
 export function FrameCorners({ className = "" }: { className?: string }) {
-  const c = "absolute h-6 w-6 border-brass";
+  const c = "absolute h-6 w-6 border-crimson";
   return (
     <div aria-hidden className={`pointer-events-none absolute -inset-3 ${className}`}>
       <span className={`${c} left-0 top-0 border-l border-t`} />

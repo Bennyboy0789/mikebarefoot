@@ -37,7 +37,7 @@ export default function Home() {
             <Label>Keynote Speaker · Leadership Coach</Label>
             <h1 className="mt-8 font-serif text-[3.4rem] leading-[0.95] tracking-[-0.02em] text-ivory sm:text-7xl lg:text-[7.25rem]">
               The dojo and the boardroom run on the{" "}
-              <span className="italic text-brass-light">same playbook.</span>
+              <span className="italic text-crimson-light">same playbook.</span>
             </h1>
             <p className="mt-8 max-w-xl text-lg leading-relaxed text-mist">
               {site.name} pairs 37 years of martial arts discipline with 27 years of building winning teams — and
@@ -60,7 +60,7 @@ export default function Home() {
                 <dd>
                   <span className="font-serif text-4xl text-ivory sm:text-5xl">
                     {c.value}
-                    {c.unit && <span className="ml-1 text-xl text-brass">{c.unit}</span>}
+                    {c.unit && <span className="ml-1 text-xl text-crimson-light">{c.unit}</span>}
                   </span>
                   <span className="mt-2 block text-[0.62rem] font-semibold uppercase tracking-[0.3em] text-mist">
                     {c.label}
@@ -88,9 +88,9 @@ export default function Home() {
           <div data-reveal>
             <Label index="01">The leader</Label>
             <h2 className="mt-6 font-serif text-5xl leading-[1.02] text-ivory sm:text-6xl lg:text-7xl">
-              Two worlds. <span className="italic text-brass-light">One discipline.</span>
+              Two worlds. <span className="italic text-crimson-light">One discipline.</span>
             </h2>
-            <p className="mt-8 text-xl leading-relaxed text-ivory/85 first-letter:float-left first-letter:mr-2 first-letter:font-serif first-letter:text-7xl first-letter:leading-[0.8] first-letter:text-brass-light">
+            <p className="mt-8 text-xl leading-relaxed text-ivory/85 first-letter:float-left first-letter:mr-2 first-letter:font-serif first-letter:text-7xl first-letter:leading-[0.8] first-letter:text-crimson-light">
               For 27 years Mike sat across the table from thousands of executives and candidates — as an elite
               recruiter, an account executive, and finally as the founder of a boutique IT staffing firm that stayed
               profitable through every one of its 15+ years.
@@ -103,7 +103,7 @@ export default function Home() {
               {recruiterHonors.map((h) => (
                 <li
                   key={h}
-                  className="border border-brass/40 px-4 py-2.5 text-[0.62rem] font-semibold uppercase tracking-[0.26em] text-brass-light"
+                  className="border border-crimson/40 px-4 py-2.5 text-[0.62rem] font-semibold uppercase tracking-[0.26em] text-crimson-light"
                 >
                   {h}
                 </li>
@@ -113,8 +113,8 @@ export default function Home() {
               href="/about"
               className="group mt-12 inline-flex items-center gap-3 text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-ivory"
             >
-              <span className="border-b border-brass pb-1">Read Mike&apos;s story</span>
-              <Arrow className="text-brass transition-transform group-hover:translate-x-1" />
+              <span className="border-b border-crimson pb-1">Read Mike&apos;s story</span>
+              <Arrow className="text-crimson-light transition-transform group-hover:translate-x-1" />
             </Link>
           </div>
         </Container>
@@ -129,12 +129,12 @@ export default function Home() {
               label="The KAIZEN system"
               title={
                 <>
-                  Six principles. <span className="italic text-brass-light">Continuous improvement.</span>
+                  Six principles. <span className="italic text-crimson-light">Continuous improvement.</span>
                 </>
               }
               intro="Kaizen is Japanese for continuous improvement — the credo Mike lives by on the mat. He built it into a six-part system for leading yourself and others."
             />
-            <span aria-hidden className="hidden font-kanji text-8xl leading-none text-brass/30 lg:block">
+            <span aria-hidden className="hidden font-kanji text-8xl leading-none text-crimson/30 lg:block">
               改善
             </span>
           </div>
@@ -157,12 +157,12 @@ export default function Home() {
           <ol data-reveal className="mt-16 grid grid-cols-2 gap-px border border-ash bg-ash lg:grid-cols-4">
             {microActions.steps.map((step, i) => (
               <li key={step} className="bg-obsidian p-6 sm:p-10">
-                <span className="text-brass-gradient font-serif text-5xl leading-none sm:text-7xl">0{i + 1}</span>
+                <span className="text-crimson-gradient font-serif text-5xl leading-none sm:text-7xl">0{i + 1}</span>
                 <p className="mt-5 font-serif text-xl leading-snug text-ivory sm:mt-6 sm:text-2xl">{step}</p>
               </li>
             ))}
           </ol>
-          <p data-reveal className="mt-14 max-w-3xl font-serif text-2xl italic leading-relaxed text-brass-light sm:text-3xl">
+          <p data-reveal className="mt-14 max-w-3xl font-serif text-2xl italic leading-relaxed text-crimson-light sm:text-3xl">
             {microActions.takeaway}
           </p>
         </Container>
@@ -170,7 +170,7 @@ export default function Home() {
 
       {/* ── 04 On stage ──────────────────────────────────────── */}
       <section className="relative overflow-hidden border-t border-ash bg-coal">
-        <div aria-hidden className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_50%,rgba(197,164,100,0.10),transparent_55%)]" />
+        <div aria-hidden className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_50%,rgba(214,31,44,0.10),transparent_55%)]" />
         <Container className="relative grid items-center gap-16 py-28 lg:grid-cols-[1.1fr_0.9fr] lg:gap-24 lg:py-40">
           <div>
             <SectionHeading
@@ -178,7 +178,7 @@ export default function Home() {
               label="On stage"
               title={
                 <>
-                  A homecoming keynote <span className="italic text-brass-light">at Campbell.</span>
+                  A homecoming keynote <span className="italic text-crimson-light">at Campbell.</span>
                 </>
               }
               intro="Mike returned to the campus where he attended basketball camp at 11 and later earned his MBA — to walk the 2026 Leadership Summit through KAIZEN, live."
@@ -190,7 +190,7 @@ export default function Home() {
                 "One commitment every attendee carried into the next 12 months",
               ].map((item) => (
                 <li key={item} className="flex items-start gap-4 text-lg text-ivory/85">
-                  <span aria-hidden className="mt-2.5 h-1.5 w-1.5 shrink-0 rotate-45 bg-brass" />
+                  <span aria-hidden className="mt-2.5 h-1.5 w-1.5 shrink-0 rotate-45 bg-crimson" />
                   {item}
                 </li>
               ))}
@@ -202,7 +202,7 @@ export default function Home() {
             </div>
           </div>
           <div data-reveal className="relative mx-auto w-full max-w-sm">
-            <div aria-hidden className="absolute -inset-3 border border-brass/30" />
+            <div aria-hidden className="absolute -inset-3 border border-crimson/30" />
             <VideoFacade
               id={featuredKeynote.youtubeId}
               title={featuredKeynote.event}
@@ -220,7 +220,7 @@ export default function Home() {
             label="The record"
             title={
               <>
-                Proof, <span className="italic text-brass-light">not theory.</span>
+                Proof, <span className="italic text-crimson-light">not theory.</span>
               </>
             }
           />
@@ -268,7 +268,7 @@ export default function Home() {
                 <Label>{card.label}</Label>
                 <h3 className="mt-6 max-w-md font-serif text-4xl leading-[1.05] text-ivory sm:text-5xl">{card.title}</h3>
                 <p className="mt-5 max-w-md leading-relaxed text-mist">{card.body}</p>
-                <span className="mt-10 inline-flex items-center gap-3 text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-brass-light">
+                <span className="mt-10 inline-flex items-center gap-3 text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-crimson-light">
                   Learn more <Arrow className="transition-transform duration-300 group-hover:translate-x-1.5" />
                 </span>
               </div>

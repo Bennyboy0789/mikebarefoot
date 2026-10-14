@@ -16,7 +16,7 @@ export default function AboutPage() {
         label="About Mike"
         title={
           <>
-            Life isn&apos;t linear. <span className="italic text-brass-light">Discipline is.</span>
+            Life isn&apos;t linear. <span className="italic text-crimson-light">Discipline is.</span>
           </>
         }
         intro="Entrepreneur, martial artist and strategist — Mike Barefoot has spent his life mastering two seemingly different worlds, only to discover they share the exact same playbook for elite success."
@@ -35,7 +35,7 @@ export default function AboutPage() {
                   data-reveal
                   className="grid gap-4 border-t border-ash py-12 sm:grid-cols-[7rem_1fr] sm:gap-10"
                 >
-                  <span className="text-brass-gradient font-serif text-6xl leading-none">
+                  <span className="text-crimson-gradient font-serif text-6xl leading-none">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <div>
@@ -56,7 +56,7 @@ export default function AboutPage() {
               caption="Campbell University · 2026"
             />
             {/* TODO(mike): replace with a professional portrait */}
-            <div className="mt-12 border-l border-brass/60 pl-6">
+            <div className="mt-12 border-l border-crimson/60 pl-6">
               <Label>In his words</Label>
               <p className="mt-5 font-serif text-2xl italic leading-snug text-ivory">
                 &ldquo;I always like to say I have a master&apos;s degree in business. I like to think I have a PhD in
@@ -76,7 +76,7 @@ export default function AboutPage() {
             label="By the numbers"
             title={
               <>
-                Built over <span className="italic text-brass-light">decades.</span>
+                Built over <span className="italic text-crimson-light">decades.</span>
               </>
             }
           />

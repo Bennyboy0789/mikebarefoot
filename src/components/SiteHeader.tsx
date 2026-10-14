@@ -9,7 +9,7 @@ export function Monogram({ className = "" }: { className?: string }) {
   return (
     <span
       aria-hidden
-      className={`grid h-10 w-10 place-items-center border border-brass/70 font-serif text-lg italic text-brass-light ${className}`}
+      className={`grid h-10 w-10 place-items-center border border-crimson/70 font-serif text-lg italic text-crimson-light ${className}`}
     >
       MB
     </span>
@@ -53,14 +53,14 @@ export function SiteHeader() {
               key={item.href}
               href={item.href}
               aria-current={pathname === item.href ? "page" : undefined}
-              className="relative py-2 text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-mist transition-colors hover:text-ivory aria-[current=page]:text-ivory aria-[current=page]:after:absolute aria-[current=page]:after:inset-x-0 aria-[current=page]:after:-bottom-0.5 aria-[current=page]:after:h-px aria-[current=page]:after:bg-brass"
+              className="relative py-2 text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-mist transition-colors hover:text-ivory aria-[current=page]:text-ivory aria-[current=page]:after:absolute aria-[current=page]:after:inset-x-0 aria-[current=page]:after:-bottom-0.5 aria-[current=page]:after:h-px aria-[current=page]:after:bg-crimson"
             >
               {item.label}
             </Link>
           ))}
           <Link
             href="/contact"
-            className="border border-brass/70 px-5 py-3 text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-brass-light transition-colors hover:bg-brass hover:text-obsidian"
+            className="border border-crimson/70 px-5 py-3 text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-crimson-light transition-colors hover:bg-crimson hover:text-ivory"
           >
             Book Mike
           </Link>
@@ -89,7 +89,7 @@ export function SiteHeader() {
                   href={item.href}
                   onClick={() => setOpen(false)}
                   aria-current={pathname === item.href ? "page" : undefined}
-                  className="block py-5 font-serif text-4xl text-ivory aria-[current=page]:text-brass-light"
+                  className="block py-5 font-serif text-4xl text-ivory aria-[current=page]:text-crimson-light"
                 >
                   {item.label}
                 </Link>
