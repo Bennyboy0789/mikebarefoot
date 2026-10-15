@@ -60,7 +60,6 @@ export function SiteFooter() {
                 </a>
               </li>
             )}
-            <li>{site.location}</li>
           </ul>
         </div>
       </Container>

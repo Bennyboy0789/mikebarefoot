@@ -10,7 +10,7 @@ export function GET() {
 > ${site.name} is a leadership keynote speaker and coach based in ${site.location}. He blends 37 years of martial arts discipline (7th-degree black belt in karate) with a 27-year career building winning teams in the staffing industry, and speaks on leadership, recruiting, retention and continuous improvement (Kaizen).
 
 Tagline: ${site.tagline}
-He founded ${site.company}, a boutique IT staffing firm (2010 to 2025) that stayed profitable every one of its 15+ years, and personally placed 1,000+ professionals over his career. His insights have been featured 60+ times in outlets including USA Today, CareerBuilder and Staffing Industry Analysts.
+He founded ${site.company}, a boutique IT staffing firm (2010 to 2025) that stayed profitable every one of its 15+ years, and personally placed 1,000+ professionals over his career. His insights have been featured 60+ times in outlets including USA Today and CareerBuilder.
 
 ## Key pages
 - [Home](${u("/")}): Overview of speaking and coaching.

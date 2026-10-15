@@ -85,8 +85,8 @@ export const testimonials = [
     org: "NC State University",
   },
   {
-    // Excerpt of a recommendation letter. TODO(mike): the letter is unsigned.
-    // Add the writer's name (and confirm they're happy to be quoted).
+    // Excerpt of a recommendation letter. TODO(mike): the letter is unsigned; the .docx
+    // author field says "Denise H. Barton". Confirm she wrote it and is happy to be named.
     quote:
       "His depth of experience and knowledge as well as his interpersonal skills and ability to connect with the audience in a relaxed comfortable way made the presentation enjoyable. The students loved it!",
     name: null as string | null,
@@ -114,7 +114,6 @@ export const stats = [
 export const mediaMentions = [
   "USA Today",
   "CareerBuilder",
-  "Staffing Industry Analysts",
 ];
 
 // White knock-outs of each outlet's current logo (Wikimedia Commons; originals in _source/images).
@@ -236,7 +235,7 @@ export const story = [
   },
   {
     heading: "Giving back",
-    body: "Mike has mentored future executives at institutions like NC State University, and his insights have been featured 60+ times in outlets including USA Today, CareerBuilder and Staffing Industry Analysts. Today his goal is simple: help people find their successes and their victories.",
+    body: "Mike has mentored future executives at institutions like NC State University, and his insights have been featured 60+ times in outlets including USA Today and CareerBuilder. Today his goal is simple: help people find their successes and their victories.",
   },
 ];
 
@@ -315,7 +314,8 @@ export const speaking = {
     { when: null, org: "BORN Toastmasters · Brain Candy", title: "KAIZEN: The Pillars of Success" },
     { when: "Three years running", org: "NC State University", title: "MBA program guest speaker" },
     { when: null, org: "Wake Tech Community College", title: "Introduction to Business guest speaker" },
-    { when: null, org: "The GOAT Awards", title: "Seminar speaker" },
+    // Date from the recording Mike sent (25 Jul 2026); his topic was financial independence.
+    { when: "2026", org: "The GOAT Awards", title: "Seminar speaker · Financial independence" },
   ] as { when: string | null; org: string; title: string; href?: string }[],
 };
 

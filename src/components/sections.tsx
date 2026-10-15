@@ -59,14 +59,13 @@ type MarqueeItem = { name: string; logo?: { src: string; width: number; height: 
 
 export function FeaturedIn() {
   // Media outlets, with the host institutions' logos woven between them.
-  const [usaToday, careerBuilder, sia] = mediaMentions;
+  const [usaToday, careerBuilder] = mediaMentions;
   const logo = (name: string): MarqueeItem => spokenAt.find((o) => o.name === name)!;
   const sequence: MarqueeItem[] = [
     { name: usaToday, logo: mediaLogos[usaToday] },
     logo("Campbell University"),
     { name: careerBuilder, logo: mediaLogos[careerBuilder] },
     logo("BORN Toastmasters"),
-    { name: sia },
     logo("Wake Tech Community College"),
     logo("The GOAT Awards"),
     { name: "60+ media features" },
