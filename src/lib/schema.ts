@@ -174,7 +174,7 @@ const graph = (...nodes: object[]) => ({ "@context": "https://schema.org", "@gra
 
 // The full Person and WebSite go on every page so each page stands on its own.
 export const schema = {
-  home: graph(person, website, webPage("/", `${site.name} | Leadership keynote speaker & coach`, "WebPage", { mainEntity: personRef }), keynoteVideo),
+  home: graph(person, website, webPage("/", `${site.name} | Leadership keynote speaker & coach`, "WebPage", { mainEntity: personRef })),
   about: graph(
     person,
     website,

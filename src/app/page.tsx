@@ -4,11 +4,10 @@ import { schema } from "@/lib/schema";
 import Image from "next/image";
 import Link from "next/link";
 import { KaizenExplorer } from "@/components/KaizenExplorer";
-import { CtaBand, FeaturedIn, FramedImage, QuoteBand, SpokenAt, StatsGrid, Testimonials } from "@/components/sections";
+import { CtaBand, FeaturedIn, FramedImage, SpokenAt, StatsGrid, Testimonials } from "@/components/sections";
 import { HeroMedia } from "@/components/HeroMedia";
 import { Arrow, ButtonLink, Container, HeadingEyebrow, Label, SectionHeading } from "@/components/ui";
-import { VideoFacade } from "@/components/VideoFacade";
-import { featuredKeynote, featuredTestimonial, microActions, recruiterHonors, site } from "@/content/site";
+import { featuredTestimonial, microActions, recruiterHonors, site } from "@/content/site";
 
 export const metadata: Metadata = {
   description:
@@ -177,12 +176,6 @@ export default function Home() {
         </Container>
       </section>
 
-      <QuoteBand
-        quote="I want the relationship more than I want the money."
-        cite="Mike Barefoot"
-        context="on walking away from a high five-figure fee"
-      />
-
       {/* ── 03 The method ────────────────────────────────────── */}
       <section className="relative bg-obsidian">
         <Container className="py-28 lg:py-40">
@@ -201,57 +194,13 @@ export default function Home() {
         </Container>
       </section>
 
-      {/* ── 04 On stage ──────────────────────────────────────── */}
-      <section className="relative overflow-hidden border-t border-ash bg-coal">
-        <div aria-hidden className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_50%,rgba(214,31,44,0.10),transparent_55%)]" />
-        <Container className="relative grid items-center gap-16 py-28 lg:grid-cols-[1.1fr_0.9fr] lg:gap-24 lg:py-40">
-          <div>
-            <SectionHeading
-              index="04"
-              label="On stage"
-              title={
-                <>
-                  A homecoming keynote <span className="italic text-crimson-light">at Campbell.</span>
-                </>
-              }
-              intro="Mike returned to the campus where he attended basketball camp at 11 and later earned his MBA — to walk the 2026 Leadership Summit through KAIZEN, live."
-            />
-            <ul data-reveal className="mt-10 space-y-5">
-              {[
-                "The integrity story behind turning down a high five-figure fee",
-                "A live martial arts demonstration of micro actions",
-                "One commitment every attendee carried into the next 12 months",
-              ].map((item) => (
-                <li key={item} className="flex items-start gap-4 text-lg text-ivory/85">
-                  <span aria-hidden className="mt-2.5 h-1.5 w-1.5 shrink-0 rotate-45 bg-crimson" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-            <div data-reveal className="mt-12">
-              <ButtonLink href="/speaking" variant="ghost">
-                Explore the keynote
-              </ButtonLink>
-            </div>
-          </div>
-          <div data-reveal className="relative mx-auto w-full max-w-sm">
-            <div aria-hidden className="absolute -inset-3 border border-crimson/30" />
-            <VideoFacade
-              id={featuredKeynote.youtubeId}
-              title={featuredKeynote.event}
-              poster="/images/campbell-keynote-poster.jpg"
-            />
-          </div>
-        </Container>
-      </section>
+      <Testimonials index="04" />
 
-      <Testimonials index="05" />
-
-      {/* ── 06 The record ────────────────────────────────────── */}
+      {/* ── 05 The record ────────────────────────────────────── */}
       <section className="relative bg-obsidian">
         <Container className="py-28 lg:py-40">
           <SectionHeading
-            index="06"
+            index="05"
             label="The record"
             title={
               <>
@@ -298,9 +247,9 @@ export default function Home() {
                 alt=""
                 fill
                 sizes="(min-width: 768px) 50vw, 100vw"
-                className="object-cover object-top opacity-35 transition-all duration-700 group-hover:scale-105 group-hover:opacity-50"
+                className="object-cover object-top opacity-75 transition-all duration-700 group-hover:scale-105 group-hover:opacity-100"
               />
-              <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/70 to-obsidian/20" />
+              <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/45 to-transparent" />
               <div className="relative">
                 <Label>{card.label}</Label>
                 <h3 className="mt-6 max-w-md font-serif text-4xl leading-[1.05] text-ivory sm:text-5xl">{card.title}</h3>

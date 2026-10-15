@@ -5,12 +5,11 @@ export function Container({ className = "", children }: { className?: string; ch
   return <div className={`mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-12 ${className}`}>{children}</div>;
 }
 
-/** Small-caps label with a crimson rule, optionally numbered ("01"). */
+/** Small-caps crimson label, optionally numbered ("01"). */
 export function Label({ children, index, className = "" }: { children: ReactNode; index?: string; className?: string }) {
   return (
     <p className={`flex items-center gap-4 text-[0.7rem] font-semibold uppercase tracking-[0.32em] text-crimson-light ${className}`}>
       {index && <span className="font-serif text-base tracking-normal text-crimson-light">{index}</span>}
-      <span aria-hidden className="h-px w-10 bg-crimson/60" />
       {children}
     </p>
   );
@@ -20,7 +19,6 @@ export function Label({ children, index, className = "" }: { children: ReactNode
 export function HeadingEyebrow({ children }: { children: ReactNode }) {
   return (
     <span className="flex items-center gap-4 font-sans text-[0.7rem] font-semibold not-italic uppercase leading-normal tracking-[0.32em] text-crimson-light">
-      <span aria-hidden className="h-px w-10 bg-crimson/60" />
       {children}
       <span className="sr-only">:</span>
     </span>
