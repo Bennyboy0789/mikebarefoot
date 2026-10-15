@@ -118,13 +118,16 @@ export const mediaMentions = [
   "Small Business & Technology Development Center",
 ];
 
-// Organizations Mike has spoken for. Logos are white knock-outs of files Mike supplied.
+// Organizations Mike has spoken for. Logos are white knock-outs of files Mike supplied
+// (Campbell, Wake Tech) or of each organization's own site logo (born.toastmastersclubs.org,
+// goathonors.org; originals in _source/images).
 export const spokenAt = [
   { name: "Campbell University", logo: { src: "/images/logo-campbell.png", width: 610, height: 141 } },
   { name: "Wake Tech Community College", logo: { src: "/images/logo-wake-tech.png", width: 579, height: 246 } },
   { name: "NC State University MBA", logo: null },
-  { name: "BORN Toastmasters", logo: null },
-  { name: "The GOAT Awards", logo: null },
+  { name: "BORN Toastmasters", logo: { src: "/images/logo-born-toastmasters.png", width: 276, height: 156 } },
+  // The awards' own branding is "G.O.A.T. Honors"; Mike's materials say "The GOAT Awards".
+  { name: "The GOAT Awards", logo: { src: "/images/logo-goat-honors.png", width: 454, height: 387 } },
 ];
 
 export const recruiterHonors = ["Rookie of the Year", "Multiple Performer of the Year awards", "Regular President's Club honors"];

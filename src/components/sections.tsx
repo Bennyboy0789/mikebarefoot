@@ -65,9 +65,11 @@ export function FeaturedIn() {
     { name: usaToday },
     logo("Campbell University"),
     { name: careerBuilder },
+    logo("BORN Toastmasters"),
     { name: sia },
     logo("Wake Tech Community College"),
     { name: sbtdc },
+    logo("The GOAT Awards"),
     { name: "60+ media features" },
   ];
   const items = [...sequence, ...sequence];
