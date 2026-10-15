@@ -59,26 +59,25 @@ type MarqueeItem = { name: string; logo?: { src: string; width: number; height: 
 
 export function FeaturedIn() {
   // Media outlets, with the host institutions' logos woven between them.
-  const [usaToday, careerBuilder, sia, sbtdc] = mediaMentions;
+  const [usaToday, careerBuilder, sia] = mediaMentions;
   const logo = (name: string): MarqueeItem => spokenAt.find((o) => o.name === name)!;
   const sequence: MarqueeItem[] = [
     { name: usaToday, logo: mediaLogos[usaToday] },
     logo("Campbell University"),
-    { name: careerBuilder },
+    { name: careerBuilder, logo: mediaLogos[careerBuilder] },
     logo("BORN Toastmasters"),
     { name: sia },
     logo("Wake Tech Community College"),
-    { name: sbtdc },
     logo("The GOAT Awards"),
     { name: "60+ media features" },
     logo("NC State University MBA"),
   ];
   const items = [...sequence, ...sequence];
   return (
-    <section aria-label="Featured in and spoken at" className="border-y border-ash bg-coal py-8">
+    <section aria-label="Featured by" className="border-y border-ash bg-coal py-8">
       <Container className="flex flex-col gap-6 lg:flex-row lg:items-center lg:gap-14">
         <p className="shrink-0 text-[0.65rem] font-semibold uppercase tracking-[0.32em] text-crimson-light">
-          Featured in &amp; spoken at
+          Featured By
         </p>
         <div className="relative flex-1 overflow-hidden [mask-image:linear-gradient(90deg,transparent,#000_8%,#000_92%,transparent)]">
           <ul className="animate-marquee flex w-max items-center gap-14">

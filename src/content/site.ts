@@ -115,12 +115,12 @@ export const mediaMentions = [
   "USA Today",
   "CareerBuilder",
   "Staffing Industry Analysts",
-  "Small Business & Technology Development Center",
 ];
 
-// White knock-out of the outlet's current logo (Wikimedia Commons; original in _source/images).
+// White knock-outs of each outlet's current logo (Wikimedia Commons; originals in _source/images).
 export const mediaLogos: Record<string, { src: string; width: number; height: number }> = {
   "USA Today": { src: "/images/logo-usa-today.png", width: 640, height: 96 },
+  CareerBuilder: { src: "/images/logo-careerbuilder.png", width: 768, height: 96 },
 };
 
 // Organizations Mike has spoken for. Logos are white knock-outs of files Mike supplied
