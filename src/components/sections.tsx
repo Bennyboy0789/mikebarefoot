@@ -1,6 +1,6 @@
 import Image from "next/image";
 import type { ReactNode } from "react";
-import { featuredTestimonial, mediaMentions, spokenAt, stats, testimonials } from "@/content/site";
+import { featuredTestimonial, mediaLogos, mediaMentions, spokenAt, stats, testimonials } from "@/content/site";
 import { ButtonLink, Container, FrameCorners, HeadingEyebrow, Label } from "./ui";
 
 /** Inner-page hero: full-bleed, editorial, optional graded photo bleeding off the right edge. */
@@ -62,7 +62,7 @@ export function FeaturedIn() {
   const [usaToday, careerBuilder, sia, sbtdc] = mediaMentions;
   const logo = (name: string): MarqueeItem => spokenAt.find((o) => o.name === name)!;
   const sequence: MarqueeItem[] = [
-    { name: usaToday },
+    { name: usaToday, logo: mediaLogos[usaToday] },
     logo("Campbell University"),
     { name: careerBuilder },
     logo("BORN Toastmasters"),
@@ -71,6 +71,7 @@ export function FeaturedIn() {
     { name: sbtdc },
     logo("The GOAT Awards"),
     { name: "60+ media features" },
+    logo("NC State University MBA"),
   ];
   const items = [...sequence, ...sequence];
   return (

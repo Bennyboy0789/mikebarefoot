@@ -118,13 +118,18 @@ export const mediaMentions = [
   "Small Business & Technology Development Center",
 ];
 
+// White knock-out of the outlet's current logo (Wikimedia Commons; original in _source/images).
+export const mediaLogos: Record<string, { src: string; width: number; height: number }> = {
+  "USA Today": { src: "/images/logo-usa-today.png", width: 640, height: 96 },
+};
+
 // Organizations Mike has spoken for. Logos are white knock-outs of files Mike supplied
-// (Campbell, Wake Tech) or of each organization's own site logo (born.toastmastersclubs.org,
-// goathonors.org; originals in _source/images).
+// (Campbell, Wake Tech), of each organization's own site logo (born.toastmastersclubs.org,
+// goathonors.org), or of NC State's brick logo from Wikimedia Commons; originals in _source/images.
 export const spokenAt = [
   { name: "Campbell University", logo: { src: "/images/logo-campbell.png", width: 610, height: 141 } },
   { name: "Wake Tech Community College", logo: { src: "/images/logo-wake-tech.png", width: 579, height: 246 } },
-  { name: "NC State University MBA", logo: null },
+  { name: "NC State University MBA", logo: { src: "/images/logo-nc-state.png", width: 604, height: 260 } },
   { name: "BORN Toastmasters", logo: { src: "/images/logo-born-toastmasters.png", width: 276, height: 156 } },
   // The awards' own branding is "G.O.A.T. Honors"; Mike's materials say "The GOAT Awards".
   { name: "The GOAT Awards", logo: { src: "/images/logo-goat-honors.png", width: 454, height: 387 } },
