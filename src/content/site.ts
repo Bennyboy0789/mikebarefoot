@@ -58,8 +58,8 @@ export const featuredKeynote = {
 // Supplied by Mike (Oct 2026). Verbatim: don't edit the wording. `pull` must
 // stay an exact excerpt of `letter`.
 export const featuredTestimonial = {
-  // Short form for tight spots (hero). Must stay an exact excerpt of `pull`.
-  excerpt: "…made your session one of the highlights of the summit.",
+  // Short form for tight spots (hero). Must stay an exact excerpt of `letter`.
+  excerpt: "You challenged our audience to think differently about leadership…",
     pull: "Your ability to connect with the room, share practical wisdom, and inspire meaningful reflection made your session one of the highlights of the summit.",
     salutation: "Dear Mike,",
     letter: [
