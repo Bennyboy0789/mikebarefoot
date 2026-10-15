@@ -5,32 +5,37 @@ import { kaizen } from "@/content/site";
 
 export function KaizenExplorer() {
   const [active, setActive] = useState(0);
-  const k = kaizen[active];
 
   return (
     <div className="grid gap-10 lg:grid-cols-[1.15fr_1fr] lg:gap-20">
-      {/* Panel */}
-      <div
-        id="kaizen-panel"
-        role="tabpanel"
-        aria-labelledby={`kaizen-tab-${active}`}
-        className="relative flex min-h-[26rem] flex-col justify-end overflow-hidden border border-ash bg-coal p-8 sm:p-12"
-      >
-        <span
-          aria-hidden
-          key={`letter-${active}`}
-          className="animate-hero-in text-crimson-gradient pointer-events-none absolute -right-2 -top-8 select-none font-serif text-[13rem] leading-none opacity-25 sm:-right-4 sm:-top-10 sm:text-[22rem] sm:opacity-90"
-        >
-          {k.letter}
-        </span>
-        <div key={active} className="animate-hero-in relative">
-          <p className="text-[0.65rem] font-semibold uppercase tracking-[0.32em] text-crimson-light">
-            Principle {String(active + 1).padStart(2, "0")} / 06
-          </p>
-          <h3 className="mt-4 font-serif text-5xl text-ivory sm:text-6xl">{k.word}</h3>
-          <p className="mt-4 font-serif text-2xl italic leading-snug text-crimson-light">{k.line}</p>
-          <p className="mt-6 max-w-lg leading-relaxed text-mist">{k.body}</p>
-        </div>
+      {/* Panels: all six are server-rendered so crawlers see every principle; inactive ones are hidden.
+          A CSS animation restarts when an element leaves display:none, so each reveal still animates. */}
+      <div className="relative min-h-[26rem] overflow-hidden border border-ash bg-coal">
+        {kaizen.map((item, i) => (
+          <div
+            key={item.letter}
+            id={`kaizen-panel-${i}`}
+            role="tabpanel"
+            aria-labelledby={`kaizen-tab-${i}`}
+            hidden={i !== active}
+            className="flex h-full min-h-[26rem] flex-col justify-end p-8 sm:p-12"
+          >
+            <span
+              aria-hidden
+              className="animate-hero-in text-crimson-gradient pointer-events-none absolute -right-2 -top-8 select-none font-serif text-[13rem] leading-none opacity-25 sm:-right-4 sm:-top-10 sm:text-[22rem] sm:opacity-90"
+            >
+              {item.letter}
+            </span>
+            <div className="animate-hero-in relative">
+              <p className="text-[0.65rem] font-semibold uppercase tracking-[0.32em] text-crimson-light">
+                Principle {String(i + 1).padStart(2, "0")} / 06
+              </p>
+              <h3 className="mt-4 font-serif text-5xl text-ivory sm:text-6xl">{item.word}</h3>
+              <p className="mt-4 font-serif text-2xl italic leading-snug text-crimson-light">{item.line}</p>
+              <p className="mt-6 max-w-lg leading-relaxed text-mist">{item.body}</p>
+            </div>
+          </div>
+        ))}
       </div>
 
       {/* Tabs */}
@@ -44,7 +49,7 @@ export function KaizenExplorer() {
               role="tab"
               type="button"
               aria-selected={selected}
-              aria-controls="kaizen-panel"
+              aria-controls={`kaizen-panel-${i}`}
               onClick={() => setActive(i)}
               onMouseEnter={() => setActive(i)}
               className={`group flex items-center gap-6 border-b py-5 text-left transition-colors duration-300 first:border-t ${

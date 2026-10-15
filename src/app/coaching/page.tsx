@@ -1,19 +1,23 @@
 import type { Metadata } from "next";
-import { CtaBand, FramedImage, PageHero } from "@/components/sections";
+import { JsonLd } from "@/components/JsonLd";
+import { schema } from "@/lib/schema";
+import { CtaBand, FramedImage, PageHero, QuoteBand } from "@/components/sections";
 import { ButtonLink, Container, Label, SectionHeading } from "@/components/ui";
 import { coaching } from "@/content/site";
 
 export const metadata: Metadata = {
-  title: "Coaching",
+  title: { absolute: "Leadership & Career Coaching in Raleigh, NC | Mike Barefoot" },
   description:
-    "Leadership and career coaching with Mike Barefoot — built on the KAIZEN principle of continuous improvement and 27 years of helping people make their biggest decisions.",
+    "Leadership and career coaching with Mike Barefoot, built on KAIZEN continuous improvement and 27 years of guiding people through career and hiring decisions.",
+  alternates: { canonical: "/coaching" },
 };
 
 export default function CoachingPage() {
   return (
     <>
+      <JsonLd data={schema.coaching} />
       <PageHero
-        label="Coaching"
+        label="Leadership & career coaching · Raleigh, NC"
         title={
           <>
             One micro action. <span className="italic text-crimson-light">Every day.</span>
@@ -53,8 +57,8 @@ export default function CoachingPage() {
       <section className="border-t border-ash bg-coal">
         <Container className="grid gap-20 py-28 lg:grid-cols-[0.8fr_1.2fr] lg:gap-24 lg:py-40">
           <FramedImage
-            src="/images/mike-wide.jpg"
-            alt="Mike Barefoot speaking"
+            src="/images/mike-office.jpg"
+            alt="Portrait of Mike Barefoot"
             width={864}
             height={1080}
             className="mx-auto w-full max-w-sm lg:sticky lg:top-32 lg:self-start"
@@ -72,6 +76,12 @@ export default function CoachingPage() {
           </div>
         </Container>
       </section>
+
+      {/* Healthy Mind, Healthy Life podcast, Dec 2025. */}
+      <QuoteBand
+        quote="You're never going to be perfect in terms of your results, but you can be perfect in terms of your intent."
+        cite="Mike Barefoot"
+      />
 
       {/* Getting started */}
       <section className="relative overflow-hidden border-t border-ash bg-obsidian">

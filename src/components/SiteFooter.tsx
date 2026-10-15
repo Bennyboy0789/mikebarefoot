@@ -43,6 +43,16 @@ export function SiteFooter() {
                 YouTube
               </a>
             </li>
+            <li>
+              <a href={site.social.linkedin} className="transition-colors hover:text-crimson-light" rel="noopener" target="_blank">
+                LinkedIn
+              </a>
+            </li>
+            <li>
+              <a href={site.social.instagram} className="transition-colors hover:text-crimson-light" rel="noopener" target="_blank">
+                Instagram
+              </a>
+            </li>
             {site.email && (
               <li>
                 <a href={`mailto:${site.email}`} className="transition-colors hover:text-crimson-light">

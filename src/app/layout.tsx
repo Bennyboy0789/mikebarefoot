@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import { Instrument_Serif, Manrope } from "next/font/google";
+import { MobileBookingBar } from "@/components/MobileBookingBar";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { site } from "@/content/site";
@@ -20,7 +22,7 @@ const instrumentSerif = Instrument_Serif({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} — ${site.role}`,
+    default: `${site.name} | Leadership Keynote Speaker, Raleigh NC`,
     template: `%s | ${site.name}`,
   },
   description: site.description,
@@ -31,24 +33,6 @@ export const metadata: Metadata = {
   },
   twitter: { card: "summary_large_image" },
   robots: site.indexable ? undefined : { index: false, follow: false },
-};
-
-const personJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Person",
-  name: site.name,
-  jobTitle: site.role,
-  description: site.description,
-  url: site.url,
-  image: `${site.url}/images/mike-headshot-color.jpg`,
-  worksFor: { "@type": "Organization", name: site.company },
-  address: { "@type": "PostalAddress", addressLocality: "Raleigh", addressRegion: "NC", addressCountry: "US" },
-  alumniOf: [
-    { "@type": "CollegeOrUniversity", name: "North Carolina State University" },
-    { "@type": "CollegeOrUniversity", name: "Campbell University" },
-  ],
-  knowsAbout: ["Leadership", "Kaizen", "Continuous improvement", "Recruiting", "Talent retention", "IT staffing", "Martial arts"],
-  sameAs: Object.values(site.social),
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -66,10 +50,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           {children}
         </main>
         <SiteFooter />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
-        />
+        <MobileBookingBar />
+        <Analytics />
       </body>
     </html>
   );

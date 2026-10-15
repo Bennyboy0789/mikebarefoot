@@ -1,11 +1,20 @@
+import type { Metadata } from "next";
+import { JsonLd } from "@/components/JsonLd";
+import { schema } from "@/lib/schema";
 import Image from "next/image";
 import Link from "next/link";
 import { KaizenExplorer } from "@/components/KaizenExplorer";
 import { CtaBand, FeaturedIn, FramedImage, QuoteBand, SpokenAt, StatsGrid, Testimonials } from "@/components/sections";
 import { HeroMedia } from "@/components/HeroMedia";
-import { Arrow, ButtonLink, Container, Label, SectionHeading } from "@/components/ui";
+import { Arrow, ButtonLink, Container, HeadingEyebrow, Label, SectionHeading } from "@/components/ui";
 import { VideoFacade } from "@/components/VideoFacade";
-import { featuredKeynote, microActions, recruiterHonors, site } from "@/content/site";
+import { featuredKeynote, featuredTestimonial, microActions, recruiterHonors, site } from "@/content/site";
+
+export const metadata: Metadata = {
+  description:
+    "Leadership keynote speaker and coach Mike Barefoot pairs 37 years of martial arts discipline with a 27-year staffing career. Book the KAIZEN keynote.",
+  alternates: { canonical: "/" },
+};
 
 const heroCredentials = [
   { value: "37", unit: "yrs", label: "Martial arts" },
@@ -17,6 +26,7 @@ const heroCredentials = [
 export default function Home() {
   return (
     <>
+      <JsonLd data={schema.home} />
       {/* ── Hero ─────────────────────────────────────────────── */}
       <section className="relative min-h-[100svh] overflow-hidden bg-obsidian">
         <div className="absolute inset-0 lg:left-auto lg:w-[52%]">
@@ -36,10 +46,12 @@ export default function Home() {
 
         <Container className="relative flex min-h-[100svh] flex-col justify-end pb-10 pt-32">
           <div className="animate-hero-in max-w-3xl">
-            <Label>Keynote Speaker · Leadership Coach</Label>
-            <h1 className="mt-8 font-serif text-[3.4rem] leading-[0.95] tracking-[-0.02em] text-ivory sm:text-7xl lg:text-[7.25rem]">
-              The dojo and the boardroom run on the{" "}
-              <span className="italic text-crimson-light">same playbook.</span>
+            <h1>
+              <HeadingEyebrow>{site.name} · Leadership keynote speaker &amp; coach</HeadingEyebrow>
+              <span className="mt-8 block font-serif text-[3.4rem] leading-[0.95] tracking-[-0.02em] text-ivory sm:text-7xl lg:text-[7.25rem]">
+                The dojo and the boardroom run on the{" "}
+                <span className="italic text-crimson-light">same playbook.</span>
+              </span>
             </h1>
             <p className="mt-8 max-w-xl text-lg leading-relaxed text-mist">
               {site.name} pairs 37 years of martial arts discipline with 27 years of building winning teams — and
@@ -50,7 +62,26 @@ export default function Home() {
               <ButtonLink href="/coaching" variant="ghost">
                 Explore coaching
               </ButtonLink>
+              <Link
+                href="/speaking#reel"
+                className="group inline-flex items-center gap-3 px-2 py-4 text-[0.72rem] font-semibold uppercase tracking-[0.26em] text-ivory"
+              >
+                <span className="grid h-8 w-8 place-items-center rounded-full border border-crimson transition-colors group-hover:bg-crimson">
+                  <svg viewBox="0 0 24 24" className="ml-0.5 h-3 w-3 fill-ivory" aria-hidden>
+                    <path d="M7 4.5v15l13-7.5z" />
+                  </svg>
+                </span>
+                Watch the reel
+              </Link>
             </div>
+            <figure className="mt-10 max-w-xl border-l border-crimson/70 pl-5">
+              <blockquote className="font-serif text-xl italic leading-snug text-ivory/90">
+                &ldquo;{featuredTestimonial.excerpt}&rdquo;
+              </blockquote>
+              <figcaption className="mt-2 text-[0.62rem] font-semibold uppercase tracking-[0.28em] text-mist">
+                {featuredTestimonial.name} · {featuredTestimonial.institution}
+              </figcaption>
+            </figure>
           </div>
 
           <dl

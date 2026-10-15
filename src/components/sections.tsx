@@ -1,7 +1,7 @@
 import Image from "next/image";
 import type { ReactNode } from "react";
 import { featuredTestimonial, mediaMentions, spokenAt, stats, testimonials } from "@/content/site";
-import { ButtonLink, Container, FrameCorners, Label } from "./ui";
+import { ButtonLink, Container, FrameCorners, HeadingEyebrow, Label } from "./ui";
 
 /** Inner-page hero: full-bleed, editorial, optional graded photo bleeding off the right edge. */
 export function PageHero({
@@ -29,9 +29,11 @@ export function PageHero({
       <KanjiWatermark className="-right-16 top-24 text-[22rem] lg:hidden" />
       <Container className="relative flex min-h-[68vh] flex-col justify-end pb-20 pt-24 lg:min-h-[78vh]">
         <div className="animate-hero-in max-w-3xl">
-          <Label>{label}</Label>
-          <h1 className="mt-8 font-serif text-6xl leading-[0.98] tracking-[-0.02em] text-ivory sm:text-7xl lg:text-[6.5rem]">
-            {title}
+          <h1>
+            <HeadingEyebrow>{label}</HeadingEyebrow>
+            <span className="mt-8 block font-serif text-6xl leading-[0.98] tracking-[-0.02em] text-ivory sm:text-7xl lg:text-[6.5rem]">
+              {title}
+            </span>
           </h1>
           <p className="mt-8 max-w-xl text-lg leading-relaxed text-mist">{intro}</p>
         </div>

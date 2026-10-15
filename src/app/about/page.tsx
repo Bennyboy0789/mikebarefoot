@@ -1,19 +1,23 @@
 import type { Metadata } from "next";
+import { JsonLd } from "@/components/JsonLd";
+import { schema } from "@/lib/schema";
 import { CtaBand, FeaturedIn, FramedImage, PageHero, QuoteBand, StatsGrid } from "@/components/sections";
 import { Container, Label, SectionHeading } from "@/components/ui";
 import { martialArtsHonors, recruiterHonors, site, story } from "@/content/site";
 
 export const metadata: Metadata = {
-  title: "About",
+  title: { absolute: "About Mike Barefoot | Leadership Speaker in Raleigh, NC" },
   description:
-    "From Campbell basketball camp to the keynote stage: Mike Barefoot's path through NC State, a 27-year staffing career, founding his own firm, and 37 years of martial arts.",
+    "Mike Barefoot's path from NC State and a Campbell MBA to a 27-year staffing career, 1,000+ placements, his own IT staffing firm and 37 years of martial arts.",
+  alternates: { canonical: "/about" },
 };
 
 export default function AboutPage() {
   return (
     <>
+      <JsonLd data={schema.about} />
       <PageHero
-        label="About Mike"
+        label="About Mike Barefoot · Leadership speaker & coach"
         title={
           <>
             Life isn&apos;t linear. <span className="italic text-crimson-light">Discipline is.</span>
@@ -27,7 +31,7 @@ export default function AboutPage() {
       <section className="bg-obsidian">
         <Container className="grid gap-20 py-28 lg:grid-cols-[1fr_22rem] lg:gap-24 lg:py-40">
           <div>
-            <SectionHeading index="01" label="The story" title="Six chapters." />
+            <SectionHeading index="01" label="The story" title="Seven chapters." />
             <ol className="mt-16">
               {story.map((chapter, i) => (
                 <li
@@ -60,6 +64,9 @@ export default function AboutPage() {
               <p className="mt-5 font-serif text-2xl italic leading-snug text-ivory">
                 &ldquo;I always like to say I have a master&apos;s degree in business. I like to think I have a PhD in
                 the school of hard knocks.&rdquo;
+              </p>
+              <p className="mt-8 font-serif text-2xl italic leading-snug text-ivory">
+                &ldquo;I don&apos;t like to use the word losses. I like to use the word lessons.&rdquo;
               </p>
             </div>
           </aside>

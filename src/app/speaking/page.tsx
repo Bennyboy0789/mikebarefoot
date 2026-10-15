@@ -1,15 +1,19 @@
 import type { Metadata } from "next";
+import { JsonLd } from "@/components/JsonLd";
+import { schema } from "@/lib/schema";
 import Image from "next/image";
 import { KaizenExplorer } from "@/components/KaizenExplorer";
 import { CtaBand, FeaturedIn, PageHero, QuoteBand, SpokenAt, Testimonials } from "@/components/sections";
 import { ButtonLink, Container, Label, SectionHeading } from "@/components/ui";
+import { ReelPlayer } from "@/components/ReelPlayer";
 import { VideoFacade } from "@/components/VideoFacade";
-import { featuredKeynote, speaking } from "@/content/site";
+import { featuredKeynote, podcasts, speaking } from "@/content/site";
 
 export const metadata: Metadata = {
-  title: "Speaking",
+  title: { absolute: "Leadership Keynote Speaker | KAIZEN Keynote | Mike Barefoot" },
   description:
-    "Book Mike Barefoot for your leadership summit, conference or team event. KAIZEN: The Pillars of Success pairs a live martial arts demonstration with lessons from 27 years of building winning teams.",
+    "Book Raleigh, NC leadership keynote speaker Mike Barefoot. KAIZEN: The Pillars of Success pairs a live martial arts demo with 27 years of team-building lessons.",
+  alternates: { canonical: "/speaking" },
 };
 
 const gallery = [
@@ -36,8 +40,9 @@ const gallery = [
 export default function SpeakingPage() {
   return (
     <>
+      <JsonLd data={schema.speaking} />
       <PageHero
-        label="Keynote speaking"
+        label="Leadership keynote speaker · Raleigh, NC"
         title={
           <>
             Elite discipline. <span className="italic text-crimson-light">Corporate strategy.</span>
@@ -47,6 +52,21 @@ export default function SpeakingPage() {
         image="/images/mike-wide.jpg"
         imageAlt="Mike Barefoot delivering KAIZEN: The Pillars of Success"
       />
+
+      {/* Highlight reel */}
+      <section id="reel" className="scroll-mt-24 bg-obsidian">
+        <Container className="pt-24 lg:pt-32">
+          <div data-reveal className="relative">
+            <div aria-hidden className="absolute -inset-3 border border-crimson/30" />
+            <ReelPlayer
+              src="/videos/mike-highlight-reel.mp4"
+              captions="/videos/mike-highlight-reel.vtt"
+              poster="/images/mike-reel-poster.jpg"
+              title="KAIZEN: The Pillars of Success, in 72 seconds"
+            />
+          </div>
+        </Container>
+      </section>
 
       {/* Signature keynote */}
       <section className="bg-obsidian">
@@ -199,8 +219,55 @@ export default function SpeakingPage() {
                 >
                   {e.when}
                 </span>
-                <span className="font-serif text-3xl text-ivory sm:text-4xl">{e.org}</span>
+                <span className="font-serif text-3xl text-ivory sm:text-4xl">
+                  {e.href ? (
+                    <a href={e.href} target="_blank" rel="noopener" className="transition-colors hover:text-crimson-light">
+                      {e.org} <span aria-hidden className="text-xl text-crimson-light">↗</span>
+                    </a>
+                  ) : (
+                    e.org
+                  )}
+                </span>
                 <Label>{e.title}</Label>
+              </li>
+            ))}
+          </ul>
+        </Container>
+      </section>
+
+      {/* Podcasts */}
+      <section className="border-t border-ash bg-obsidian">
+        <Container className="py-28 lg:py-36">
+          <SectionHeading
+            index="07"
+            label="Podcasts"
+            title={
+              <>
+                On the <span className="italic text-crimson-light">mic.</span>
+              </>
+            }
+            intro="Long-form conversations about discipline, hiring, integrity and playing the long game — a good way to hear how Mike thinks before you book."
+          />
+          <ul className="mt-14 grid gap-px border border-ash bg-ash md:grid-cols-2">
+            {podcasts.map((p) => (
+              <li key={p.href} className="bg-obsidian">
+                <a
+                  href={p.href}
+                  target="_blank"
+                  rel="noopener"
+                  className="group flex h-full flex-col p-8 transition-colors hover:bg-coal sm:p-10"
+                >
+                  <span className="flex items-baseline justify-between gap-4">
+                    <Label>{p.show}</Label>
+                    <span className="shrink-0 text-sm text-mist">{p.date}</span>
+                  </span>
+                  <span className="mt-6 font-serif text-3xl leading-tight text-ivory transition-colors group-hover:text-crimson-light">
+                    {p.episode}
+                  </span>
+                  <span className="mt-auto pt-6 text-sm text-mist">
+                    {p.host ? `with ${p.host} · ` : ""}Listen <span aria-hidden>↗</span>
+                  </span>
+                </a>
               </li>
             ))}
           </ul>

@@ -16,6 +16,17 @@ export function Label({ children, index, className = "" }: { children: ReactNode
   );
 }
 
+/** Label styling for use inside an <h1>: carries the page's search keywords without changing the display line. */
+export function HeadingEyebrow({ children }: { children: ReactNode }) {
+  return (
+    <span className="flex items-center gap-4 font-sans text-[0.7rem] font-semibold not-italic uppercase leading-normal tracking-[0.32em] text-crimson-light">
+      <span aria-hidden className="h-px w-10 bg-crimson/60" />
+      {children}
+      <span className="sr-only">:</span>
+    </span>
+  );
+}
+
 export function SectionHeading({
   label,
   index,

@@ -5,6 +5,7 @@
 //    (https://www.youtube.com/watch?v=QgJrb609-Fo), host intro + his own words
 //  - his "KAIZEN: The Pillars of Success" talk at BORN Toastmasters' Brain Candy
 //  - his speaker one-pager and a recommendation letter (Oct 2026)
+//  - his podcast interviews (see `podcasts` below) and their show notes
 // Testimonials are reproduced verbatim. Per README content rules, do not add
 // credentials, testimonials, programs or prices that aren't confirmed by Mike.
 // Unknowns are marked TODO(mike).
@@ -25,12 +26,19 @@ export const site = {
   tagline: "Discipline in the dojo. Results in the workplace.",
   // TODO(mike): the one-pager lists mikebarefootspeaks.net. Confirm it's the
   // production domain, then set NEXT_PUBLIC_SITE_URL.
-  // TODO(mike): confirm public contact email. The keynote audio sounds like
-  // "mike@mikebarefoot.com" but it's unclear; leave null until confirmed.
+  // TODO(mike): Mike is expected to set up a new email for speaking; use it here once
+  // confirmed. (On the Wisdom Journey podcast he gives mikeb@redzoneresources.com,
+  // the closed firm's address, so don't use that.) The Live More Show notes
+  // (Sept 2026) list mike@mikebarefoot.com, which matches the keynote audio and may
+  // be the new one. Leave null until confirmed.
   email: null as string | null,
   social: {
     youtube: "https://www.youtube.com/@MikeBarefootspeaks",
-    // TODO(mike): LinkedIn (on the one-pager, no URL), Instagram, Facebook, PodMatch
+    // From the Wisdom Journey episode description.
+    linkedin: "https://www.linkedin.com/in/mikebarefoot/",
+    // From the Live More Show notes ("Connect to Mike").
+    instagram: "https://www.instagram.com/michael.r.barefoot/",
+    // TODO(mike): Facebook profile URL (notes list "Michael Ray Barefoot"), PodMatch
   },
 };
 
@@ -50,6 +58,8 @@ export const featuredKeynote = {
 // Supplied by Mike (Oct 2026). Verbatim: don't edit the wording. `pull` must
 // stay an exact excerpt of `letter`.
 export const featuredTestimonial = {
+  // Short form for tight spots (hero). Must stay an exact excerpt of `pull`.
+  excerpt: "…made your session one of the highlights of the summit.",
     pull: "Your ability to connect with the room, share practical wisdom, and inspire meaningful reflection made your session one of the highlights of the summit.",
     salutation: "Dear Mike,",
     letter: [
@@ -93,7 +103,7 @@ export const testimonials = [
 
 // From the host's introduction at Campbell.
 export const stats = [
-  { value: "37", label: "Years in martial arts", detail: "Karate, kickboxing & jiu-jitsu" },
+  { value: "37", label: "Years in martial arts", detail: "7th-degree black belt in karate" },
   { value: "27", label: "Year staffing career", detail: "Recruiter, account executive, founder" },
   { value: "1,000+", label: "Professionals placed", detail: "Personally" },
   { value: "$50M+", label: "Revenue generated", detail: "Across his career" },
@@ -119,9 +129,13 @@ export const spokenAt = [
 
 export const recruiterHonors = ["Rookie of the Year", "Multiple Performer of the Year awards", "Regular President's Club honors"];
 
-// From the award Mike is pictured holding, plus the Campbell host's introduction.
-// TODO(mike): confirm the year(s).
+// From the award Mike is pictured holding, the Campbell host's introduction, and the
+// bio read on Healthy Mind, Healthy Life (Dec 2025).
+// TODO(mike): confirm the year(s), and the ranks as worded here.
 export const martialArtsHonors = [
+  "7th-degree black belt in karate",
+  "4th-degree black belts in jiu-jitsu and kickboxing",
+  "Multiple-time Hall of Fame inductee",
   "AMAA Who's Who in the Martial Arts Legacy Award",
   "Inducted into the AMAA Who's Who in the Martial Arts Hall of Honors",
   "Profiled in the #1 Amazon bestselling Who's Who in the Martial Arts Legacy biography book",
@@ -147,7 +161,7 @@ export const kaizen = [
     letter: "I",
     word: "Integrity",
     line: "Choose the relationship over the fee.",
-    body: "Mike once advised a client to rescind an offer to his own candidate — walking away from a high five-figure fee — because protecting the relationship mattered more. One action can build trust for years or burn it down in a day.",
+    body: "Mike once advised a client to rescind an offer to his own candidate — walking away from a high five-figure fee — because protecting the relationship mattered more. One action can build trust for years or burn it down in a day. Over his career he has turned down more than $100,000 in placement fees rather than make a hire he didn't believe in.",
   },
   {
     letter: "Z",
@@ -188,23 +202,29 @@ export const microActions = {
 export const story = [
   {
     heading: "Raleigh, Dunn & Campbell basketball camp",
-    body: "Mike grew up in the Raleigh area and spent six years in nearby Dunn, North Carolina. At 11 he spent his first week away from home at Campbell University's basketball camp — then the oldest and largest in the country — and kept coming back for five summers, watching counselors like Michael Jordan, Ralph Sampson, James Worthy and Sam Perkins.",
+    body: "Born in Fayetteville, Mike grew up in the Raleigh area and spent six years in nearby Dunn, North Carolina. At 11 he spent his first week away from home at Campbell University's basketball camp — then the oldest and largest in the country — and kept coming back for five summers, watching counselors like Michael Jordan, Ralph Sampson, James Worthy and Sam Perkins.",
   },
   {
     heading: "NC State, a tough job market, and an MBA detour",
-    body: "He earned his undergraduate degree in business management from NC State in what was the worst year in a quarter-century for new grads to find work. A former coach pointed him to Campbell's MBA program. Life wasn't linear: he drifted, nearly ran out of time, earned a one-year extension, and “lived like a monk” to finish. Mike credits that year with teaching him to buckle down.",
+    body: "At NC State he called women's ACC tournament games on WKNC, the campus radio station, and spent two months working out with Jim Valvano's basketball team as a walk-on — until a blunt “reality lecture” convinced him the juice wasn't worth the squeeze. He earned his degree in business management in 1991, the worst year in a quarter-century for new grads to find work. A former coach pointed him to Campbell's MBA program. Life wasn't linear: he drifted, nearly ran out of time, earned a one-year extension, and “lived like a monk” to finish. Mike credits that year with teaching him to buckle down.",
+  },
+  {
+    heading: "Service before the sale",
+    body: "While earning his MBA, Mike worked customer service at Centel Cellular (later Alltel), taking 60 to 80 calls a day. A company course taught him that everyone is a customer, and that each caller is a person, not a ticket. He carried that into sales and networking: service first, relationships over transactions. “I don't look at it as what can I get from you,” he says. “I look at it as how can I serve you?”",
   },
   {
     heading: "An elite recruiter",
-    body: "Over a 27-year staffing career Mike earned Rookie of the Year, multiple Performer of the Year awards and regular President's Club honors. He personally placed more than 1,000 professionals — including roughly 40 at Wake Tech alone — and advised thousands of executives on building winning teams.",
+    body: "Mike worked for three of the largest staffing firms in the world, first as a recruiter and then as an account executive, earning Rookie of the Year, multiple Performer of the Year awards and regular President's Club honors. That included four and a half years working commission-only at Matrix Resources, then the largest IT staffing firm in the Southeast. He kept notes on every contact — their kids, their schools, their favorite teams — so clients who hadn't spoken to him in a year called him first. Over 27 years he personally placed more than 1,000 professionals, including roughly 40 at Wake Tech alone, and advised thousands of executives on building winning teams.",
   },
   {
+    // Closed June 30, 2025: "June 30th last year" on Wisdom Journey (mid-2026), and
+    // already closed by his Your Next Success interview (Apr 2026).
     heading: "Founder, through the Great Recession",
-    body: "When the 2008 downturn shrank his office from five practice groups to one, Mike's IT group was the only one still profitable — and he was its only salesperson. He was offered the general manager role three times and declined each one. The third offer sparked a question: if they trusted him to run this office, why not run his own company? He measured twice, studied the back office for a year, and in 2010 launched RedZone Resources, a boutique IT staffing firm that stayed profitable for 15+ consecutive years.",
+    body: "When the 2008 downturn shrank his office from five practice groups to one, Mike's IT group was the only one still profitable — and he was its only salesperson. He was offered the general manager role three times and declined each one. The third offer sparked a question: if they trusted him to run this office, why not run his own company? He measured twice, studied the back office for a year, and in 2010 launched RedZone Resources, a boutique IT staffing firm that stayed profitable every one of its 15+ years. North Carolina Central University became its biggest client, with at least 100 placements. In 2025 he closed the firm to focus on speaking and coaching.",
   },
   {
     heading: "37 years on the mat",
-    body: "Alongside his career, Mike has trained for 37 years in karate, kickboxing and jiu-jitsu. He was recognized in the #1 Amazon bestselling Who's Who in Martial Arts Legacy biography book, and has spent recent years among martial artists whose credo — Kaizen, continuous improvement — became the backbone of his leadership system.",
+    body: "Mike started karate in 1989 almost by accident: basketball was winding down, and a friend could see he needed something to fill the hours. Six months in he discovered sparring, and it stuck. From 2000 to 2009 his school trained in the system of Bill “Superfoot” Wallace, one of the greatest kickboxers of all time, and in 2006 he added jiu-jitsu. He has trained in all three ever since, earning a 7th-degree black belt in karate and 4th-degree ranks in jiu-jitsu and kickboxing. He was recognized in the #1 Amazon bestselling Who's Who in Martial Arts Legacy biography book, and found in the martial artists' credo — Kaizen, continuous improvement — the backbone of his leadership system. “I don't like to say I'm a master of anything,” he says. “I'm a big student of everything.”",
   },
   {
     heading: "Giving back",
@@ -281,15 +301,48 @@ export const speaking = {
     "Sales & recruiting teams",
     "Entrepreneurs & business owners",
   ],
-  // TODO(mike): years for the undated talks; add podcast appearances (PodMatch).
+  // TODO(mike): years for the undated talks.
   engagements: [
     { when: "2026", org: "Campbell University", title: "Leadership Summit keynote · Leading with Purpose" },
     { when: null, org: "BORN Toastmasters · Brain Candy", title: "KAIZEN: The Pillars of Success" },
-    { when: "Multiple years", org: "NC State University", title: "MBA program guest speaker" },
+    { when: "Three years running", org: "NC State University", title: "MBA program guest speaker" },
     { when: null, org: "Wake Tech Community College", title: "Introduction to Business guest speaker" },
     { when: null, org: "The GOAT Awards", title: "Seminar speaker" },
-  ] as { when: string | null; org: string; title: string }[],
+  ] as { when: string | null; org: string; title: string; href?: string }[],
 };
+
+// Podcast interviews, newest first. Mike says Wisdom Journey was his 10th.
+// TODO(mike): add the rest.
+export const podcasts = [
+  {
+    show: "Wisdom Journey",
+    host: null as string | null,
+    episode: "How to Stay Disciplined When Business Gets Hard",
+    date: "Sept 2026",
+    href: "https://www.youtube.com/watch?v=RHYOfUPrtIA",
+  },
+  {
+    show: "Live More Show",
+    host: "Melanie Sikma",
+    episode: "Success Starts With Serving Others and Staying the Course",
+    date: "Sept 2026",
+    href: "https://www.livemoreshow.com/success-starts-with-serving-others-and-staying-the-course/",
+  },
+  {
+    show: "Your Next Success",
+    host: "Dr. Caroline Sangal",
+    episode: "Hiring Decisions and Lessons Earned",
+    date: "Apr 2026",
+    href: "https://www.nextsuccesspodcast.com/2446588/episodes/18927377-mike-barefoot-hiring-decisions-and-lessons-earned",
+  },
+  {
+    show: "Healthy Mind, Healthy Life",
+    host: "Avik Chakraborty",
+    episode: "Build Mental Toughness Through Movement",
+    date: "Dec 2025",
+    href: "https://www.podhealth.club/e/build-mental-toughness-through-movement-with-mike-barefoot/",
+  },
+];
 
 export const coaching = {
   intro:
@@ -302,15 +355,15 @@ export const coaching = {
   focusAreas: [
     {
       title: "Leaders & executives",
-      body: "Build and keep winning teams, lead with integrity, and make clearer decisions under pressure.",
+      body: "Build and keep winning teams, lead each personality the way they need to be led, and make clearer decisions under pressure.",
     },
     {
       title: "Career moves",
-      body: "Navigate a job search, a career change or a relocation with someone who has seen 1,000+ placements up close.",
+      body: "One person's floor is another person's ceiling. Define what success means for you, then navigate a job search, a career change or a relocation with someone who has seen 1,000+ placements up close.",
     },
     {
       title: "Entrepreneurs",
-      body: "Apply the discipline it takes to launch — and stay profitable through the downturns.",
+      body: "Apply the discipline it takes to launch, separate what you need from what you want, and stay profitable through the downturns.",
     },
   ],
   // TODO(mike): define coaching formats, cadence and pricing (if any) before
@@ -318,4 +371,7 @@ export const coaching = {
 };
 
 export const inquiryTopics = ["Speaking", "Coaching", "Media / Podcast", "Other"] as const;
+// Mike runs keynotes, workshops and panels in person, and has presented over Teams.
+export const eventFormats = ["In-person keynote", "Interactive workshop", "Executive panel", "Virtual session", "Not sure yet"];
+export const audienceSizes = ["Under 50", "50–150", "150–500", "500+"];
 export type InquiryTopic = (typeof inquiryTopics)[number];

@@ -28,6 +28,15 @@ If the three contact variables aren't set, the form shows a friendly "not connec
 - **Staging URL:** https://barefoot.stagmkt.dev
 - Production domain: TBD (client's domain attached only after approval)
 
+### Launch checklist (SEO)
+
+Staging deploys from `main` as Vercel's *production* environment, with `NEXT_PUBLIC_SITE_URL` deliberately unset. That's what keeps it out of search engines.
+- **At launch,** set `NEXT_PUBLIC_SITE_URL` to the real domain and redeploy. Until you do, `robots.txt` disallows everything, every page is `noindex`, and canonicals, the sitemap, JSON-LD and `/llms.txt` all point at the staging host.
+- **After the redeploy,** check that live `/robots.txt` says `Allow: /`.
+- **Then,** submit `/sitemap.xml` in Google Search Console.
+
+Structured data lives in `src/lib/schema.ts`; each page renders its own `@graph`. The SEO audit (Oct 2026) is in `seo-audit/`.
+
 ## Stack
 
 - Next.js 16.4 (App Router)
@@ -43,6 +52,12 @@ If the three contact variables aren't set, the form shows a friendly "not connec
 - **Next.js 16:** dynamic route `params`/`searchParams` are Promises — `await` them.
 - **next.config.ts:** do NOT include an `eslint` key (removed in Next 16). Lint runs via `npm run lint`.
 - **Images:** use `next/image`, or `images: { unoptimized: true }` if using raw `<img>`.
+- **Analytics:** `@vercel/analytics` is mounted in the root layout (enable Web Analytics on the
+  Vercel project). A completed inquiry redirects to `/contact/thanks`, so its page views are the
+  conversion count; the server action also sends an `Inquiry` custom event (Vercel Pro only).
+- **Highlight reel:** `public/videos/mike-highlight-reel.mp4` (+ `.vtt` captions) is cut from the
+  Toastmasters talk: source seconds 0–12.75, 102.55–107, 768.45–780.45, 890.55–899.85,
+  932.95–937.1, 1018.2–1033.05, 1311–1321.7, 0.3s dips to black, then a 3.5s name card.
 - **Raw media:** originals from Mike (multi-GB video, phone photos, one-pagers) live in
   `_source/`, which is gitignored. Only graded, compressed derivatives go in `public/`.
   Stage stills and `public/videos/mike-hero-loop.mp4` come from the BORN Toastmasters
