@@ -106,16 +106,17 @@ const keynoteVideo = {
   about: personRef,
 };
 
-// The reel was cut for this site and first published with it.
+// The reel was cut for this site and first published with it (sizzle reel replaced the first cut on 2026-10-15).
 const reelVideo = {
   "@type": "VideoObject",
   "@id": ids.reelVideo,
-  name: "Mike Barefoot speaker highlight reel",
-  description: "72 seconds of Mike Barefoot on stage at his KAIZEN: The Pillars of Success talk, with captions.",
-  thumbnailUrl: [abs("/images/mike-reel-poster.jpg")],
-  contentUrl: abs("/videos/mike-highlight-reel.mp4"),
+  name: "Mike Barefoot speaker reel",
+  description:
+    "90 seconds of Mike Barefoot: on stage at BORN Toastmasters and the G.O.A.T. Honors, and in podcast interviews, on discipline, KAIZEN and turning losses into lessons.",
+  thumbnailUrl: [abs("/images/mike-sizzle-poster.jpg")],
+  contentUrl: abs("/videos/mike-sizzle-reel.mp4"),
   uploadDate: "2026-10-15",
-  duration: "PT1M12S",
+  duration: "PT1M30S",
   inLanguage: "en-US",
   creator: personRef,
   about: personRef,

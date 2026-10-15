@@ -53,18 +53,27 @@ export default function SpeakingPage() {
         imageAlt="Mike Barefoot delivering KAIZEN: The Pillars of Success"
       />
 
-      {/* Highlight reel */}
+      {/* Speaker reel (built from Mike's stage footage, podcast interviews and photos; see README) */}
       <section id="reel" className="scroll-mt-24 bg-obsidian">
         <Container className="pt-24 lg:pt-32">
           <div data-reveal className="relative">
             <div aria-hidden className="absolute -inset-3 border border-crimson/30" />
             <ReelPlayer
-              src="/videos/mike-highlight-reel.mp4"
-              captions="/videos/mike-highlight-reel.vtt"
-              poster="/images/mike-reel-poster.jpg"
-              title="KAIZEN: The Pillars of Success, in 72 seconds"
+              src="/videos/mike-sizzle-reel.mp4"
+              captions="/videos/mike-sizzle-reel.vtt"
+              poster="/images/mike-sizzle-poster.jpg"
+              title="Mike Barefoot, on stage and on the mic"
+              meta="90 sec · captioned"
             />
           </div>
+          {/* The track's CC BY 4.0 license requires this credit wherever the reel plays. */}
+          <p className="mt-6 text-right text-xs text-smoke">
+            Music: &ldquo;Icarus&rdquo; by{" "}
+            <a href="https://www.scottbuckley.com.au" target="_blank" rel="noopener" className="underline-offset-2 hover:text-mist hover:underline">
+              Scott Buckley
+            </a>
+            , CC BY 4.0
+          </p>
         </Container>
       </section>
 

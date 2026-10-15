@@ -55,9 +55,12 @@ Structured data lives in `src/lib/schema.ts`; each page renders its own `@graph`
 - **Analytics:** `@vercel/analytics` is mounted in the root layout (enable Web Analytics on the
   Vercel project). A completed inquiry redirects to `/contact/thanks`, so its page views are the
   conversion count; the server action also sends an `Inquiry` custom event (Vercel Pro only).
-- **Highlight reel:** `public/videos/mike-highlight-reel.mp4` (+ `.vtt` captions) is cut from the
-  Toastmasters talk: source seconds 0–12.75, 102.55–107, 768.45–780.45, 890.55–899.85,
-  932.95–937.1, 1018.2–1033.05, 1311–1321.7, 0.3s dips to black, then a 3.5s name card.
+- **Speaker reel:** `public/videos/mike-sizzle-reel.mp4` (+ `.vtt`, poster `mike-sizzle-poster.jpg`) is a
+  90s sizzle reel: a photo cold open into a title slam, then podcast soundbites as voiceover over BORN
+  Toastmasters and G.O.A.T. stage footage, ending on G.O.A.T. applause. It's built by scripts in
+  `_source/videos/sizzle/` (`build.py`, `assemble.py`, `montage.py`, `sfx.py`); the master is there too.
+  Music is "Icarus" by Scott Buckley (CC BY 4.0): keep the credit under the player and add it to any
+  YouTube description.
 - **Raw media:** originals from Mike (multi-GB video, phone photos, one-pagers) live in
   `_source/`, which is gitignored. Only graded, compressed derivatives go in `public/`.
   Stage stills and `public/videos/mike-hero-loop.mp4` come from the BORN Toastmasters
