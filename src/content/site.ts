@@ -374,6 +374,15 @@ export const coaching = {
       body: "Apply the discipline it takes to launch, separate what you need from what you want, and stay profitable through the downturns.",
     },
   ],
+  // Public Google review of Red Zone Resources (screenshot from Mike, Oct 2026; original in
+  // _source/images/life/IMG_6579.jpeg). Verbatim except the ellipsis, which drops
+  // "He is unlike a lot of recruiters," since coaching isn't recruiting.
+  endorsement: {
+    quote:
+      "I've known Mike Barefoot for 22 years… he listens and understands who you are and what you want or need to do. He understands the market and what drives people. He is the contact you need in your corner.",
+    name: "Mark Fowle",
+    source: "Google review · Red Zone Resources",
+  },
   // TODO(mike): define coaching formats, cadence and pricing (if any) before
   // publishing specifics. Until then, every engagement starts with a conversation.
 };

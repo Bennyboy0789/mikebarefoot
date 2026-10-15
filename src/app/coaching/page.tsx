@@ -77,6 +77,26 @@ export default function CoachingPage() {
         </Container>
       </section>
 
+      {/* Endorsement */}
+      <section className="border-t border-ash bg-obsidian">
+        <Container className="py-28 lg:py-40">
+          <div data-reveal>
+            <Label index="03">In their words</Label>
+          </div>
+          <figure data-reveal className="mt-12 max-w-5xl border-l border-crimson pl-8 sm:pl-12">
+            <blockquote className="font-serif text-3xl leading-[1.15] text-ivory sm:text-5xl">
+              &ldquo;{coaching.endorsement.quote}&rdquo;
+            </blockquote>
+            <figcaption className="mt-10">
+              <span className="block font-serif text-3xl text-ivory">{coaching.endorsement.name}</span>
+              <span className="mt-2 block text-[0.65rem] font-semibold uppercase tracking-[0.28em] text-crimson-light">
+                {coaching.endorsement.source}
+              </span>
+            </figcaption>
+          </figure>
+        </Container>
+      </section>
+
       {/* Healthy Mind, Healthy Life podcast, Dec 2025. */}
       <QuoteBand
         quote="You're never going to be perfect in terms of your results, but you can be perfect in terms of your intent."
@@ -88,7 +108,7 @@ export default function CoachingPage() {
         <div aria-hidden className="absolute inset-0 bg-[radial-gradient(ellipse_at_85%_50%,rgba(214,31,44,0.14),transparent_55%)]" />
         <Container className="relative grid gap-16 py-28 lg:grid-cols-2 lg:items-center lg:gap-24 lg:py-36">
           <SectionHeading
-            index="03"
+            index="04"
             label="Getting started"
             title="It starts with a conversation."
             intro="Tell Mike where you are and where you want to be in 12 months. Together you'll find the micro action you're willing to take even on your worst day — and build from there."
