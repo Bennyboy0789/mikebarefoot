@@ -59,8 +59,8 @@ Structured data lives in `src/lib/schema.ts`; each page renders its own `@graph`
   90s sizzle reel: a photo cold open into a title slam, then podcast soundbites as voiceover over BORN
   Toastmasters and G.O.A.T. stage footage, ending on G.O.A.T. applause. It's built by scripts in
   `_source/videos/sizzle/` (`build.py`, `assemble.py`, `montage.py`, `sfx.py`); the master is there too.
-  Music is "Icarus" by Scott Buckley (CC BY 4.0): keep the credit under the player and add it to any
-  YouTube description.
+  Music is "Icarus" by Scott Buckley (CC BY 4.0). The license credit is on the reel's end card
+  (bottom center); also add it to any YouTube description.
 - **Raw media:** originals from Mike (multi-GB video, phone photos, one-pagers) live in
   `_source/`, which is gitignored. Only graded, compressed derivatives go in `public/`.
   Stage stills and `public/videos/mike-hero-loop.mp4` come from the BORN Toastmasters

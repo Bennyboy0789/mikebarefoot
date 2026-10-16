@@ -74,14 +74,7 @@ export default function SpeakingPage() {
               meta="90 sec · captioned"
             />
           </div>
-          {/* The track's CC BY 4.0 license requires this credit wherever the reel plays. */}
-          <p className="mt-6 text-right text-xs text-mist">
-            Music: &ldquo;Icarus&rdquo; by{" "}
-            <a href="https://www.scottbuckley.com.au" target="_blank" rel="noopener" className="underline underline-offset-2 hover:text-ivory">
-              Scott Buckley
-            </a>
-            , CC BY 4.0
-          </p>
+          {/* The music's CC BY 4.0 credit is on the reel's end card. */}
         </Container>
       </section>
 
