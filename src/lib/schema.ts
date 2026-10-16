@@ -117,7 +117,7 @@ const highlightsVideo = {
   thumbnailUrl: [abs("/images/campbell-highlights-poster.jpg")],
   contentUrl: abs("/videos/campbell-keynote-highlights.mp4"),
   uploadDate: "2026-10-16",
-  duration: "PT1M26S",
+  duration: "PT1M16S",
   inLanguage: "en-US",
   isBasedOn: { "@id": ids.keynoteVideo },
   creator: personRef,
