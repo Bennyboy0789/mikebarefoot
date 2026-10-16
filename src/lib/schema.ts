@@ -199,6 +199,7 @@ export const schema = {
     coachingService,
     breadcrumb("/coaching", "Coaching"),
   ),
+  speakerKit: graph(person, website, webPage("/speaker-kit", `${site.name} speaker kit`), breadcrumb("/speaker-kit", "Speaker kit")),
   contact: graph(person, website, webPage("/contact", `Contact ${site.name}`, "ContactPage"), breadcrumb("/contact", "Contact")),
 };
 

@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { site } from "@/content/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return ["", "/about", "/speaking", "/coaching", "/contact"].map((path) => ({
+  return ["", "/about", "/speaking", "/coaching", "/speaker-kit", "/contact"].map((path) => ({
     url: `${site.url}${path}`,
     // Build time: every deploy republishes the content.
     lastModified: new Date(),

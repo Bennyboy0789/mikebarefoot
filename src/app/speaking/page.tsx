@@ -79,7 +79,7 @@ export default function SpeakingPage() {
       </section>
 
       {/* Signature keynote */}
-      <section className="bg-obsidian">
+      <section id="keynote" className="scroll-mt-20 bg-obsidian">
         <Container className="grid items-center gap-16 py-28 lg:grid-cols-[1.15fr_0.85fr] lg:gap-24 lg:py-40">
           <div>
             <SectionHeading index="01" label="Signature keynote" title={speaking.keynoteTitle} intro={speaking.keynoteSummary} />
@@ -91,8 +91,11 @@ export default function SpeakingPage() {
                 </div>
               ))}
             </dl>
-            <div data-reveal className="mt-12">
+            <div data-reveal className="mt-12 flex flex-wrap gap-4">
               <ButtonLink href="/contact?topic=speaking">Check availability</ButtonLink>
+              <ButtonLink href="/speaker-kit" variant="ghost">
+                Speaker kit
+              </ButtonLink>
             </div>
           </div>
           <div data-reveal className="relative mx-auto w-full max-w-sm">

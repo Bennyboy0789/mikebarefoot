@@ -64,7 +64,7 @@ export default async function ThanksPage({ searchParams }: PageProps<"/contact/t
             </figcaption>
           </figure>
           <div className="flex flex-wrap gap-4">
-            <ButtonLink href="/speaking">While you wait: watch the keynote</ButtonLink>
+            <ButtonLink href="/speaking#keynote">While you wait: watch the keynote</ButtonLink>
             <Link
               href="/"
               className="inline-flex items-center px-2 py-4 text-[0.75rem] font-semibold uppercase tracking-[0.22em] text-mist hover:text-ivory"

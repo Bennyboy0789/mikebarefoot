@@ -29,6 +29,10 @@ export function SiteHeader() {
   }, []);
 
   const solid = scrolled || open;
+  // Coaching visitors get a coaching CTA, and the form opens on the right topic.
+  const cta = pathname.startsWith("/coaching")
+    ? { href: "/contact?topic=coaching", label: "Talk with Mike" }
+    : { href: "/contact", label: "Book Mike" };
 
   return (
     <header
@@ -59,10 +63,10 @@ export function SiteHeader() {
             </Link>
           ))}
           <Link
-            href="/contact"
+            href={cta.href}
             className="border border-crimson/70 px-5 py-3 text-[0.75rem] font-semibold uppercase tracking-[0.22em] text-crimson-light transition-colors hover:bg-crimson hover:text-ivory"
           >
-            Book Mike
+            {cta.label}
           </Link>
         </nav>
 
@@ -98,11 +102,11 @@ export function SiteHeader() {
           </ul>
           <div className="px-5 pt-8">
             <Link
-              href="/contact"
+              href={cta.href}
               onClick={() => setOpen(false)}
               className="block bg-crimson py-4 text-center text-[0.75rem] font-semibold uppercase tracking-[0.22em] text-ivory"
             >
-              Book Mike
+              {cta.label}
             </Link>
           </div>
         </nav>

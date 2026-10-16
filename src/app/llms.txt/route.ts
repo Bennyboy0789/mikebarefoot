@@ -17,6 +17,7 @@ He founded ${site.company}, a boutique IT staffing firm (2010 to 2025) that stay
 - [About](${u("/about")}): His story: NC State and a Campbell MBA, elite recruiter, founder of ${site.company}, 37 years of martial arts.
 - [Speaking](${u("/speaking")}): Signature keynote "${speaking.keynoteTitle}" (typically 60 minutes, with a live martial arts demonstration), plus ${speaking.offerings.slice(1).join(" and ").toLowerCase()}. Topics: ${speaking.topics.map((t) => t.title).join("; ")}.
 - [Coaching](${u("/coaching")}): Coaching for leaders and executives, career moves, and entrepreneurs.
+- [Speaker kit](${u("/speaker-kit")}): Short and long bios and print-ready headshots for event promotion.
 - [Contact](${u("/contact")}): Speaking, coaching and media inquiries.
 
 ## Facts

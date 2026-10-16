@@ -25,7 +25,7 @@ export function SiteFooter() {
         <div>
           <p className="text-[0.75rem] font-semibold uppercase tracking-[0.22em] text-ivory">Explore</p>
           <ul className="mt-3 text-sm md:mt-5 md:space-y-3">
-            {[{ href: "/", label: "Home" }, ...nav, { href: "/contact", label: "Contact" }].map((item) => (
+            {[{ href: "/", label: "Home" }, ...nav, { href: "/speaker-kit", label: "Speaker kit" }, { href: "/contact", label: "Contact" }].map((item) => (
               <li key={item.href}>
                 <Link href={item.href} className="block py-2.5 transition-colors hover:text-crimson-light md:inline md:py-0">
                   {item.label}
