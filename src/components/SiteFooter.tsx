@@ -5,7 +5,7 @@ import { Container } from "./ui";
 export function SiteFooter() {
   return (
     <footer className="relative overflow-hidden border-t border-ash bg-obsidian text-mist">
-      <Container className="grid gap-12 pb-10 pt-20 md:grid-cols-[1.6fr_1fr_1fr]">
+      <Container className="grid gap-12 pb-16 pt-20 md:grid-cols-[1.6fr_1fr_1fr]">
         <div>
           <p className="font-serif text-4xl text-ivory">
             Lead with <span className="italic text-crimson-light">discipline.</span>
@@ -62,15 +62,6 @@ export function SiteFooter() {
             )}
           </ul>
         </div>
-      </Container>
-
-      <Container>
-        <p
-          aria-hidden
-          className="select-none whitespace-nowrap font-serif text-[17vw] leading-[0.8] tracking-[-0.03em] text-ivory/[0.06] lg:text-[11.5rem]"
-        >
-          Mike Barefoot
-        </p>
       </Container>
 
       <div className="border-t border-ash">
