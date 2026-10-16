@@ -13,6 +13,7 @@ const ids = {
   coachingService: `${abs("/coaching")}#service`,
   keynoteVideo: `${abs("/speaking")}#keynote-video`,
   reelVideo: `${abs("/speaking")}#reel-video`,
+  highlightsVideo: `${abs("/speaking")}#keynote-highlights`,
 };
 
 const personRef = { "@id": ids.person };
@@ -106,6 +107,23 @@ const keynoteVideo = {
   about: personRef,
 };
 
+// Cut for this site on 2026-10-16 from the full Campbell keynote above.
+const highlightsVideo = {
+  "@type": "VideoObject",
+  "@id": ids.highlightsVideo,
+  name: `Keynote highlights: ${featuredKeynote.event}, ${featuredKeynote.year}`,
+  description:
+    "85 seconds from Mike Barefoot's KAIZEN keynote at Campbell University: integrity over the fee, the 10-to-15-degree martial arts demonstration, and micro actions that compound.",
+  thumbnailUrl: [abs("/images/campbell-highlights-poster.jpg")],
+  contentUrl: abs("/videos/campbell-keynote-highlights.mp4"),
+  uploadDate: "2026-10-16",
+  duration: "PT1M26S",
+  inLanguage: "en-US",
+  isBasedOn: { "@id": ids.keynoteVideo },
+  creator: personRef,
+  about: personRef,
+};
+
 // The reel was cut for this site and first published with it (sizzle reel replaced the first cut on 2026-10-15).
 const reelVideo = {
   "@type": "VideoObject",
@@ -188,6 +206,7 @@ export const schema = {
     webPage("/speaking", "Leadership keynote speaking", "WebPage", { mainEntity: { "@id": ids.speakingService } }),
     speakingService,
     keynoteVideo,
+    highlightsVideo,
     reelVideo,
     podcastAppearances,
     breadcrumb("/speaking", "Speaking"),

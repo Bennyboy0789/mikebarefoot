@@ -6,7 +6,7 @@ import { KaizenExplorer } from "@/components/KaizenExplorer";
 import { CtaBand, FeaturedIn, PageHero, QuoteBand, SpokenAt, Testimonials } from "@/components/sections";
 import { ButtonLink, Container, Label, SectionHeading } from "@/components/ui";
 import { ReelPlayer } from "@/components/ReelPlayer";
-import { VideoFacade } from "@/components/VideoFacade";
+import { ClipPlayer } from "@/components/ClipPlayer";
 import { featuredKeynote, podcasts, speaking } from "@/content/site";
 
 export const metadata: Metadata = {
@@ -98,9 +98,25 @@ export default function SpeakingPage() {
               </ButtonLink>
             </div>
           </div>
-          <div data-reveal className="relative mx-auto w-full max-w-sm">
-            <div aria-hidden className="absolute -inset-3 border border-crimson/30" />
-            <VideoFacade id={featuredKeynote.youtubeId} title={featuredKeynote.event} poster="/images/campbell-keynote-poster.jpg" />
+          <div data-reveal className="mx-auto w-full max-w-sm">
+            <div className="relative">
+              <div aria-hidden className="absolute -inset-3 border border-crimson/30" />
+              <ClipPlayer
+                src="/videos/campbell-keynote-highlights.mp4"
+                poster="/images/campbell-highlights-poster.jpg"
+                label="Keynote highlights"
+                title={featuredKeynote.event}
+                meta="85 sec · captioned"
+              />
+            </div>
+            <a
+              href={`https://www.youtube.com/watch?v=${featuredKeynote.youtubeId}`}
+              target="_blank"
+              rel="noopener"
+              className="mt-6 inline-flex items-center gap-2 py-2 text-sm text-mist transition-colors hover:text-ivory"
+            >
+              Watch the full 44-minute keynote on YouTube <span aria-hidden>↗</span>
+            </a>
           </div>
         </Container>
       </section>

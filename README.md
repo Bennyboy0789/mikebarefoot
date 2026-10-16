@@ -61,6 +61,11 @@ Structured data lives in `src/lib/schema.ts`; each page renders its own `@graph`
   `_source/videos/sizzle/` (`build.py`, `assemble.py`, `montage.py`, `sfx.py`); the master is there too.
   Music is "Icarus" by Scott Buckley (CC BY 4.0). The license credit is on the reel's end card
   (bottom center); also add it to any YouTube description.
+- **Campbell keynote highlights:** `public/videos/campbell-keynote-highlights.mp4` (poster
+  `campbell-highlights-poster.jpg`) is an 85s vertical cut of the 44-minute Campbell keynote, cropped in on
+  Mike, graded black-and-white, with captions burned in. The full talk stays one link away on YouTube.
+  Built by `_source/videos/campbell/build.py` from the 1080p video stream and the YouTube audio; clip
+  choices, crops and caption text are listed at the top of that script.
 - **Raw media:** originals from Mike (multi-GB video, phone photos, one-pagers) live in
   `_source/`, which is gitignored. Only graded, compressed derivatives go in `public/`.
   Stage stills and `public/videos/mike-hero-loop.mp4` come from the BORN Toastmasters
