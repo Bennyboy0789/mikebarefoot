@@ -308,15 +308,14 @@ export const speaking = {
     "Sales & recruiting teams",
     "Entrepreneurs & business owners",
   ],
-  // TODO(mike): years for the undated talks.
   engagements: [
-    { when: "2026", org: "Campbell University", title: "Leadership Summit keynote · Leading with Purpose" },
-    { when: null, org: "BORN Toastmasters · Brain Candy", title: "KAIZEN: The Pillars of Success" },
-    { when: "Three years running", org: "NC State University", title: "MBA program guest speaker" },
-    { when: null, org: "Wake Tech Community College", title: "Introduction to Business guest speaker" },
-    // Date from the recording Mike sent (25 Jul 2026); his topic was financial independence.
-    { when: "2026", org: "The GOAT Awards", title: "Seminar speaker · Financial independence" },
-  ] as { when: string | null; org: string; title: string; href?: string }[],
+    { org: "Campbell University", title: "Leadership Summit keynote · Leading with Purpose" },
+    { org: "BORN Toastmasters · Brain Candy", title: "KAIZEN: The Pillars of Success" },
+    { org: "NC State University", title: "MBA program guest speaker" },
+    { org: "Wake Tech Community College", title: "Introduction to Business guest speaker" },
+    // From the recording Mike sent (25 Jul 2026); his topic was financial independence.
+    { org: "The GOAT Awards", title: "Seminar speaker · Financial independence" },
+  ] as { org: string; title: string; href?: string }[],
 };
 
 // Podcast interviews, newest first. Mike says Wisdom Journey was his 10th.

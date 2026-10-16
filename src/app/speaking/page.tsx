@@ -225,17 +225,8 @@ export default function SpeakingPage() {
               <li
                 key={e.org}
                 data-reveal
-                className="grid gap-3 border-b border-ash py-8 sm:grid-cols-[10rem_1fr_auto] sm:items-baseline sm:gap-8"
+                className="grid gap-3 border-b border-ash py-8 sm:grid-cols-[1fr_auto] sm:items-baseline sm:gap-8"
               >
-                <span
-                  className={
-                    e.when && /^\d{4}$/.test(e.when)
-                      ? "text-crimson-gradient font-serif text-4xl"
-                      : "text-[0.75rem] font-semibold uppercase tracking-[0.22em] text-mist"
-                  }
-                >
-                  {e.when}
-                </span>
                 <span className="font-serif text-3xl text-ivory sm:text-4xl">
                   {e.href ? (
                     <a href={e.href} target="_blank" rel="noopener" className="transition-colors hover:text-crimson-light">
