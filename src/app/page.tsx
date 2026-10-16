@@ -63,7 +63,7 @@ export default function Home() {
               </ButtonLink>
               <Link
                 href="/speaking#reel"
-                className="group inline-flex items-center gap-3 px-2 py-4 text-[0.72rem] font-semibold uppercase tracking-[0.26em] text-ivory"
+                className="group inline-flex items-center gap-3 px-2 py-4 text-[0.75rem] font-semibold uppercase tracking-[0.22em] text-ivory"
               >
                 <span className="grid h-8 w-8 place-items-center rounded-full border border-crimson transition-colors group-hover:bg-crimson">
                   <svg viewBox="0 0 24 24" className="ml-0.5 h-3 w-3 fill-ivory" aria-hidden>
@@ -77,7 +77,7 @@ export default function Home() {
               <blockquote className="font-serif text-xl italic leading-snug text-ivory/90">
                 &ldquo;{featuredTestimonial.excerpt}&rdquo;
               </blockquote>
-              <figcaption className="mt-2 text-[0.62rem] font-semibold uppercase tracking-[0.28em] text-mist">
+              <figcaption className="mt-2 text-[0.75rem] font-semibold uppercase tracking-[0.22em] text-mist">
                 {featuredTestimonial.name} · {featuredTestimonial.institution}
               </figcaption>
             </figure>
@@ -94,7 +94,7 @@ export default function Home() {
                     {c.value}
                     {c.unit && <span className="ml-1 text-xl text-crimson-light">{c.unit}</span>}
                   </span>
-                  <span className="mt-2 block text-[0.62rem] font-semibold uppercase tracking-[0.3em] text-mist">
+                  <span className="mt-2 block text-[0.75rem] font-semibold uppercase tracking-[0.2em] text-mist">
                     {c.label}
                   </span>
                 </dd>
@@ -135,7 +135,7 @@ export default function Home() {
               {recruiterHonors.map((h) => (
                 <li
                   key={h}
-                  className="border border-crimson/40 px-4 py-2.5 text-[0.62rem] font-semibold uppercase tracking-[0.26em] text-crimson-light"
+                  className="border border-crimson/40 px-4 py-2.5 text-[0.75rem] font-semibold uppercase tracking-[0.22em] text-crimson-light"
                 >
                   {h}
                 </li>
@@ -143,7 +143,7 @@ export default function Home() {
             </ul>
             <Link
               href="/about"
-              className="group mt-12 inline-flex items-center gap-3 text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-ivory"
+              className="group mt-9 inline-flex items-center gap-3 py-3 text-[0.75rem] font-semibold uppercase tracking-[0.22em] text-ivory"
             >
               <span className="border-b border-crimson pb-1">Read Mike&apos;s story</span>
               <Arrow className="text-crimson-light transition-transform group-hover:translate-x-1" />
@@ -239,7 +239,7 @@ export default function Home() {
               key={card.href}
               href={card.href}
               className={`group relative flex min-h-[34rem] flex-col justify-end overflow-hidden p-8 sm:p-14 ${
-                i === 1 ? "md:border-l md:border-ash" : ""
+                i === 1 ? "md:border-l md:border-ash" : "lg:pl-[max(3rem,calc(50vw-37rem))]"
               }`}
             >
               <Image
@@ -254,7 +254,7 @@ export default function Home() {
                 <Label>{card.label}</Label>
                 <h3 className="mt-6 max-w-md font-serif text-4xl leading-[1.05] text-ivory sm:text-5xl">{card.title}</h3>
                 <p className="mt-5 max-w-md leading-relaxed text-mist">{card.body}</p>
-                <span className="mt-10 inline-flex items-center gap-3 text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-crimson-light">
+                <span className="mt-10 inline-flex items-center gap-3 text-[0.75rem] font-semibold uppercase tracking-[0.22em] text-crimson-light">
                   Learn more <Arrow className="transition-transform duration-300 group-hover:translate-x-1.5" />
                 </span>
               </div>

@@ -23,8 +23,9 @@ export default async function ContactPage({ searchParams }: PageProps<"/contact"
     <section className="relative overflow-hidden bg-obsidian pt-20">
       <JsonLd data={schema.contact} />
       <div aria-hidden className="absolute inset-0 bg-[radial-gradient(ellipse_at_10%_0%,rgba(214,31,44,0.12),transparent_50%)]" />
-      <Container className="relative grid gap-20 py-24 lg:grid-cols-[0.9fr_1.1fr] lg:gap-28 lg:py-32">
-        <div className="animate-hero-in">
+      {/* Phones get the intro, then the form, then the reassurance; desktop keeps the form beside it all. */}
+      <Container className="relative grid gap-14 py-24 lg:grid-cols-[0.9fr_1.1fr] lg:gap-x-28 lg:gap-y-0 lg:py-32">
+        <div className="animate-hero-in lg:col-start-1 lg:row-start-1">
           <h1>
             <HeadingEyebrow>Book Mike Barefoot · Speaking &amp; coaching</HeadingEyebrow>
             <span className="mt-8 block font-serif text-6xl leading-[0.98] tracking-[-0.02em] text-ivory sm:text-7xl">
@@ -35,9 +36,16 @@ export default async function ContactPage({ searchParams }: PageProps<"/contact"
             Booking a keynote, exploring coaching, or inviting Mike on your podcast? Share a few details and he&apos;ll
             get back to you.
           </p>
+        </div>
+
+        <div className="animate-hero-in border border-ash bg-coal/80 p-6 [animation-delay:150ms] sm:p-12 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:self-start">
+          <ContactForm defaultTopic={defaultTopic} />
+        </div>
+
+        <div className="animate-hero-in [animation-delay:250ms] lg:col-start-1 lg:row-start-2">
 
           {/* A face beside the form: visitors know who they're writing to. */}
-          <div className="mt-12 flex items-center gap-5">
+          <div className="flex items-center gap-5 lg:mt-12">
             <Image
               src="/images/mike-office.jpg"
               alt=""
@@ -47,7 +55,7 @@ export default async function ContactPage({ searchParams }: PageProps<"/contact"
             />
             <div>
               <p className="font-serif text-2xl text-ivory">{site.name}</p>
-              <p className="mt-1 text-sm text-mist">Founder, {site.company}</p>
+              <p className="mt-1 text-sm text-mist">{site.role}</p>
             </div>
           </div>
 
@@ -75,12 +83,12 @@ export default async function ContactPage({ searchParams }: PageProps<"/contact"
 
           <dl className="mt-12 space-y-8 border-t border-ash pt-10">
             <div>
-              <dt className="text-[0.65rem] font-semibold uppercase tracking-[0.3em] text-crimson-light">Based in</dt>
+              <dt className="text-[0.75rem] font-semibold uppercase tracking-[0.2em] text-crimson-light">Based in</dt>
               <dd className="mt-2 font-serif text-2xl text-ivory">{site.location}</dd>
             </div>
             {site.email && (
               <div>
-                <dt className="text-[0.65rem] font-semibold uppercase tracking-[0.3em] text-crimson-light">Email</dt>
+                <dt className="text-[0.75rem] font-semibold uppercase tracking-[0.2em] text-crimson-light">Email</dt>
                 <dd className="mt-2 font-serif text-2xl text-ivory">
                   <a href={`mailto:${site.email}`} className="hover:text-crimson-light">
                     {site.email}
@@ -89,7 +97,7 @@ export default async function ContactPage({ searchParams }: PageProps<"/contact"
               </div>
             )}
             <div>
-              <dt className="text-[0.65rem] font-semibold uppercase tracking-[0.3em] text-crimson-light">Watch</dt>
+              <dt className="text-[0.75rem] font-semibold uppercase tracking-[0.2em] text-crimson-light">Watch</dt>
               <dd className="mt-2 font-serif text-2xl text-ivory">
                 <a href={site.social.youtube} target="_blank" rel="noopener" className="hover:text-crimson-light">
                   @MikeBarefootspeaks
@@ -97,7 +105,7 @@ export default async function ContactPage({ searchParams }: PageProps<"/contact"
               </dd>
             </div>
             <div>
-              <dt className="text-[0.65rem] font-semibold uppercase tracking-[0.3em] text-crimson-light">Connect</dt>
+              <dt className="text-[0.75rem] font-semibold uppercase tracking-[0.2em] text-crimson-light">Connect</dt>
               <dd className="mt-2 font-serif text-2xl text-ivory">
                 <a href={site.social.linkedin} target="_blank" rel="noopener" className="hover:text-crimson-light">
                   LinkedIn
@@ -105,10 +113,6 @@ export default async function ContactPage({ searchParams }: PageProps<"/contact"
               </dd>
             </div>
           </dl>
-        </div>
-
-        <div className="animate-hero-in border border-ash bg-coal/80 p-8 [animation-delay:150ms] sm:p-12">
-          <ContactForm defaultTopic={defaultTopic} />
         </div>
       </Container>
     </section>

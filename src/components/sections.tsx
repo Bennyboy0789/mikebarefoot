@@ -10,12 +10,14 @@ export function PageHero({
   intro,
   image,
   imageAlt = "",
+  actions,
 }: {
   label: string;
   title: ReactNode;
   intro: ReactNode;
   image?: string;
   imageAlt?: string;
+  actions?: ReactNode;
 }) {
   return (
     <section className="relative overflow-hidden bg-obsidian pt-20">
@@ -36,6 +38,7 @@ export function PageHero({
             </span>
           </h1>
           <p className="mt-8 max-w-xl text-lg leading-relaxed text-mist">{intro}</p>
+          {actions && <div className="mt-10 flex flex-wrap items-center gap-4">{actions}</div>}
         </div>
       </Container>
       <div aria-hidden className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-crimson/40 to-transparent" />
@@ -75,7 +78,7 @@ export function FeaturedIn() {
   return (
     <section aria-label="Featured by" className="border-y border-ash bg-coal py-8">
       <Container className="flex flex-col gap-6 lg:flex-row lg:items-center lg:gap-14">
-        <p className="shrink-0 text-[0.65rem] font-semibold uppercase tracking-[0.32em] text-crimson-light">
+        <p className="shrink-0 text-[0.75rem] font-semibold uppercase tracking-[0.22em] text-crimson-light">
           Featured By
         </p>
         <div className="relative flex-1 overflow-hidden [mask-image:linear-gradient(90deg,transparent,#000_8%,#000_92%,transparent)]">
@@ -107,11 +110,11 @@ export function StatsGrid({ limit }: { limit?: number }) {
   return (
     <dl data-reveal className="grid grid-cols-2 gap-px border border-ash bg-ash lg:grid-cols-3">
       {stats.slice(0, limit).map((s) => (
-        <div key={s.label} className="bg-obsidian p-6 sm:p-10">
+        <div key={s.label} className="bg-obsidian p-5 sm:p-10">
           <dt className="sr-only">{s.label}</dt>
           <dd>
-            <span className="text-crimson-gradient block font-serif text-6xl leading-none sm:text-7xl lg:text-8xl">{s.value}</span>
-            <span className="mt-5 block text-[0.68rem] font-semibold uppercase tracking-[0.28em] text-ivory">{s.label}</span>
+            <span className="text-crimson-gradient block font-serif text-5xl leading-none sm:text-7xl lg:text-8xl">{s.value}</span>
+            <span className="mt-5 block text-[0.75rem] font-semibold uppercase tracking-[0.22em] text-ivory">{s.label}</span>
             <span className="mt-2 block text-sm text-mist">{s.detail}</span>
           </dd>
         </div>
@@ -128,7 +131,7 @@ export function QuoteBand({ quote, cite, context }: { quote: string; cite: strin
       <Container className="relative py-28 sm:py-36">
         <span
           aria-hidden
-          className="pointer-events-none absolute -top-6 left-2 select-none font-serif text-[16rem] leading-none text-obsidian/40 sm:left-6"
+          className="pointer-events-none absolute left-2 top-2 select-none font-serif text-[11rem] leading-none text-obsidian/40 sm:left-6 sm:top-4 sm:text-[16rem]"
         >
           &ldquo;
         </span>
@@ -136,7 +139,7 @@ export function QuoteBand({ quote, cite, context }: { quote: string; cite: strin
           <blockquote className="font-serif text-4xl leading-[1.12] tracking-[-0.01em] sm:text-6xl lg:text-7xl">
             {quote}
           </blockquote>
-          <figcaption className="mt-10 flex items-center justify-center gap-4 text-[0.68rem] font-semibold uppercase tracking-[0.32em] text-ivory/80">
+          <figcaption className="mt-10 flex items-center justify-center gap-4 text-[0.75rem] font-semibold uppercase tracking-[0.22em] text-ivory/80">
             <span aria-hidden className="h-px w-10 bg-ivory/50" />
             {cite}
             {context && <span className="hidden text-ivory/60 sm:inline">· {context}</span>}
@@ -171,14 +174,14 @@ export function Testimonials({ index }: { index?: string }) {
               <span>
                 <span className="block font-serif text-3xl text-ivory">{t.name}</span>
                 <span className="mt-2 block text-sm text-mist">{t.title}</span>
-                <span className="mt-1 block text-[0.65rem] font-semibold uppercase tracking-[0.28em] text-crimson-light">
+                <span className="mt-1 block text-[0.75rem] font-semibold uppercase tracking-[0.22em] text-crimson-light">
                   {t.org} · {t.institution}
                 </span>
               </span>
             </figcaption>
 
             <details className="group mt-14 max-w-3xl border-t border-ash">
-              <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-6 text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-ivory transition-colors hover:text-crimson-light [&::-webkit-details-marker]:hidden">
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-6 text-[0.75rem] font-semibold uppercase tracking-[0.22em] text-ivory transition-colors hover:text-crimson-light [&::-webkit-details-marker]:hidden">
                 Read the full letter
                 <span aria-hidden className="font-serif text-3xl font-normal leading-none text-crimson-light transition-transform duration-300 group-open:rotate-45">
                   +
@@ -186,7 +189,7 @@ export function Testimonials({ index }: { index?: string }) {
               </summary>
               <div className="relative border border-ash bg-coal p-8 sm:p-12">
                 <span aria-hidden className="absolute left-0 top-0 h-full w-px bg-crimson" />
-                <p className="text-[0.62rem] font-semibold uppercase tracking-[0.3em] text-mist">{t.event}</p>
+                <p className="text-[0.75rem] font-semibold uppercase tracking-[0.2em] text-mist">{t.event}</p>
                 <p className="mt-8 font-serif text-2xl italic text-ivory">{t.salutation}</p>
                 <div className="mt-5 space-y-5 leading-relaxed text-ivory/80">
                   {t.letter.map((para) => (
@@ -210,7 +213,7 @@ export function Testimonials({ index }: { index?: string }) {
 
         <ul className="mt-24 grid gap-px border border-ash bg-ash lg:mt-32 lg:grid-cols-3">
           {testimonials.map((q) => (
-            <li key={q.quote} data-reveal className="flex flex-col bg-obsidian p-8 sm:p-10">
+            <li key={q.quote} data-reveal className="flex flex-col bg-obsidian p-8 sm:p-10 lg:row-span-3 lg:grid lg:grid-rows-subgrid lg:gap-0">
               <span aria-hidden className="font-serif text-6xl leading-[0.6] text-crimson">
                 &ldquo;
               </span>
@@ -218,7 +221,7 @@ export function Testimonials({ index }: { index?: string }) {
               <p className="mt-8 border-t border-ash pt-6">
                 {q.name && <span className="block font-serif text-xl text-ivory">{q.name}</span>}
                 <span className="mt-1 block text-sm text-mist">{q.title}</span>
-                <span className="mt-1 block text-[0.62rem] font-semibold uppercase tracking-[0.28em] text-crimson-light">
+                <span className="mt-1 block text-[0.75rem] font-semibold uppercase tracking-[0.22em] text-crimson-light">
                   {q.org}
                 </span>
               </p>
@@ -235,7 +238,7 @@ export function SpokenAt() {
   return (
     <section aria-label="Spoken at" className="border-y border-ash bg-coal">
       <Container className="flex flex-col gap-8 py-12 lg:flex-row lg:items-center lg:gap-14">
-        <p className="shrink-0 text-[0.65rem] font-semibold uppercase tracking-[0.32em] text-crimson-light">Spoken at</p>
+        <p className="shrink-0 text-[0.75rem] font-semibold uppercase tracking-[0.22em] text-crimson-light">Spoken at</p>
         <ul className="flex flex-1 flex-wrap items-center gap-x-12 gap-y-8 lg:justify-between">
           {spokenAt.map((org) => (
             <li key={org.name} className="opacity-75 transition-opacity hover:opacity-100">
@@ -315,7 +318,7 @@ export function FramedImage({
         <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-obsidian/60 via-transparent to-transparent" />
       </div>
       {caption && (
-        <figcaption className="mt-5 text-[0.62rem] font-semibold uppercase tracking-[0.3em] text-mist">{caption}</figcaption>
+        <figcaption className="mt-5 text-[0.75rem] font-semibold uppercase tracking-[0.2em] text-mist">{caption}</figcaption>
       )}
     </figure>
   );

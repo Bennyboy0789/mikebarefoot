@@ -35,7 +35,7 @@ export function ReelPlayer({ src, captions, poster, title, meta }: { src: string
           </span>
           <span className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-4 text-left sm:p-8">
             <span>
-              <span className="block text-[0.65rem] font-semibold uppercase tracking-[0.32em] text-crimson-light">
+              <span className="block text-[0.75rem] font-semibold uppercase tracking-[0.22em] text-crimson-light">
                 Speaker reel
               </span>
               {/* On phones the player is too short for the title and the play button together. */}

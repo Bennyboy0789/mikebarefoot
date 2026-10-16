@@ -51,6 +51,14 @@ export default function SpeakingPage() {
         intro="Mike's keynotes marry the discipline of 37 years in martial arts with the hard-won lessons of building teams, closing deals and running a profitable company."
         image="/images/mike-wide.jpg"
         imageAlt="Mike Barefoot delivering KAIZEN: The Pillars of Success"
+        actions={
+          <>
+            <ButtonLink href="/contact?topic=speaking">Check availability</ButtonLink>
+            <ButtonLink href="#reel" variant="ghost">
+              Watch the reel
+            </ButtonLink>
+          </>
+        }
       />
 
       {/* Speaker reel (built from Mike's stage footage, podcast interviews and photos; see README) */}
@@ -67,9 +75,9 @@ export default function SpeakingPage() {
             />
           </div>
           {/* The track's CC BY 4.0 license requires this credit wherever the reel plays. */}
-          <p className="mt-6 text-right text-xs text-smoke">
+          <p className="mt-6 text-right text-xs text-mist">
             Music: &ldquo;Icarus&rdquo; by{" "}
-            <a href="https://www.scottbuckley.com.au" target="_blank" rel="noopener" className="underline-offset-2 hover:text-mist hover:underline">
+            <a href="https://www.scottbuckley.com.au" target="_blank" rel="noopener" className="underline underline-offset-2 hover:text-ivory">
               Scott Buckley
             </a>
             , CC BY 4.0
@@ -85,7 +93,7 @@ export default function SpeakingPage() {
             <dl data-reveal className="mt-12 grid border-y border-ash sm:grid-cols-3">
               {speaking.formats.map((f, i) => (
                 <div key={f.label} className={`py-6 ${i > 0 ? "border-t border-ash sm:border-l sm:border-t-0 sm:pl-6" : ""}`}>
-                  <dt className="text-[0.65rem] font-semibold uppercase tracking-[0.3em] text-crimson-light">{f.label}</dt>
+                  <dt className="text-[0.75rem] font-semibold uppercase tracking-[0.2em] text-crimson-light">{f.label}</dt>
                   <dd className="mt-2 font-serif text-xl text-ivory">{f.detail}</dd>
                 </div>
               ))}
@@ -142,7 +150,7 @@ export default function SpeakingPage() {
               <li key={t.title} data-reveal className="flex flex-col bg-obsidian p-8 sm:p-10">
                 <span className="font-serif text-lg italic text-crimson-light">{String(i + 1).padStart(2, "0")}</span>
                 <h3 className="mt-5 font-serif text-3xl leading-tight text-ivory sm:text-4xl">{t.title}</h3>
-                <p className="mt-2 text-[0.65rem] font-semibold uppercase tracking-[0.28em] text-mist">{t.subtitle}</p>
+                <p className="mt-2 text-[0.75rem] font-semibold uppercase tracking-[0.22em] text-mist">{t.subtitle}</p>
                 <ul className="mt-6 space-y-3 border-t border-ash pt-6">
                   {t.points.map((pt) => (
                     <li key={pt} className="flex gap-3 leading-relaxed text-ivory/80">
@@ -188,15 +196,22 @@ export default function SpeakingPage() {
             }
             intro="The 2026 Leadership Summit at Campbell University's Lundy-Fetterman School of Business."
           />
-          <div data-reveal className="mt-16 grid gap-4 sm:grid-cols-3">
+          {/* A swipe row on phones; three tall photos stacked would run about 1,500px. */}
+          <div
+            data-reveal
+            role="region"
+            aria-label="Photos from the Campbell Leadership Summit"
+            tabIndex={0}
+            className="-mx-5 mt-16 flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-px-5 px-5 sm:mx-0 sm:grid sm:grid-cols-3 sm:overflow-visible sm:px-0"
+          >
             {gallery.map((g) => (
-              <figure key={g.src} className="group relative aspect-[3/4] overflow-hidden bg-coal">
+              <figure key={g.src} className="group relative aspect-[3/4] w-[78%] shrink-0 snap-start overflow-hidden bg-coal sm:w-auto">
                 <Image
                   src={g.src}
                   alt={g.alt}
                   width={g.width}
                   height={g.height}
-                  sizes="(min-width: 640px) 33vw, 100vw"
+                  sizes="(min-width: 640px) 33vw, 78vw"
                   className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                 />
                 <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-obsidian/70 via-transparent to-transparent" />
@@ -223,7 +238,7 @@ export default function SpeakingPage() {
                   className={
                     e.when && /^\d{4}$/.test(e.when)
                       ? "text-crimson-gradient font-serif text-4xl"
-                      : "text-[0.65rem] font-semibold uppercase tracking-[0.28em] text-mist"
+                      : "text-[0.75rem] font-semibold uppercase tracking-[0.22em] text-mist"
                   }
                 >
                   {e.when}

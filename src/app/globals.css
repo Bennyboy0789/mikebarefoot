@@ -45,9 +45,12 @@ body::after {
   color: var(--color-ivory);
 }
 
-:focus-visible {
-  outline: 1px solid var(--color-crimson);
-  outline-offset: 4px;
+/* In the base layer so utilities (e.g. a form field's tighter offset) can override it. */
+@layer base {
+  :focus-visible {
+    outline: 2px solid var(--color-crimson-light);
+    outline-offset: 4px;
+  }
 }
 
 /* Crimson gradient text for numerals and accents. */

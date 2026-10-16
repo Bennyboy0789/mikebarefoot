@@ -41,7 +41,7 @@ export function SiteHeader() {
           <Monogram />
           <span className="leading-none">
             <span className="block font-serif text-2xl text-ivory">{site.name}</span>
-            <span className="mt-1 block text-[0.6rem] font-semibold uppercase tracking-[0.34em] text-mist">
+            <span className="mt-1 block text-[0.75rem] font-semibold uppercase tracking-[0.22em] text-mist">
               {site.role}
             </span>
           </span>
@@ -53,14 +53,14 @@ export function SiteHeader() {
               key={item.href}
               href={item.href}
               aria-current={pathname === item.href ? "page" : undefined}
-              className="relative py-2 text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-mist transition-colors hover:text-ivory aria-[current=page]:text-ivory aria-[current=page]:after:absolute aria-[current=page]:after:inset-x-0 aria-[current=page]:after:-bottom-0.5 aria-[current=page]:after:h-px aria-[current=page]:after:bg-crimson"
+              className="relative py-2 text-[0.75rem] font-semibold uppercase tracking-[0.22em] text-mist transition-colors hover:text-ivory aria-[current=page]:text-ivory aria-[current=page]:after:absolute aria-[current=page]:after:inset-x-0 aria-[current=page]:after:-bottom-0.5 aria-[current=page]:after:h-px aria-[current=page]:after:bg-crimson"
             >
               {item.label}
             </Link>
           ))}
           <Link
             href="/contact"
-            className="border border-crimson/70 px-5 py-3 text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-crimson-light transition-colors hover:bg-crimson hover:text-ivory"
+            className="border border-crimson/70 px-5 py-3 text-[0.75rem] font-semibold uppercase tracking-[0.22em] text-crimson-light transition-colors hover:bg-crimson hover:text-ivory"
           >
             Book Mike
           </Link>
@@ -83,7 +83,7 @@ export function SiteHeader() {
       {open && (
         <nav id="mobile-nav" aria-label="Mobile" className="h-[calc(100dvh-5rem)] border-t border-ash/70 md:hidden">
           <ul className="flex flex-col px-5 pt-6">
-            {[...nav, { href: "/contact", label: "Book Mike" }].map((item) => (
+            {nav.map((item) => (
               <li key={item.href} className="border-b border-ash/70">
                 <Link
                   href={item.href}
@@ -96,6 +96,15 @@ export function SiteHeader() {
               </li>
             ))}
           </ul>
+          <div className="px-5 pt-8">
+            <Link
+              href="/contact"
+              onClick={() => setOpen(false)}
+              className="block bg-crimson py-4 text-center text-[0.75rem] font-semibold uppercase tracking-[0.22em] text-ivory"
+            >
+              Book Mike
+            </Link>
+          </div>
         </nav>
       )}
     </header>

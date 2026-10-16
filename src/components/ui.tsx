@@ -8,7 +8,7 @@ export function Container({ className = "", children }: { className?: string; ch
 /** Small-caps crimson label, optionally numbered ("01"). */
 export function Label({ children, index, className = "" }: { children: ReactNode; index?: string; className?: string }) {
   return (
-    <p className={`flex items-center gap-4 text-[0.7rem] font-semibold uppercase tracking-[0.32em] text-crimson-light ${className}`}>
+    <p className={`flex items-center gap-4 text-[0.75rem] font-semibold uppercase tracking-[0.22em] text-crimson-light ${className}`}>
       {index && <span className="font-serif text-base tracking-normal text-crimson-light">{index}</span>}
       {children}
     </p>
@@ -18,7 +18,7 @@ export function Label({ children, index, className = "" }: { children: ReactNode
 /** Label styling for use inside an <h1>: carries the page's search keywords without changing the display line. */
 export function HeadingEyebrow({ children }: { children: ReactNode }) {
   return (
-    <span className="flex items-center gap-4 font-sans text-[0.7rem] font-semibold not-italic uppercase leading-normal tracking-[0.32em] text-crimson-light">
+    <span className="flex items-center gap-4 font-sans text-[0.75rem] font-semibold not-italic uppercase leading-normal tracking-[0.22em] text-crimson-light">
       {children}
       <span className="sr-only">:</span>
     </span>
@@ -72,7 +72,7 @@ export function ButtonLink({ variant = "crimson", className = "", children, ...p
   }[variant];
   return (
     <Link
-      className={`group inline-flex items-center justify-center gap-3 px-7 py-4 text-[0.72rem] font-semibold uppercase tracking-[0.26em] transition-colors duration-300 ${styles} ${className}`}
+      className={`group inline-flex items-center justify-center gap-3 px-7 py-4 text-[0.75rem] font-semibold uppercase tracking-[0.22em] transition-colors duration-300 ${styles} ${className}`}
       {...props}
     >
       {children}

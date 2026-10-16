@@ -16,18 +16,18 @@ export function SiteFooter() {
           </p>
           <Link
             href="/contact"
-            className="mt-8 inline-block border-b border-crimson pb-1 text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-crimson-light transition-colors hover:text-ivory"
+            className="mt-8 inline-block border-b border-crimson py-2.5 text-[0.75rem] font-semibold uppercase tracking-[0.22em] text-crimson-light transition-colors hover:text-ivory"
           >
             Check availability
           </Link>
         </div>
 
         <div>
-          <p className="text-[0.65rem] font-semibold uppercase tracking-[0.32em] text-ivory">Explore</p>
-          <ul className="mt-5 space-y-3 text-sm">
+          <p className="text-[0.75rem] font-semibold uppercase tracking-[0.22em] text-ivory">Explore</p>
+          <ul className="mt-3 text-sm md:mt-5 md:space-y-3">
             {[{ href: "/", label: "Home" }, ...nav, { href: "/contact", label: "Contact" }].map((item) => (
               <li key={item.href}>
-                <Link href={item.href} className="transition-colors hover:text-crimson-light">
+                <Link href={item.href} className="block py-2.5 transition-colors hover:text-crimson-light md:inline md:py-0">
                   {item.label}
                 </Link>
               </li>
@@ -36,26 +36,26 @@ export function SiteFooter() {
         </div>
 
         <div>
-          <p className="text-[0.65rem] font-semibold uppercase tracking-[0.32em] text-ivory">Connect</p>
-          <ul className="mt-5 space-y-3 text-sm">
+          <p className="text-[0.75rem] font-semibold uppercase tracking-[0.22em] text-ivory">Connect</p>
+          <ul className="mt-3 text-sm md:mt-5 md:space-y-3">
             <li>
-              <a href={site.social.youtube} className="transition-colors hover:text-crimson-light" rel="noopener" target="_blank">
+              <a href={site.social.youtube} className="block py-2.5 transition-colors hover:text-crimson-light md:inline md:py-0" rel="noopener" target="_blank">
                 YouTube
               </a>
             </li>
             <li>
-              <a href={site.social.linkedin} className="transition-colors hover:text-crimson-light" rel="noopener" target="_blank">
+              <a href={site.social.linkedin} className="block py-2.5 transition-colors hover:text-crimson-light md:inline md:py-0" rel="noopener" target="_blank">
                 LinkedIn
               </a>
             </li>
             <li>
-              <a href={site.social.instagram} className="transition-colors hover:text-crimson-light" rel="noopener" target="_blank">
+              <a href={site.social.instagram} className="block py-2.5 transition-colors hover:text-crimson-light md:inline md:py-0" rel="noopener" target="_blank">
                 Instagram
               </a>
             </li>
             {site.email && (
               <li>
-                <a href={`mailto:${site.email}`} className="transition-colors hover:text-crimson-light">
+                <a href={`mailto:${site.email}`} className="block py-2.5 transition-colors hover:text-crimson-light md:inline md:py-0">
                   {site.email}
                 </a>
               </li>
@@ -78,7 +78,7 @@ export function SiteFooter() {
           <span>
             © {new Date().getFullYear()} {site.name}. All rights reserved.
           </span>
-          <span className="font-kanji tracking-[0.3em] text-crimson/70">改善 · Kaizen</span>
+          <span className="font-kanji tracking-[0.2em] text-crimson-light">改善 · Kaizen</span>
         </Container>
       </div>
     </footer>

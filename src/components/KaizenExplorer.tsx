@@ -27,7 +27,7 @@ export function KaizenExplorer() {
               {item.letter}
             </span>
             <div className="animate-hero-in relative">
-              <p className="text-[0.65rem] font-semibold uppercase tracking-[0.32em] text-crimson-light">
+              <p className="text-[0.75rem] font-semibold uppercase tracking-[0.22em] text-crimson-light">
                 Principle {String(i + 1).padStart(2, "0")} / 06
               </p>
               <h3 className="mt-4 font-serif text-5xl text-ivory sm:text-6xl">{item.word}</h3>
@@ -65,7 +65,7 @@ export function KaizenExplorer() {
               </span>
               <span className="flex-1">
                 <span
-                  className={`block text-[0.7rem] font-semibold uppercase tracking-[0.3em] transition-colors ${
+                  className={`block text-[0.75rem] font-semibold uppercase tracking-[0.2em] transition-colors ${
                     selected ? "text-ivory" : "text-mist"
                   }`}
                 >

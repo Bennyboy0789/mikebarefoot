@@ -26,6 +26,7 @@ export default function CoachingPage() {
         intro={coaching.intro}
         image="/images/mike-closeup.jpg"
         imageAlt="Mike Barefoot"
+        actions={<ButtonLink href="/contact?topic=coaching">Talk with Mike</ButtonLink>}
       />
 
       {/* Roles */}
@@ -89,7 +90,7 @@ export default function CoachingPage() {
             </blockquote>
             <figcaption className="mt-10">
               <span className="block font-serif text-3xl text-ivory">{coaching.endorsement.name}</span>
-              <span className="mt-2 block text-[0.65rem] font-semibold uppercase tracking-[0.28em] text-crimson-light">
+              <span className="mt-2 block text-[0.75rem] font-semibold uppercase tracking-[0.22em] text-crimson-light">
                 {coaching.endorsement.source}
               </span>
             </figcaption>

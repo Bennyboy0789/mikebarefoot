@@ -30,7 +30,7 @@ export function VideoFacade({ id, title, poster }: { id: string; title: string; 
             </span>
           </span>
           <span className="absolute inset-x-0 bottom-0 p-6">
-            <span className="block text-[0.65rem] font-semibold uppercase tracking-[0.32em] text-crimson-light">Watch the keynote</span>
+            <span className="block text-[0.75rem] font-semibold uppercase tracking-[0.22em] text-crimson-light">Watch the keynote</span>
             <span className="mt-2 block font-serif text-2xl leading-tight text-ivory">{title}</span>
             <span className="mt-2 block text-xs text-mist">44 minutes</span>
           </span>

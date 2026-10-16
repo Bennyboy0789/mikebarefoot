@@ -67,7 +67,7 @@ export default async function ThanksPage({ searchParams }: PageProps<"/contact/t
             <ButtonLink href="/speaking">While you wait: watch the keynote</ButtonLink>
             <Link
               href="/"
-              className="inline-flex items-center px-2 py-4 text-[0.72rem] font-semibold uppercase tracking-[0.26em] text-mist hover:text-ivory"
+              className="inline-flex items-center px-2 py-4 text-[0.75rem] font-semibold uppercase tracking-[0.22em] text-mist hover:text-ivory"
             >
               Back to home
             </Link>

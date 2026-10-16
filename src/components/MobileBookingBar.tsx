@@ -30,7 +30,8 @@ export function MobileBookingBar() {
     <>
       {/* Keeps the footer's last lines clear of the bar. */}
       <div aria-hidden className="h-20 md:hidden" />
-      <div
+      <aside
+        aria-label="Book Mike"
         className={`fixed inset-x-0 bottom-0 z-40 border-t border-ash bg-obsidian/90 px-4 pt-3 backdrop-blur-md transition-transform duration-500 pb-[max(0.75rem,env(safe-area-inset-bottom))] md:hidden ${
           visible ? "translate-y-0" : "pointer-events-none translate-y-full"
         }`}
@@ -39,19 +40,19 @@ export function MobileBookingBar() {
           <Link
             href={primary.href}
             tabIndex={visible ? 0 : -1}
-            className="flex-1 bg-crimson py-3.5 text-center text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-ivory"
+            className="flex-1 bg-crimson py-3.5 text-center text-[0.75rem] font-semibold uppercase tracking-[0.2em] text-ivory"
           >
             {primary.label}
           </Link>
           <Link
             href={secondary.href}
             tabIndex={visible ? 0 : -1}
-            className="border border-ivory/25 px-5 py-3.5 text-center text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-ivory"
+            className="border border-ivory/25 px-5 py-3.5 text-center text-[0.75rem] font-semibold uppercase tracking-[0.2em] text-ivory"
           >
             {secondary.label}
           </Link>
         </div>
-      </div>
+      </aside>
     </>
   );
 }

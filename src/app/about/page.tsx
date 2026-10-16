@@ -57,7 +57,7 @@ export default function AboutPage() {
               alt="Portrait of Mike Barefoot"
               width={960}
               height={1200}
-              caption={`Founder, ${site.company}`}
+              caption={`Founder, ${site.company} · 2010–2025`}
             />
             <div className="mt-12 border-l border-crimson/60 pl-6">
               <Label>In his words</Label>

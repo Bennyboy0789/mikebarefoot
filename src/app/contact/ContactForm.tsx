@@ -5,8 +5,8 @@ import { audienceSizes, eventFormats, inquiryTopics, site, type InquiryTopic } f
 import { sendInquiry, type InquiryState } from "./actions";
 
 const field =
-  "mt-3 w-full border-0 border-b border-ash bg-transparent px-0 py-3 text-lg text-ivory outline-none transition-colors placeholder:text-mist/50 focus:border-crimson focus-visible:outline-none [&>option]:bg-coal";
-const label = "text-[0.65rem] font-semibold uppercase tracking-[0.3em] text-mist";
+  "mt-3 w-full border-0 border-b border-smoke bg-ivory/[0.04] px-4 py-3 text-lg text-ivory transition-colors placeholder:text-mist/70 hover:bg-ivory/[0.06] focus:border-crimson-light focus:bg-ivory/[0.06] focus-visible:outline-offset-0 [&>option]:bg-coal";
+const label = "text-[0.75rem] font-semibold uppercase tracking-[0.2em] text-mist";
 
 export function ContactForm({ defaultTopic }: { defaultTopic: InquiryTopic }) {
   const [state, action, pending] = useActionState<InquiryState, FormData>(sendInquiry, { status: "idle" });
@@ -16,7 +16,7 @@ export function ContactForm({ defaultTopic }: { defaultTopic: InquiryTopic }) {
 
   return (
     // Remount after each failed attempt so the restored values are applied as defaults.
-    <form key={state.values ? JSON.stringify(state.values) : "new"} action={action} className="grid gap-x-10 gap-y-10 sm:grid-cols-2">
+    <form key={state.values ? JSON.stringify(state.values) : "new"} action={action} className="grid gap-x-10 gap-y-7 sm:grid-cols-2 sm:gap-y-10">
       <div className="hidden" aria-hidden>
         <label>
           Leave this empty
@@ -110,7 +110,7 @@ export function ContactForm({ defaultTopic }: { defaultTopic: InquiryTopic }) {
         <button
           type="submit"
           disabled={pending}
-          className="bg-crimson px-9 py-4 text-[0.72rem] font-semibold uppercase tracking-[0.26em] text-ivory transition-colors hover:bg-crimson-dark disabled:opacity-60"
+          className="bg-crimson px-9 py-4 text-[0.75rem] font-semibold uppercase tracking-[0.22em] text-ivory transition-colors hover:bg-crimson-dark disabled:opacity-60"
         >
           {pending ? "Sending…" : isSpeaking ? "Check Mike's availability" : "Send message"}
         </button>
